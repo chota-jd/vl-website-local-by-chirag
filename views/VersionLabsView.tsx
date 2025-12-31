@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const VL_PROJECTS = [
   { 
@@ -99,15 +100,15 @@ const VersionLabsView: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between mb-32 border-b border-white/5 pb-16">
           <Link 
             href="/"
-            className="flex items-center space-x-6 cursor-pointer group"
+            className="flex items-center cursor-pointer group"
           >
-            <div className="w-14 h-14 bg-accent flex items-center justify-center text-xl font-black text-white shadow-[0_0_30px_rgba(0,100,224,0.3)]">
-              VL
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-display font-black text-white tracking-tighter uppercase leading-none">VersionLabs</span>
-              <span className="text-slate-500 text-[9px] font-black uppercase tracking-ultra mt-2">Proprietary Mission Ledger</span>
-            </div>
+            <Image
+              src="/WhiteVersion-vl-logo.png"
+              alt="Version Labs Logo"
+              width={180}
+              height={60}
+              className="h-14 w-auto object-contain"
+            />
           </Link>
 
           <div className="flex items-center space-x-12 mt-10 md:mt-0">

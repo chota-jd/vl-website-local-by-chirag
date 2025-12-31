@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PROJECTS = [
   { title: "AI For All Entrepreneurship India AIM, NITI Aayog", count: "119,732", trend: "+12%" },
@@ -79,16 +80,22 @@ const IntelView: React.FC = () => {
         {/* Top Header Navigation */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-24 gap-12 border-b border-white/5 pb-12">
           {/* Intel Branding */}
-          <div className="flex items-center group cursor-pointer">
-            <svg className="w-24 h-auto transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(0,104,181,0.5)]" viewBox="0 0 100 32" fill="none">
-              <path d="M12.4 24H9.2V8H12.4V24ZM24.8 24H21.6V16.8C21.6 14.4 20.8 13.6 19.2 13.6C17.6 13.6 16.8 14.4 16.8 16.8V24H13.6V11.2H16.8V12.8C17.6 11.6 18.8 10.8 20.4 10.8C23.2 10.8 24.8 12.4 24.8 15.6V24ZM36.8 24H33.6V22.4C32.8 23.6 31.6 24.4 30 24.4C27.2 24.4 25.2 22.4 25.2 19.2C25.2 16 27.2 14 30 14C31.6 14 32.8 14.8 33.6 16V8H36.8V24ZM33.6 18.8V16C33.6 14.4 32.8 13.6 31.2 13.6C29.6 13.6 28.8 14.4 28.8 16C28.8 17.6 29.6 18.4 31.2 18.4C32.8 18.4 33.6 17.6 33.6 18.8ZM50.4 24H41.6V22.4H44.4V11.2H41.6V9.6H47.6V22.4H50.4V24ZM63.2 24H52V11.2H63.2V13.6H55.2V16.8H61.6V19.2H55.2V21.6H63.2V24ZM76 24H65.6V8H68.8V21.6H76V24ZM89.6 24H79.2V8H82.4V21.6H89.6V24Z" fill="white"/>
-              <rect x="9.2" y="2.4" width="3.2" height="3.2" fill="#00C7FF"/>
-            </svg>
-            <div className="h-10 w-[1px] bg-white/10 mx-10"></div>
-            <div className="flex flex-col">
-              <span className="text-white font-display font-black text-xl tracking-tighter uppercase leading-none">VersionLabs</span>
-              <span className="text-slate-500 text-[8px] font-black uppercase tracking-ultra mt-1.5">Sovereign Metrics</span>
-            </div>
+          <div className="flex items-center space-x-6 group">
+            <Image
+              src="/intel-logo.png"
+              alt="Intel Logo"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(0,104,181,0.5)]"
+            />
+            <div className="h-10 w-[1px] bg-white/10"></div>
+            <Image
+              src="/WhiteVersion-vl-logo.png"
+              alt="Version Labs Logo"
+              width={180}
+              height={60}
+              className="h-12 w-auto object-contain"
+            />
           </div>
 
           {/* Sync Stats */}

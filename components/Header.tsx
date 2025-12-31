@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const Header: React.FC = () => {
@@ -44,25 +45,21 @@ const Header: React.FC = () => {
               : 'py-8'
           }`}
         >
-          {/* Brand Identity - Optimized for visibility */}
+          {/* Brand Identity - Logo from public folder */}
           <Link 
             href="/"
             className="flex items-center space-x-5 group cursor-pointer"
           >
-            <div className="w-12 h-12 bg-accent flex items-center justify-center text-lg font-black text-white shadow-[0_4px_20px_rgba(0,100,224,0.15)]">
-              VL
-            </div>
-            <div className="flex flex-col">
-              <span className={`text-2xl font-display font-black tracking-tight leading-none transition-colors ${
-                useWhiteHeader ? 'text-obsidian-900' : 'text-white'
-              }`}>
-                VersionLabs
-              </span>
-              <span className={`text-[9px] font-black uppercase tracking-[0.45em] mt-1.5 transition-colors ${
-                useWhiteHeader ? 'text-slate-400' : 'text-slate-400/80'
-              }`}>
-                VERSIONLABS INFRASTRUCTURE
-              </span>
+            {/* Logo - Use appropriate version based on header background */}
+            <div className="flex items-center">
+              <Image
+                src={useWhiteHeader ? "/DarkVersion-vl-logo.png" : "/WhiteVersion-vl-logo.png"}
+                alt="Version Labs Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </div>
           </Link>
           

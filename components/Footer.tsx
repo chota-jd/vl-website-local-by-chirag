@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
@@ -20,17 +21,14 @@ const Footer: React.FC = () => {
               href="/"
               className="flex items-center space-x-5 group cursor-pointer"
             >
-              <div className="w-12 h-12 bg-accent flex items-center justify-center text-lg font-black text-white shadow-sm">
-                VL
-              </div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-display font-black text-obsidian-900 tracking-tighter leading-none">
-                  VersionLabs
-                </span>
-                <span className="text-[9px] font-black uppercase tracking-[0.45em] text-slate-400 mt-1.5">
-                  VERSIONLABS INFRASTRUCTURE
-                </span>
-              </div>
+              {/* Logo from public folder - Dark version for white background */}
+              <Image
+                src="/DarkVersion-vl-logo.png"
+                alt="Version Labs Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             <p className="text-lg text-slate-500 leading-relaxed font-light max-w-md">
               We architect the digital foundation for Versionlabs governance. 
