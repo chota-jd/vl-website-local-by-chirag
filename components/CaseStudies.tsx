@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const PROJECTS = [
   {
@@ -275,56 +276,66 @@ const CaseStudies: React.FC = () => {
     setCurrentIndex((prev) => (prev - 1 + sliderProjects.length) % sliderProjects.length);
   };
 
-  // Partners data with Official Logos Recreated
+  // Partners data with Logo Images from public folder
   const partners = [
     { 
       name: "Intel", 
       logo: (
-        <svg className="w-[100px] h-auto" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.4 24h-3.2V8h3.2v16zM24.8 24h-3.2v-7.2c0-2.4-.8-3.2-2.4-3.2s-2.4.8-2.4 3.2V24h-3.2V11.2h3.2v1.6c.8-1.2 2-2 3.6-2 2.8 0 4.4 1.6 4.4 4.8V24zM36.8 24h-3.2v-1.6c-.8 1.2-2 2-3.6 2-2.8 0-4.8-2-4.8-5.2s2-5.2 4.8-5.2c1.6 0 2.8.8 3.6 2V8h3.2v16zm-3.2-5.2V16c0-1.6-.8-2.4-2.4-2.4s-2.4.8-2.4 2.4.8 2.4 2.4 2.4 2.4-.8 2.4-2.4zM50.4 24h-8.8v-1.6h2.8V11.2h-2.8V9.6h6v12.8h2.8V24zM63.2 24H52V11.2h11.2v2.4H55.2v3.2h6.4v2.4h-6.4v2.4h8V24zM76 24h-10.4V8h3.2v13.6H76V24zM89.6 24h-10.4V8h3.2v13.6h7.2V24z" fill="#0064E0"/>
-          <rect x="9.2" y="2.4" width="3.2" height="3.2" fill="#4794FF"/>
-        </svg>
+        <Image
+          src="/intel-logo.svg"
+          alt="Intel Logo"
+          width={150}
+          height={40}
+          className="object-contain"
+        />
       )
     },
     { 
       name: "Digital India", 
       logo: (
-        <div className="flex flex-col items-center">
-          <div className="flex items-baseline space-x-1">
-            <span className="text-xl font-black text-obsidian-900 tracking-tighter">Digital</span>
-            <span className="text-xl font-black text-accent tracking-tighter italic">India</span>
-          </div>
-          <div className="w-full h-[1.5px] bg-gradient-to-r from-orange-500 via-white to-green-600 mt-1"></div>
-          <span className="text-[6px] font-black uppercase tracking-[0.5em] text-slate-400 mt-1">Power To Empower</span>
-        </div>
+        <Image
+          src="/digital-india-logo.png"
+          alt="Digital India Logo"
+          width={150}
+          height={60}
+          className="object-contain"
+        />
       )
     },
     { 
       name: "NIC", 
       logo: (
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-full border-2 border-accent flex items-center justify-center relative">
-            <div className="w-5 h-5 rounded-full bg-accent/20"></div>
-            <div className="absolute w-2 h-2 bg-accent rounded-full -top-1 right-1"></div>
-          </div>
-          <span className="text-2xl font-black text-obsidian-900 tracking-tighter">NIC</span>
-        </div>
+        <Image
+          src="/nic-logo.jpeg"
+          alt="NIC Logo"
+          width={140}
+          height={50}
+          className="object-contain"
+        />
       )
     },
     { 
-      name: "NASSCOM", 
+      name: "FICCI", 
       logo: (
-        <div className="flex flex-col items-center">
-          <span className="text-xl font-black tracking-[0.2em] text-obsidian-900 border-b-2 border-accent pb-0.5 px-2">NASSCOM</span>
-        </div>
+        <Image
+          src="/ficci-logo.svg"
+          alt="FICCI Logo"
+          width={130}
+          height={50}
+          className="object-contain"
+        />
       )
     },
     { 
       name: "Dell", 
       logo: (
-        <div className="w-14 h-14 rounded-full border-[3px] border-slate-300 flex items-center justify-center font-black text-xl text-obsidian-800 transform -rotate-[15deg] group-hover:border-accent group-hover:text-accent transition-colors">
-          DELL
-        </div>
+        <Image
+          src="/dell-logo.png"
+          alt="Dell Logo"
+          width={100}
+          height={50}
+          className="object-contain"
+        />
       )
     }
   ];
