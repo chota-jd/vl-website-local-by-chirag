@@ -10,54 +10,54 @@ export const PRESS_ITEMS: PressItem[] = [
     region: "MALAYSIA",
     headline: "Rafizi: Govt launches AI Untuk Rakyat programme to boost AI literacy among Malaysians",
     publisher: "MALAY MAIL",
-    imageUrl: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
-    date: "JAN 2024",
-    link: "#"
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/landingPage-images%2Fnews_01.jpg?alt=media",
+    date: "January 16, 2024",
+    link: "https://www.malaymail.com/news/malaysia/2024/01/16/rafizi-govt-launches-ai-untuk-rakyat-programme-to-boost-ai-literacy-among-malaysians/112684"
   },
   {
     id: "p2",
     region: "MALAYSIA",
     headline: "More than half of 1.3m 'AI untuk Rakyat' participants are women - Gobind",
     publisher: "BUSINESS TIMES",
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
-    date: "FEB 2024",
-    link: "#"
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/landingPage-images%2Fnews_02.webp?alt=media",
+    date: "October 9, 2024",
+    link: "https://www.nst.com.my/business/corporate/2024/10/1116955/more-half-13m-ai-untuk-rakyat-participants-are-women-gobind"
   },
   {
     id: "p3",
     region: "VIETNAM",
     headline: "Vietnam, Intel join forces to make AI education accessible to all",
     publisher: "VIETNAM PLUS",
-    imageUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
-    date: "MAR 2024",
-    link: "#"
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/landingPage-images%2Fnews_03.jpg?alt=media",
+    date: "April 3, 2025",
+    link: "https://en.vietnamplus.vn/vietnam-intel-join-forces-to-make-ai-education-accessible-to-all-post312761.vnp"
   },
   {
     id: "p4",
     region: "MALAYSIA",
     headline: "Govt Launches “Rakyat Digital” Programme And Learning Platform",
     publisher: "LOWYAT",
-    imageUrl: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
-    date: "APR 2024",
-    link: "#"
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/landingPage-images%2Fnews_04.avif?alt=media",
+    date: "December 12, 2024",
+    link: "https://www.lowyat.net/2024/339199/govt-launches-rakyat-digital-programme/"
   },
   {
     id: "p5",
     region: "INDIA",
     headline: "Bridging gender digital divide: TechEquity launch at G20 Summit tomorrow.",
-    publisher: "ECONOMIC TIMES",
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-    date: "MAY 2024",
-    link: "#"
+    publisher: "THE ECONOMIC TIMES",
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/landingPage-images%2Fnews_05.avif?alt=media",
+    date: "Jul 30, 2023",
+    link: "https://economictimes.indiatimes.com/news/india/bridging-gender-digital-divide-techequity-launch-at-g20-summit-tomorrow/articleshow/102254633.cms?from=mdr"
   },
   {
     id: "p6",
     region: "MALAYSIA",
     headline: "Centre launches AI programme to empower 1 lakh young innovators",
     publisher: "THE TRIBUNE",
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
-    date: "JUN 2024",
-    link: "#"
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/landingPage-images%2Fnews_06.jpg?alt=media&",
+    date: "Feb 17, 2025",
+    link: "https://www.tribuneindia.com/news/jobscareers/centre-launches-ai-programme-to-empower-1-lakh-young-innovators/"
   }
 ];
 
