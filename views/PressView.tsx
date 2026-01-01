@@ -63,19 +63,19 @@ const PressView: React.FC = () => {
                   <span className="text-accent text-sm font-black uppercase tracking-ultra">
                     {item.date}
                   </span>
-                  <a href={item.link} className="text-accent hover:text-obsidian-900 transition-colors opacity-60 hover:opacity-100">
+                  {/* <a href={item.link} className="text-accent hover:text-obsidian-900 transition-colors opacity-60 hover:opacity-100">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
-                  </a>
+                  </a> */}
                 </div>
 
-                <h3 className="text-2xl font-bold text-obsidian-900 leading-[1.3] mb-12 flex-grow">
+                <h3 className="text-2xl font-bold text-obsidian-900 leading-[1.3] mb-6 flex-grow">
                   "{item.headline}"
                 </h3>
 
                 <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-base font-black uppercase tracking-wider text-obsidian-950">
+                  <span className="text-sm font-black uppercase tracking-wider text-obsidian-950">
                     {item.publisher}
                   </span>
                   <a 
