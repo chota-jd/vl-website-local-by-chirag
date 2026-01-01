@@ -25,10 +25,10 @@ const ImpactView: React.FC = () => {
       <div className="container mx-auto px-6 py-20 border-t border-slate-100">
          <div className="text-center">
             <h3 className="text-accent text-base font-black uppercase tracking-ultra mb-12">Global Footprint</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-20">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-20">
                {[
                  { v: "15M+", l: "Citizens Impacted" },
-                 { v: "24/7", l: "Secure Operations" },
+                //  { v: "24/7", l: "Secure Operations" },
                  { v: "25+", l: "National Agencies" },
                  { v: "100%", l: "Deployment Success" }
                ].map((stat, i) => (
