@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
           
-          <div className="md:col-span-2 space-y-8">
+          <div className="md:col-span-3 space-y-8">
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Navigation</h4>
             <ul className="space-y-4 text-base font-light text-slate-500">
               <li><Link href="/services" className="hover:text-accent transition-colors">Services</Link></li>
