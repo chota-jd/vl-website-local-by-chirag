@@ -150,7 +150,7 @@ const EnquiryView: React.FC = () => {
                     disabled={formState === 'submitting'}
                     className="w-full md:w-auto px-16 py-7 bg-obsidian-900 text-white text-sm font-black uppercase tracking-ultra flex items-center justify-center space-x-6 hover:bg-accent transition-all duration-300 shadow-xl disabled:opacity-50 group"
                   >
-                    <span>{formState === 'submitting' ? 'Transmitting Request...' : 'Transmit Liaison Request'}</span>
+                    <span>{formState === 'submitting' ? 'Submitting Request...' : 'Submit Request'}</span>
                     <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
