@@ -257,7 +257,7 @@ const IntelView: React.FC = () => {
       {(!checkingAuth && isAuthenticated) && (
         <div className="container mx-auto px-8 lg:px-20 relative z-10 pt-40 pb-40">
         {/* Top Header Navigation */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-24 gap-12 border-b border-white/5 pb-12">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-12 border-b border-white/5 pb-8">
           {/* Intel Branding */}
           <div className="flex items-center space-x-6 group">
             <Image
@@ -279,10 +279,10 @@ const IntelView: React.FC = () => {
 
           {/* Sync Stats */}
           <div className="flex items-center space-x-12">
-            <div className="hidden lg:flex flex-col items-end">
+            {/* <div className="hidden lg:flex flex-col items-end">
               <span className="text-sm font-black uppercase tracking-ultra text-slate-500 mb-1">Last Update</span>
               <span className="text-white font-mono text-sm uppercase">Just Now</span>
-            </div>
+            </div> */}
             <div className="flex flex-col items-end">
               <span className="text-sm font-black uppercase tracking-ultra text-slate-500 mb-1">Deployment Status</span>
               <div className="flex items-center space-x-2">

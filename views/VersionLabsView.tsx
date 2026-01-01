@@ -266,7 +266,7 @@ const VersionLabsView: React.FC = () => {
       {(!checkingAuth && isAuthenticated) && (
         <div className="container mx-auto px-8 lg:px-24 relative z-10 pt-48 pb-40">
           {/* Dynamic Header Strip */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-32 border-b border-white/5 pb-16">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-20 border-b border-white/5 pb-8">
             <Link 
               href="/"
               className="flex items-center cursor-pointer group"
@@ -281,13 +281,13 @@ const VersionLabsView: React.FC = () => {
             </Link>
 
             <div className="flex items-center space-x-12 mt-10 md:mt-0">
-              <div className="text-right">
+              {/* <div className="text-right">
                 <span className="text-sm font-black uppercase tracking-ultra text-slate-500 block mb-1">Global System Load</span>
                 <div className="flex items-center space-x-3">
                   <span className="text-emerald-400 font-mono text-sm">OPTIMAL [0.04ms]</span>
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
                 </div>
-              </div>
+              </div> */}
               <div className="h-10 w-[1px] bg-white/10"></div>
               <div className="text-right">
                 <span className="text-sm font-black uppercase tracking-ultra text-slate-500 block mb-1">Active Instances</span>
@@ -300,11 +300,11 @@ const VersionLabsView: React.FC = () => {
         <div className="max-w-4xl mb-24">
           <div className="flex items-center space-x-4 mb-8">
             <div className="w-12 h-[2px] bg-accent"></div>
-            <span className="text-accent text-[11px] font-black uppercase tracking-ultra">Proprietary Core Dashboard</span>
+            <span className="text-accent text-base font-black uppercase tracking-ultra">Proprietary Core Dashboard</span>
           </div>
           <h1 className="text-6xl md:text-8xl font-display font-black text-white tracking-tighter mb-10 leading-[0.9]">
-            Sovereign <br />
-            <span className="text-accent italic font-light">Implementations.</span>
+            VersionLabs <br />
+            <span className="text-accent italic font-light">Master Dashboard.</span>
           </h1>
           <p className="text-slate-400 text-xl font-light leading-relaxed max-w-2xl text-balance">
             Real-time aggregate monitoring of VersionLabs' proprietary digital assets and citizen engagement infrastructure.
