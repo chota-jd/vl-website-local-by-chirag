@@ -20,8 +20,11 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'VersionLabs | Sovereign Digital Infrastructure',
-  description: 'Premium enterprise-grade platforms for government and national learning missions by VersionLabs, featuring AI-powered citizen services and secure digital infrastructure.',
+  title: 'VersionLabs',
+  description: 'Premium enterprise-grade platforms for government and national learning missions by VersionLabs, featuring AI-powered citizen services and secure digital infrastructure',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

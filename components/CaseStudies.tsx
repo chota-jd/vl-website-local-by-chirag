@@ -137,10 +137,10 @@ export const CountUp: React.FC<CountUpProps> = ({ value, duration = 2000 }) => {
     const updateCount = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       const easedProgress = 1 - Math.pow(1 - progress, 4);
       const currentVal = (easedProgress * target).toFixed(target % 1 === 0 ? 0 : 1);
-      
+
       setCount(`${currentVal}${suffix}`);
 
       if (progress < 1) {
@@ -173,11 +173,10 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
   }, []);
 
   return (
-    <div 
+    <div
       ref={cardRef}
-      className={`bg-white border border-slate-200 transition-all duration-500 overflow-hidden shadow-none group transform ${
-        hasAppeared ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
+      className={`bg-white border border-slate-200 transition-all duration-500 overflow-hidden shadow-none group transform ${hasAppeared ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12">
         {/* Content Side */}
@@ -225,7 +224,7 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
                 </div>
               ))}
             </div>
-            
+
             {/* <div className="flex flex-row flex-wrap gap-3">
               {project.tags.map((tag: string) => (
                 <div 
@@ -242,8 +241,8 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
         {/* Media Side */}
         <div className="lg:col-span-5 relative min-h-[450px] overflow-hidden bg-slate-100">
           <div className="absolute inset-0">
-            <img 
-              src={project.imageUrl} 
+            <img
+              src={project.imageUrl}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
@@ -278,8 +277,8 @@ const CaseStudies: React.FC = () => {
 
   // Partners data with Logo Images from public folder
   const partners = [
-    { 
-      name: "Intel", 
+    {
+      name: "Intel",
       logo: (
         <Image
           src="/intel-logo.svg"
@@ -290,9 +289,9 @@ const CaseStudies: React.FC = () => {
         />
       )
     },
-   
-    { 
-      name: "Ministry of Digial Malaysia", 
+
+    {
+      name: "Ministry of Digial Malaysia",
       logo: (
         <Image
           src="/ministry-of-digital-malaysia-logo.png"
@@ -303,8 +302,8 @@ const CaseStudies: React.FC = () => {
         />
       )
     },
-    { 
-      name: "NIC", 
+    {
+      name: "NIC",
       logo: (
         <Image
           src="/nic-logo.jpeg"
@@ -315,8 +314,8 @@ const CaseStudies: React.FC = () => {
         />
       )
     },
-    { 
-      name: "FICCI", 
+    {
+      name: "FICCI",
       logo: (
         <Image
           src="/ficci-logo.png"
@@ -327,8 +326,8 @@ const CaseStudies: React.FC = () => {
         />
       )
     },
-    { 
-      name: "Digital India", 
+    {
+      name: "Digital India",
       logo: (
         <Image
           src="/digital-india-logo.png"
@@ -339,8 +338,8 @@ const CaseStudies: React.FC = () => {
         />
       )
     },
-    { 
-      name: "Dell", 
+    {
+      name: "Dell",
       logo: (
         <Image
           src="/dell-logo.png"
@@ -398,12 +397,12 @@ const CaseStudies: React.FC = () => {
 
         {/* View More Button */}
         <div className="flex flex-col items-center mb-40">
-           <Link href="/portfolio" className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 flex items-center space-x-4 group shadow-sm">
-              <span>View More Projects</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-           </Link>
+          <Link href="/portfolio" className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 flex items-center space-x-4 group shadow-sm">
+            <span>View More Projects</span>
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
 
         {/* Strategic Alliances Section - MATCHING SCREENSHOT EXACTLY */}
@@ -415,19 +414,17 @@ const CaseStudies: React.FC = () => {
             </div>
             <div className="md:text-right pt-2">
               <p className="text-slate-400 text-[11px] font-black uppercase tracking-[0.35em] leading-[1.6] opacity-70">
-                GLOBAL TECHNOLOGY INFRASTRUCTURE <br /> 
-                <span className="block mt-1">PARTNERS</span>
+                Leading Technology Service Provider
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-slate-100 bg-[#F9FBFC] overflow-hidden">
             {partners.map((partner, i) => (
-              <div 
-                key={i} 
-                className={`h-56 flex flex-col items-center justify-center group hover:bg-white transition-all duration-700 cursor-default relative ${
-                  i !== partners.length - 1 ? 'lg:border-r border-slate-100' : ''
-                } border-slate-100 border-b md:border-b-0`}
+              <div
+                key={i}
+                className={`h-56 flex flex-col items-center justify-center group hover:bg-white transition-all duration-700 cursor-default relative ${i !== partners.length - 1 ? 'lg:border-r border-slate-100' : ''
+                  } border-slate-100 border-b md:border-b-0`}
               >
                 {/* Logo Representation - Centered */}
                 <div className="text-obsidian-900 transition-all duration-700 group-hover:scale-105">
