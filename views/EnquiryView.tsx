@@ -42,7 +42,7 @@ const EnquiryView: React.FC = () => {
   }
 
   return (
-    <div className="pt-40 pb-40 bg-[#FDFDFD]">
+    <div className="pt-40 py-20 bg-[#FDFDFD]">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Breadcrumb Navigation */}

@@ -27,7 +27,7 @@ const PressView: React.FC = () => {
             Presence.
           </h1>
           <div className="max-w-md">
-            <p className="text-slate-500 text-lg font-light leading-relaxed">
+            <p className="text-slate-500 text-xl font-light leading-relaxed">
               Institutional coverage of our mission to digitize nations and upskill populations at scale.
             </p>
           </div>
@@ -75,12 +75,12 @@ const PressView: React.FC = () => {
                 </h3>
 
                 <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-sm font-black uppercase tracking-tight text-obsidian-950">
+                  <span className="text-base font-black uppercase tracking-wider text-obsidian-950">
                     {item.publisher}
                   </span>
                   <a 
                     href={item.link}
-                    className="text-[9px] font-black uppercase tracking-ultra text-accent hover:text-obsidian-900 transition-colors"
+                    className="text-sm font-black uppercase tracking-widest text-accent hover:text-obsidian-900 transition-colors"
                   >
                     READ FULL ARTICLE
                   </a>
@@ -94,7 +94,7 @@ const PressView: React.FC = () => {
         <div className="mt-40 bg-obsidian-900 rounded-[2.5rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between relative overflow-hidden group shadow-2xl">
           <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           <div className="relative z-10 mb-10 md:mb-0">
-            <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-4">Media Relations</h4>
+              <h4 className="text-accent text-base font-black uppercase tracking-ultra mb-4">Media Relations</h4>
             <p className="text-3xl md:text-5xl font-display font-black text-white tracking-tighter max-w-lg">
               Inquire for official statements and kits.
             </p>

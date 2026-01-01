@@ -12,7 +12,7 @@ const StrategyView: React.FC = () => {
   ];
 
   return (
-    <div className="pt-40 pb-20 bg-white">
+    <div className="pt-40 bg-white">
       <div className="container mx-auto px-6">
         {/* Navigation Breadcrumb to allow returning to main landing page */}
         <div className="mb-16">
@@ -55,7 +55,7 @@ const StrategyView: React.FC = () => {
 
         {/* Implementation Roadmap */}
         <div className="py-24 border-y border-slate-100">
-           <h3 className="text-sm font-black uppercase tracking-ultra text-accent mb-20 text-center">Implementation Lifecycle</h3>
+           <h3 className="text-base font-black uppercase tracking-ultra text-accent mb-20 text-center">Implementation Lifecycle</h3>
            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
               {steps.map((step, i) => (
                 <div key={i} className="text-center relative z-10">

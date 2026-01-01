@@ -45,7 +45,7 @@ export const PRESS_ITEMS: PressItem[] = [
     id: "p5",
     region: "INDIA",
     headline: "Bridging gender digital divide: TechEquity launch at G20 Summit tomorrow.",
-    publisher: "THE ECONOMIC TIMES",
+    publisher: "ECONOMIC TIMES",
     imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
     date: "MAY 2024",
     link: "#"

@@ -6,7 +6,7 @@ import { CountUp } from '@/components/CaseStudies';
 
 const AutomationSolutionView: React.FC = () => {
   return (
-    <div className="pt-40 pb-40 bg-[#FDFDFD]">
+    <div className="pt-40 py-20 bg-[#FDFDFD]">
       <div className="container mx-auto px-6">
         {/* Navigation Breadcrumb */}
         <div className="mb-16">
@@ -72,12 +72,12 @@ const AutomationSolutionView: React.FC = () => {
             }
           ].map((item, i) => (
             <div key={i} className="bg-white p-16 hover:bg-slate-50 transition-colors">
-              <span className="block text-accent text-sm font-black uppercase tracking-ultra mb-10">{item.title}</span>
+              <span className="block text-accent text-base font-black uppercase tracking-ultra mb-10">{item.title}</span>
               <div className="text-5xl font-display font-black text-obsidian-900 mb-2">
                 <CountUp value={item.metric} />
               </div>
-              <p className="text-sm font-black uppercase tracking-widest text-slate-400 mb-8">{item.label}</p>
-              <p className="text-slate-500 leading-relaxed font-light text-sm">{item.desc}</p>
+              <p className="text-sm font-black uppercase tracking-widest text-slate-400 mb-4">{item.label}</p>
+              <p className="text-slate-500 leading-relaxed font-light text-base">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -86,7 +86,7 @@ const AutomationSolutionView: React.FC = () => {
         <div className="space-y-40">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <div>
-                <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Agentic Systems</h4>
+                <h4 className="text-accent text-base font-black uppercase tracking-ultra mb-8">Agentic Systems</h4>
                 <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-8 tracking-tighter">Autonomous <br />Public Liaisons.</h3>
                 <p className="text-slate-500 text-lg font-light leading-relaxed mb-10">
                   Our custom-trained AI agents serve as the first point of contact for citizens, resolving complex inquiries, guiding through permit applications, and interpreting policy in real-time.
@@ -108,16 +108,16 @@ const AutomationSolutionView: React.FC = () => {
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <div className="order-2 lg:order-1 bg-slate-50 p-12 md:p-20 border border-slate-100">
                  <h5 className="text-obsidian-900 font-display font-black text-xl mb-6">Security Compliance Tier</h5>
-                 <p className="text-slate-500 text-sm font-light leading-relaxed mb-8">
+                 <p className="text-slate-500 text-base font-light leading-relaxed mb-8">
                    Every automation workflow is audited against Zero Trust security principles. We integrate with existing GIGW and NIC frameworks to ensure total administrative safety.
                  </p>
                  <div className="flex gap-4">
-                    <span className="px-4 py-2 bg-white border border-slate-200 text-[9px] font-black uppercase tracking-ultra text-slate-400">SOC2 Type II</span>
-                    <span className="px-4 py-2 bg-white border border-slate-200 text-[9px] font-black uppercase tracking-ultra text-slate-400">GIGW Certified</span>
+                    <span className="px-4 py-2 bg-white border border-slate-200 text-sm font-black uppercase tracking-ultra text-slate-400">SOC2 Type II</span>
+                    <span className="px-4 py-2 bg-white border border-slate-200 text-sm font-black uppercase tracking-ultra text-slate-400">GIGW Certified</span>
                  </div>
               </div>
               <div className="order-1 lg:order-2">
-                <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Workflow Orchestration</h4>
+                <h4 className="text-accent text-base font-black uppercase tracking-ultra mb-8">Workflow Orchestration</h4>
                 <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-8 tracking-tighter">Bridges Over <br />Red Tape.</h3>
                 <p className="text-slate-500 text-lg font-light leading-relaxed">
                   We dismantle administrative silos by connecting disparate government APIs and legacy databases through an intelligent orchestration layer. 

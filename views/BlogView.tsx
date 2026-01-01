@@ -16,7 +16,7 @@ const BlogView: React.FC = () => {
   };
 
   return (
-    <div className="pt-40 pb-40 bg-[#FDFDFD]">
+    <div className="pt-40 py-20 bg-[#FDFDFD]">
       <div className="container mx-auto px-6">
         
         {/* Navigation Breadcrumb */}
@@ -124,7 +124,7 @@ const BlogView: React.FC = () => {
         </div>
 
         {/* Final CTA Strip */}
-        <div className="mt-40 border-t border-slate-100 pt-24 text-center">
+        <div className="mt-20 border-t border-slate-100 pt-24 text-center">
            <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Strategic Intelligence</h4>
            <p className="text-3xl font-display font-black text-obsidian-900 tracking-tight mb-12 max-w-2xl mx-auto">
              Stay informed on the evolution of national digital infrastructure.

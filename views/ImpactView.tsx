@@ -22,7 +22,7 @@ const ImpactView: React.FC = () => {
       {/* CaseStudies component no longer needs setView */}
       <CaseStudies />
 
-      <div className="container mx-auto px-6 py-40 border-t border-slate-100">
+      <div className="container mx-auto px-6 py-20 border-t border-slate-100">
          <div className="text-center">
             <h3 className="text-accent text-base font-black uppercase tracking-ultra mb-12">Global Footprint</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-20">
