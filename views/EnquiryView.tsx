@@ -28,7 +28,7 @@ const EnquiryView: React.FC = () => {
           </div>
           <h2 className="text-5xl font-display font-black text-obsidian-900 mb-6 tracking-tighter">Liaison Request Received.</h2>
           <p className="text-slate-500 text-lg font-light leading-relaxed mb-12">
-            Your inquiry has been encrypted and routed to our executive strategic team. A dedicated liaison officer will contact your office within one business day.
+            Thank you. We've received your request and our team will get in touch within 24 hours.
           </p>
           <Link 
             href="/"
