@@ -34,7 +34,7 @@ const ImpactView: React.FC = () => {
                ].map((stat, i) => (
                  <div key={i}>
                     <p className="text-5xl md:text-7xl font-display font-black text-obsidian-900 mb-4">{stat.v}</p>
-                    <p className="text-xs font-black uppercase tracking-ultra text-slate-400">{stat.l}</p>
+                    <p className="text-sm font-black uppercase tracking-ultra text-slate-400">{stat.l}</p>
                  </div>
                ))}
             </div>

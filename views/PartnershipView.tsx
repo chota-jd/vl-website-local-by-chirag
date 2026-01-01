@@ -29,7 +29,7 @@ const PartnershipView: React.FC = () => {
           </p>
           <Link 
             href="/"
-            className="inline-block px-10 py-5 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm"
+            className="inline-block px-10 py-5 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm"
           >
             Return to Overview
           </Link>
@@ -51,14 +51,14 @@ const PartnershipView: React.FC = () => {
               <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
-              <span className="text-xs font-black uppercase tracking-ultra">Exit Partnership Portal</span>
+              <span className="text-sm font-black uppercase tracking-ultra">Exit Partnership Portal</span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
             {/* Context Sidebar */}
             <div className="lg:col-span-5">
-              <h1 className="text-accent text-xs font-black uppercase tracking-ultra mb-10">Strategic Alliances</h1>
+              <h1 className="text-accent text-sm font-black uppercase tracking-ultra mb-10">Strategic Alliances</h1>
               <h2 className="text-6xl md:text-7xl font-display font-black text-obsidian-900 leading-[0.85] tracking-tighter mb-12">
                 Co-Authoring <br />
                 <span className="text-accent italic font-light">The Future.</span>
@@ -76,8 +76,8 @@ const PartnershipView: React.FC = () => {
                    <div key={i} className="flex items-start space-x-5">
                       <div className="w-1.5 h-1.5 bg-accent mt-1.5"></div>
                       <div>
-                        <h4 className="text-xs font-black uppercase tracking-ultra text-obsidian-900 mb-1">{item.t}</h4>
-                        <p className="text-slate-400 text-xs font-light">{item.d}</p>
+                        <h4 className="text-sm font-black uppercase tracking-ultra text-obsidian-900 mb-1">{item.t}</h4>
+                        <p className="text-slate-400 text-sm font-light">{item.d}</p>
                       </div>
                    </div>
                  ))}

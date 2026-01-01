@@ -17,7 +17,7 @@ const PressView: React.FC = () => {
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-xs font-black uppercase tracking-ultra">Back to Overview</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
           </Link>
         </div>
 
@@ -75,7 +75,7 @@ const PressView: React.FC = () => {
                 </h3>
 
                 <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-tight text-obsidian-950">
+                  <span className="text-sm font-black uppercase tracking-tight text-obsidian-950">
                     {item.publisher}
                   </span>
                   <a 
@@ -94,12 +94,12 @@ const PressView: React.FC = () => {
         <div className="mt-40 bg-obsidian-900 rounded-[2.5rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between relative overflow-hidden group shadow-2xl">
           <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           <div className="relative z-10 mb-10 md:mb-0">
-            <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-4">Media Relations</h4>
+            <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-4">Media Relations</h4>
             <p className="text-3xl md:text-5xl font-display font-black text-white tracking-tighter max-w-lg">
               Inquire for official statements and kits.
             </p>
           </div>
-          <Link href="/enquiry" className="relative z-10 px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group">
+          <Link href="/enquiry" className="relative z-10 px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group">
             <span>Contact Media Office</span>
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -9,7 +9,7 @@ export const TESTIMONIALS = [
     quote: "The ability to deploy a national-scale learning platform that handles millions of concurrent citizens while maintaining total data sovereignty is why we partner with VersionLabs.",
     author: "Dato' Seri Mohd Zuki",
     position: "National AI Office Lead",
-    organization: "Min. of Digital, Malaysia",
+    organization: "Malaysia",
     institution: "Federal Government",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
   },
@@ -18,7 +18,7 @@ export const TESTIMONIALS = [
     quote: "VersionLabs understands that in the public sector, UI/UX is an accessibility requirement, not a luxury. Their inclusive design approach has been critical to our G20 mission success.",
     author: "Dr. Ananya Sharma",
     position: "Strategic Advisor",
-    organization: "TechEquity / G20 Empower",
+    organization: "G20 Empower",
     institution: "Global Initiative",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
   },
@@ -27,7 +27,7 @@ export const TESTIMONIALS = [
     quote: "Securing national digital infrastructure against modern threats requires a partner who builds with a security-first mindset. VersionLabs is that partner for our skilling ecosystem.",
     author: "Shri Rajesh Kumar",
     position: "Director General",
-    organization: "National Innovation Council",
+    organization: "Innovation Council",
     institution: "Govt. of India",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
   },
@@ -68,7 +68,7 @@ export const TestimonialCard: React.FC<{ testimonial: typeof TESTIMONIALS[0] }> 
       </div>
       <div className="overflow-hidden">
         <h4 className="text-base font-display font-black text-obsidian-900 truncate tracking-tight">{testimonial.author}</h4>
-        <p className="text-accent text-sm font-black uppercase tracking-ultra truncate">
+        <p className="text-accent text-base font-black uppercase tracking-ultra truncate">
           {testimonial.position} <br />
           <span className="opacity-60">{testimonial.organization}</span>
         </p>
@@ -78,7 +78,7 @@ export const TestimonialCard: React.FC<{ testimonial: typeof TESTIMONIALS[0] }> 
       <svg className="absolute -top-4 -left-2 w-8 h-8 text-accent/5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12" />
       </svg>
-      <p className="text-slate-500 text-sm leading-relaxed font-light line-clamp-3 relative z-10 italic">
+      <p className="text-slate-500 text-base leading-relaxed font-light line-clamp-3 relative z-10 italic">
         "{testimonial.quote}"
       </p>
     </div>
@@ -92,7 +92,7 @@ const Testimonials: React.FC = () => {
     <section className="py-24 bg-white relative overflow-hidden border-b border-slate-100">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-accent text-xs font-black uppercase tracking-ultra mb-4">Institutional Trust</h2>
+          <h2 className="text-accent text-base font-black uppercase tracking-ultra mb-4">Institutional Trust</h2>
           <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 tracking-tighter">
             Voices from the <span className="text-accent italic font-light">Public Sector.</span>
           </h3>
@@ -107,7 +107,7 @@ const Testimonials: React.FC = () => {
         <div className="flex justify-center">
           <Link 
             href="/testimonials"
-            className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group"
+            className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group"
           >
             <span>View All Testimonials</span>
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

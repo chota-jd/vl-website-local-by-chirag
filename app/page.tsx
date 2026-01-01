@@ -23,7 +23,7 @@ export default function Home() {
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-10 inline-flex items-center space-x-3 text-accent text-xs font-black uppercase tracking-ultra">
+            <div className="mb-10 inline-flex items-center space-x-3 text-accent text-sm font-black uppercase tracking-ultra">
               <div className="w-10 h-px bg-accent"></div>
               <span>Global Mission</span>
             </div>
@@ -38,7 +38,7 @@ export default function Home() {
                 href="/enquiry"
                 className="flex flex-col items-center cursor-pointer group"
               >
-               <p className="text-xs font-black text-accent uppercase tracking-ultra mb-3 transition-transform group-hover:-translate-y-1">Primary Consultation</p>
+               <p className="text-base font-black text-accent uppercase tracking-ultra mb-3 transition-transform group-hover:-translate-y-1">Primary Consultation</p>
                <p className="text-white font-display text-2xl border-b border-accent/40 pb-2 group-hover:text-accent transition-colors">daxeel@versionlabs.co</p>
               </Link>
             </div>

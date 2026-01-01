@@ -55,7 +55,7 @@ const ServicesView: React.FC = () => {
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-xs font-black uppercase tracking-ultra">Back to Overview</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
           </Link>
         </div>
 
@@ -80,7 +80,7 @@ const ServicesView: React.FC = () => {
                 <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-6 tracking-tight">
                   {service.title}
                 </h3>
-                <p className="text-accent text-xs font-black uppercase tracking-ultra mb-10">
+                <p className="text-accent text-sm font-black uppercase tracking-ultra mb-10">
                   {service.subtitle}
                 </p>
                 <p className="text-slate-500 text-lg leading-relaxed mb-12 font-light">
@@ -104,13 +104,13 @@ const ServicesView: React.FC = () => {
                 <div className="space-y-10">
                   {service.specs.map(spec => (
                     <div key={spec.label} className="border-b border-slate-200 pb-6">
-                      <p className="text-xs font-black uppercase tracking-ultra text-accent/60 mb-2">{spec.label}</p>
+                      <p className="text-sm font-black uppercase tracking-ultra text-accent/60 mb-2">{spec.label}</p>
                       <p className="text-3xl font-display font-black text-obsidian-900">{spec.value}</p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-12 pt-10 border-t border-slate-200">
-                   <button className="w-full py-5 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center justify-center space-x-4 group">
+                   <button className="w-full py-5 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center justify-center space-x-4 group">
                       <span>Download Tech Manual</span>
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

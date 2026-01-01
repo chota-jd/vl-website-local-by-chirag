@@ -17,7 +17,7 @@ const LearningSolutionView: React.FC = () => {
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-xs font-black uppercase tracking-ultra">Back to Overview</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
           </Link>
         </div>
 
@@ -73,11 +73,11 @@ const LearningSolutionView: React.FC = () => {
             }
           ].map((item, i) => (
             <div key={i} className="bg-white p-16 hover:bg-slate-50 transition-colors">
-              <span className="block text-accent text-xs font-black uppercase tracking-ultra mb-10">{item.title}</span>
+              <span className="block text-accent text-sm font-black uppercase tracking-ultra mb-10">{item.title}</span>
               <div className="text-5xl font-display font-black text-obsidian-900 mb-2">
                 <CountUp value={item.metric} />
               </div>
-              <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">{item.label}</p>
+              <p className="text-sm font-black uppercase tracking-widest text-slate-400 mb-8">{item.label}</p>
               <p className="text-slate-500 leading-relaxed font-light text-sm">{item.desc}</p>
             </div>
           ))}
@@ -86,7 +86,7 @@ const LearningSolutionView: React.FC = () => {
         {/* Detailed Breakdown Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div>
-             <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-8">Technical Superiority</h4>
+             <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Technical Superiority</h4>
              <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-8 tracking-tighter leading-tight">
                Inclusive by Design. <br />Multilingual by Default.
              </h3>
@@ -124,7 +124,7 @@ const LearningSolutionView: React.FC = () => {
                    </svg>
                 </div>
                 <div>
-                  <p className="text-obsidian-900 font-black text-xs uppercase tracking-ultra">Mission Director</p>
+                  <p className="text-obsidian-900 font-black text-sm uppercase tracking-ultra">Mission Director</p>
                   <p className="text-accent text-sm font-black uppercase tracking-widest">Digital Skilling Mission</p>
                 </div>
              </div>

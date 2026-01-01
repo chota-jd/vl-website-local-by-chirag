@@ -286,7 +286,7 @@ const IntelView: React.FC = () => {
             <div className="flex flex-col items-end">
               <span className="text-sm font-black uppercase tracking-ultra text-slate-500 mb-1">Deployment Status</span>
               <div className="flex items-center space-x-2">
-                <span className="text-accent font-black text-xs uppercase tracking-ultra">Syncing Global Data</span>
+                <span className="text-accent font-black text-sm uppercase tracking-ultra">Syncing Global Data</span>
                 <div className="w-2 h-2 rounded-full bg-accent animate-ping"></div>
               </div>
             </div>
@@ -360,7 +360,7 @@ const IntelView: React.FC = () => {
           <div className="flex items-center space-x-8">
             <div className="text-right">
               <p className="text-[9px] font-black uppercase tracking-ultra text-slate-500">Security Protocol</p>
-              <p className="text-white text-xs font-bold tracking-tight">E2E ENCRYPTED STREAM</p>
+              <p className="text-white text-sm font-bold tracking-tight">E2E ENCRYPTED STREAM</p>
             </div>
             <div className="w-12 h-12 rounded-xl bg-accent/5 border border-accent/20 flex items-center justify-center text-accent">
                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

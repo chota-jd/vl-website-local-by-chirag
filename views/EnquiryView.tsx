@@ -32,7 +32,7 @@ const EnquiryView: React.FC = () => {
           </p>
           <Link 
             href="/"
-            className="inline-block px-10 py-5 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm"
+            className="inline-block px-10 py-5 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm"
           >
             Return to Overview
           </Link>
@@ -54,14 +54,14 @@ const EnquiryView: React.FC = () => {
               <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
-              <span className="text-xs font-black uppercase tracking-ultra">Exit Secure Channel</span>
+              <span className="text-sm font-black uppercase tracking-ultra">Exit Secure Channel</span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
             {/* Left Column: Context & Messaging */}
             <div className="lg:col-span-5">
-              <h1 className="text-accent text-xs font-black uppercase tracking-ultra mb-10">Institutional Enquiry</h1>
+              <h1 className="text-accent text-sm font-black uppercase tracking-ultra mb-10">Institutional Enquiry</h1>
               <h2 className="text-6xl md:text-7xl font-display font-black text-obsidian-900 leading-[0.85] tracking-tighter mb-12">
                 Initiate your <br />
                 <span className="text-accent italic font-light">Mission.</span>
@@ -72,9 +72,9 @@ const EnquiryView: React.FC = () => {
 
               <div className="space-y-12">
                 <div className="p-10 border border-slate-100 bg-white shadow-sm relative overflow-hidden group">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-20 group-hover:opacity-100 transition-opacity"></div>
-                  <h4 className="text-obsidian-900 font-black uppercase text-sm tracking-ultra mb-4">Confidentiality Protocol</h4>
-                  <p className="text-slate-400 text-xs font-light leading-relaxed">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-40 group-hover:opacity-100 transition-opacity"></div>
+                  <h4 className="text-obsidian-900 font-black uppercase text-base tracking-ultra mb-4">Confidentiality Protocol</h4>
+                  <p className="text-slate-400 text-sm font-light leading-relaxed">
                     All communications via this portal are protected by government-grade encryption standards and routed through our sovereign data layer.
                   </p>
                 </div>
@@ -100,7 +100,7 @@ const EnquiryView: React.FC = () => {
                       required
                       type="text" 
                       placeholder="e.g. Director General John Doe" 
-                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-200"
+                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
                   <div className="space-y-3">
@@ -109,7 +109,7 @@ const EnquiryView: React.FC = () => {
                       required
                       type="email" 
                       placeholder="e.g. name@department.gov" 
-                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-200"
+                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
                 </div>
@@ -121,7 +121,7 @@ const EnquiryView: React.FC = () => {
                       required
                       type="text" 
                       placeholder="e.g. Ministry of Digital Affairs" 
-                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-200"
+                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
                   <div className="space-y-3">
@@ -141,14 +141,14 @@ const EnquiryView: React.FC = () => {
                   <textarea 
                     rows={4}
                     placeholder="Briefly describe your mission requirements or specific challenges..."
-                    className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-200 resize-none"
+                    className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400 resize-none"
                   ></textarea>
                 </div>
 
                 <div className="pt-10">
                   <button 
                     disabled={formState === 'submitting'}
-                    className="w-full md:w-auto px-16 py-7 bg-obsidian-900 text-white text-xs font-black uppercase tracking-ultra flex items-center justify-center space-x-6 hover:bg-accent transition-all duration-300 shadow-xl disabled:opacity-50 group"
+                    className="w-full md:w-auto px-16 py-7 bg-obsidian-900 text-white text-sm font-black uppercase tracking-ultra flex items-center justify-center space-x-6 hover:bg-accent transition-all duration-300 shadow-xl disabled:opacity-50 group"
                   >
                     <span>{formState === 'submitting' ? 'Transmitting Request...' : 'Transmit Liaison Request'}</span>
                     <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

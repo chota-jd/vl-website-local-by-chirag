@@ -31,7 +31,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
               <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
-              <span className="text-xs font-black uppercase tracking-ultra">Back to Insights</span>
+              <span className="text-sm font-black uppercase tracking-ultra">Back to Insights</span>
             </Link>
             
             <div className="mb-10 flex items-center space-x-6">
@@ -53,7 +53,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
               </div>
               <div>
                 <p className="text-white text-base font-black uppercase tracking-ultra">{post.author.name}</p>
-                <p className="text-accent text-xs font-black uppercase tracking-widest">{post.author.title}</p>
+                <p className="text-accent text-sm font-black uppercase tracking-widest">{post.author.title}</p>
               </div>
             </div>
           </div>
@@ -109,13 +109,13 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
       {/* Call to Action Footer */}
       <section className="py-40 bg-slate-50 border-t border-slate-100">
         <div className="container mx-auto px-6 text-center">
-          <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-8">Strategic Follow-up</h4>
+          <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Strategic Follow-up</h4>
           <p className="text-4xl md:text-6xl font-display font-black text-obsidian-900 tracking-tighter mb-12 max-w-3xl mx-auto">
             Ready to implement <br /> these <span className="text-accent italic">strategies?</span>
           </p>
           <Link 
             href="/enquiry"
-            className="inline-block px-14 py-7 bg-obsidian-900 text-white text-xs font-black uppercase tracking-ultra hover:bg-accent transition-all duration-300 shadow-xl"
+            className="inline-block px-14 py-7 bg-obsidian-900 text-white text-sm font-black uppercase tracking-ultra hover:bg-accent transition-all duration-300 shadow-xl"
           >
             Request a Discovery Session
           </Link>

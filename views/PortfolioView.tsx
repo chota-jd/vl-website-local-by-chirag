@@ -38,7 +38,7 @@ const ProjectGridCard: React.FC<{ project: any }> = ({ project }) => {
         <div className="mb-8 flex items-center space-x-3 bg-slate-50 p-4 border-l-2 border-accent/20">
           <div className="flex flex-col">
             <span className="text-[8px] font-black uppercase tracking-widest text-slate-400 leading-none mb-1">Inaugurated By</span>
-            <span className="text-xs font-black uppercase tracking-ultra text-obsidian-900">
+            <span className="text-sm font-black uppercase tracking-ultra text-obsidian-900">
               {project.subtitle}
             </span>
           </div>
@@ -80,7 +80,7 @@ const PortfolioView: React.FC = () => {
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-xs font-black uppercase tracking-ultra">Back to Overview</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
           </Link>
         </div>
 
@@ -105,14 +105,14 @@ const PortfolioView: React.FC = () => {
 
         {/* Institutional Contact Strip - Link to PartnershipView */}
         <div className="mt-40 border-t border-slate-100 pt-24 text-center">
-           <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-8">Strategic Partnerships</h4>
+           <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Strategic Partnerships</h4>
            <p className="text-3xl font-display font-black text-obsidian-900 tracking-tight mb-12">
              Ready to deploy your next national infrastructure mission?
            </p>
            <div className="flex justify-center">
              <Link 
               href="/partnership"
-              className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group"
+              className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group"
              >
                 <span>Request Discovery Session</span>
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -28,7 +28,7 @@ const BlogView: React.FC = () => {
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-xs font-black uppercase tracking-ultra">Back to Overview</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
           </Link>
         </div>
 
@@ -76,7 +76,7 @@ const BlogView: React.FC = () => {
                   <img src={featuredPost.author.avatar} alt={featuredPost.author.name} className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-ultra">{featuredPost.author.name}</p>
+                  <p className="text-sm font-black uppercase tracking-ultra">{featuredPost.author.name}</p>
                   <p className="text-accent text-sm font-black uppercase tracking-widest">{featuredPost.author.title}</p>
                 </div>
               </div>
@@ -125,13 +125,13 @@ const BlogView: React.FC = () => {
 
         {/* Final CTA Strip */}
         <div className="mt-40 border-t border-slate-100 pt-24 text-center">
-           <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-8">Strategic Intelligence</h4>
+           <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Strategic Intelligence</h4>
            <p className="text-3xl font-display font-black text-obsidian-900 tracking-tight mb-12 max-w-2xl mx-auto">
              Stay informed on the evolution of national digital infrastructure.
            </p>
            <div className="flex justify-center space-x-6">
              <button 
-              className="px-12 py-6 bg-obsidian-900 text-white text-xs font-black uppercase tracking-ultra hover:bg-accent transition-all duration-300 shadow-sm"
+              className="px-12 py-6 bg-obsidian-900 text-white text-sm font-black uppercase tracking-ultra hover:bg-accent transition-all duration-300 shadow-sm"
              >
                 Subscribe to Insights
              </button>

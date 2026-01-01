@@ -17,7 +17,7 @@ const AutomationSolutionView: React.FC = () => {
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-xs font-black uppercase tracking-ultra">Back to Overview</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
           </Link>
         </div>
 
@@ -72,11 +72,11 @@ const AutomationSolutionView: React.FC = () => {
             }
           ].map((item, i) => (
             <div key={i} className="bg-white p-16 hover:bg-slate-50 transition-colors">
-              <span className="block text-accent text-xs font-black uppercase tracking-ultra mb-10">{item.title}</span>
+              <span className="block text-accent text-sm font-black uppercase tracking-ultra mb-10">{item.title}</span>
               <div className="text-5xl font-display font-black text-obsidian-900 mb-2">
                 <CountUp value={item.metric} />
               </div>
-              <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">{item.label}</p>
+              <p className="text-sm font-black uppercase tracking-widest text-slate-400 mb-8">{item.label}</p>
               <p className="text-slate-500 leading-relaxed font-light text-sm">{item.desc}</p>
             </div>
           ))}
@@ -86,7 +86,7 @@ const AutomationSolutionView: React.FC = () => {
         <div className="space-y-40">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <div>
-                <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-8">Agentic Systems</h4>
+                <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Agentic Systems</h4>
                 <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-8 tracking-tighter">Autonomous <br />Public Liaisons.</h3>
                 <p className="text-slate-500 text-lg font-light leading-relaxed mb-10">
                   Our custom-trained AI agents serve as the first point of contact for citizens, resolving complex inquiries, guiding through permit applications, and interpreting policy in real-time.
@@ -117,7 +117,7 @@ const AutomationSolutionView: React.FC = () => {
                  </div>
               </div>
               <div className="order-1 lg:order-2">
-                <h4 className="text-accent text-xs font-black uppercase tracking-ultra mb-8">Workflow Orchestration</h4>
+                <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Workflow Orchestration</h4>
                 <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-8 tracking-tighter">Bridges Over <br />Red Tape.</h3>
                 <p className="text-slate-500 text-lg font-light leading-relaxed">
                   We dismantle administrative silos by connecting disparate government APIs and legacy databases through an intelligent orchestration layer. 

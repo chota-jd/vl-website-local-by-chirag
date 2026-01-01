@@ -115,7 +115,7 @@ const PressSection: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center space-x-4 text-accent text-xs font-black uppercase tracking-ultra">
+            <div className="mb-6 inline-flex items-center space-x-4 text-accent text-sm font-black uppercase tracking-ultra">
               <span className="w-12 h-px bg-accent"></span>
               <span>Institutional Recognition</span>
             </div>
@@ -146,7 +146,7 @@ const PressSection: React.FC = () => {
         <div className="flex flex-col items-center">
           <Link 
             href="/press"
-            className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-xs font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-xl flex items-center space-x-4 group"
+            className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-xl flex items-center space-x-4 group"
           >
             <span>View All Coverage</span>
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,7 +154,7 @@ const PressSection: React.FC = () => {
             </svg>
           </Link>
           
-          <div className="mt-20 flex items-center space-x-8 opacity-20">
+          <div className="mt-20 flex items-center space-x-8 opacity-40">
              <div className="w-32 h-px bg-white"></div>
              <span className="text-[14px] font-black uppercase tracking-ultra text-white">Trusted by Global Ministries</span>
              <div className="w-32 h-px bg-white"></div>

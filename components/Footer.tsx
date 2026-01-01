@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
           
           <div className="md:col-span-2 space-y-8">
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Verticals</h4>
-            <ul className="space-y-4 text-sm font-light text-slate-500">
+            <ul className="space-y-4 text-base font-light text-slate-500">
               <li><Link href="/services" className="hover:text-accent transition-colors">Government Portals</Link></li>
               <li><Link href="/solution-learning" className="hover:text-accent transition-colors">Enterprise LMS</Link></li>
               <li><Link href="/blog" className="hover:text-accent transition-colors">Insights & Journal</Link></li>
@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
           
           <div className="md:col-span-2 space-y-8">
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Enterprise</h4>
-            <ul className="space-y-4 text-sm font-light text-slate-500">
-              <li><Link href="/vl" className="hover:text-accent font-bold transition-colors">VL Live Projects</Link></li>
+            <ul className="space-y-4 text-base font-light text-slate-500">
+              <li><Link href="/vl" className="hover:text-accent font-bold transition-colors">Versionlabs Live Projects</Link></li>
               <li><Link href="/intel" className="hover:text-accent font-bold transition-colors">Intel Live Projects</Link></li>
               <li><Link href="/press" className="hover:text-accent transition-colors">Media Relations</Link></li>
               <li><Link href="/services" className="hover:text-accent transition-colors">GIGW Compliance</Link></li>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
 
           <div className="md:col-span-3 space-y-8">
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Inquiries</h4>
-            <p className="text-sm font-light text-slate-500 leading-relaxed">
+            <p className="text-base font-light text-slate-500 leading-relaxed">
               Our team operates with the highest level of administrative discretion for sensitive public sector projects.
             </p>
             <Link 
