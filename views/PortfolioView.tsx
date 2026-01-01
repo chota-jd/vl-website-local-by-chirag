@@ -55,7 +55,7 @@ const ProjectGridCard: React.FC<{ project: any }> = ({ project }) => {
               <div className="text-xl font-display font-black text-obsidian-900">
                 <CountUp value={m.value} />
               </div>
-              <div className="text-[9px] font-black uppercase tracking-ultra text-slate-400">
+              <div className="text-xs font-black uppercase tracking-ultra text-slate-400">
                 {m.label}
               </div>
             </div>
@@ -111,7 +111,7 @@ const PortfolioView: React.FC = () => {
            </p>
            <div className="flex justify-center">
              <Link 
-              href="/partnership"
+              href="/enquiry"
               className="px-12 py-6 bg-white border border-slate-200 text-obsidian-900 text-sm font-black uppercase tracking-ultra hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm flex items-center space-x-4 group"
              >
                 <span>Request Discovery Session</span>
