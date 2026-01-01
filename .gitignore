@@ -9,11 +9,17 @@
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
+BUILD_ID
+*-manifest.json
+*.nft.json
+export-marker.json
+trace
 
 # production
 /build
+dist/
 
 # misc
 .DS_Store
@@ -31,6 +37,18 @@ yarn-error.log*
 # vercel
 .vercel
 
+# firebase
+.firebase/
+.firebaserc.local
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cache and devtools
+.cache/
+chrome-devtools-workspace-*
+next-devtools-config.json
