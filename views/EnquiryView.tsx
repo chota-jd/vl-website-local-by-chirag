@@ -6,15 +6,39 @@ import { useRouter } from 'next/navigation';
 
 const EnquiryView: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    organization: '',
+    projectScope: ''
+  });
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('submitting');
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit enquiry');
+      }
+
       setFormState('success');
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting enquiry:', error);
+      alert('Failed to submit enquiry. Please try again.');
+      setFormState('idle');
+    }
   };
 
   if (formState === 'success') {
@@ -99,7 +123,9 @@ const EnquiryView: React.FC = () => {
                     <input 
                       required
                       type="text" 
-                      placeholder="Enter full name" 
+                      placeholder="Enter full name"
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
@@ -108,7 +134,9 @@ const EnquiryView: React.FC = () => {
                     <input 
                       required
                       type="email" 
-                      placeholder="Enter institutional email" 
+                      placeholder="Enter institutional email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
@@ -119,7 +147,9 @@ const EnquiryView: React.FC = () => {
                   <input 
                     required
                     type="text" 
-                    placeholder="Enter organisation / ministry name" 
+                    placeholder="Enter organisation / ministry name"
+                    value={formData.organization}
+                    onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                     className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                   />
                 </div>
@@ -127,8 +157,11 @@ const EnquiryView: React.FC = () => {
                 <div className="space-y-3">
                   <label className="text-sm font-black uppercase tracking-ultra text-accent">Project Scope & Scale</label>
                   <textarea 
+                    required
                     rows={4}
                     placeholder="Briefly describe your mission requirements or specific challenges..."
+                    value={formData.projectScope}
+                    onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
                     className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400 resize-none"
                   ></textarea>
                 </div>
