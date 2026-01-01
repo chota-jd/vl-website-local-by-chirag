@@ -54,7 +54,7 @@ const EnquiryView: React.FC = () => {
               <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
-              <span className="text-sm font-black uppercase tracking-ultra">Exit Secure Channel</span>
+              <span className="text-sm font-black uppercase tracking-ultra">Back to Overview</span>
             </Link>
           </div>
 
@@ -99,7 +99,7 @@ const EnquiryView: React.FC = () => {
                     <input 
                       required
                       type="text" 
-                      placeholder="e.g. Director General John Doe" 
+                      placeholder="Enter full name" 
                       className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
@@ -108,32 +108,20 @@ const EnquiryView: React.FC = () => {
                     <input 
                       required
                       type="email" 
-                      placeholder="e.g. name@department.gov" 
+                      placeholder="Enter institutional email" 
                       className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                  <div className="space-y-3">
-                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Organization / Ministry</label>
-                    <input 
-                      required
-                      type="text" 
-                      placeholder="e.g. Ministry of Digital Affairs" 
-                      className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Strategic Interest</label>
-                    <select className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer">
-                      <option>National-Scale LMS</option>
-                      <option>AI Service Automation</option>
-                      <option>Sovereign Data Infrastructure</option>
-                      <option>Government Portal Strategy</option>
-                      <option>Cyber Resilience Audit</option>
-                    </select>
-                  </div>
+                <div className="space-y-3">
+                  <label className="text-sm font-black uppercase tracking-ultra text-accent">Organization / Ministry</label>
+                  <input 
+                    required
+                    type="text" 
+                    placeholder="Enter organisation / ministry name" 
+                    className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors placeholder:text-slate-400"
+                  />
                 </div>
 
                 <div className="space-y-3">
