@@ -67,10 +67,10 @@ const Features: React.FC = () => {
     <section id="services" className="py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
-          <div className="mb-6 inline-flex items-center space-x-4 text-accent text-base font-black uppercase tracking-[0.3em]">
+          {/* <div className="mb-6 inline-flex items-center space-x-4 text-accent text-base font-black uppercase tracking-[0.3em]">
             <div className="w-10 h-[2px] bg-accent"></div>
             <span>Deep Capabilities</span>
-          </div>
+          </div> */}
           <h2 className="text-5xl md:text-8xl font-display font-black text-obsidian-900 mb-8 tracking-tighter leading-none">
             What We Do
           </h2>

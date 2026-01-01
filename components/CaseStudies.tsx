@@ -359,10 +359,10 @@ const CaseStudies: React.FC = () => {
         {/* Header Section */}
         <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-8">
           <div>
-            <h2 className="text-accent text-base font-black uppercase tracking-ultra mb-6 flex items-center">
+            {/* <h2 className="text-accent text-base font-black uppercase tracking-ultra mb-6 flex items-center">
               <span className="w-12 h-px bg-accent mr-6"></span>
               CASE PORTFOLIOS
-            </h2>
+            </h2> */}
             <h3 className="text-4xl md:text-6xl font-display font-black text-obsidian-900 leading-tight tracking-tighter max-w-5xl">
               Defining the Future of <br />
               <span className="text-accent italic">Digital Sovereignty</span>.
@@ -410,7 +410,7 @@ const CaseStudies: React.FC = () => {
         <div className="pt-20 border-t border-slate-100">
           <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
             <div className="max-w-md">
-              <h4 className="text-accent text-sm font-black uppercase tracking-[0.25em] mb-4">STRATEGIC ALLIANCES</h4>
+              {/* <h4 className="text-accent text-sm font-black uppercase tracking-[0.25em] mb-4">STRATEGIC ALLIANCES</h4> */}
               <p className="text-4xl md:text-5xl font-display font-bold text-obsidian-950 tracking-tight">Trust In High Places.</p>
             </div>
             <div className="md:text-right pt-2">

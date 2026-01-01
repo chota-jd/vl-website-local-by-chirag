@@ -17,16 +17,16 @@ export default function Home() {
       {/* <Testimonials /> */}
       
       {/* High-Impact Bottom Call to Action */}
-      <section className="py-60 bg-obsidian-950 relative overflow-hidden">
+      <section className="py-36 bg-obsidian-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-accent/10 to-transparent"></div>
         <div className="absolute inset-0 opacity-[0.1] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-10 inline-flex items-center space-x-3 text-accent text-sm font-black uppercase tracking-ultra">
+            {/* <div className="mb-10 inline-flex items-center space-x-3 text-accent text-sm font-black uppercase tracking-ultra">
               <div className="w-10 h-px bg-accent"></div>
               <span>Global Mission</span>
-            </div>
+            </div> */}
             <h2 className="text-6xl md:text-9xl font-display font-black text-white mb-12 leading-tight tracking-tighter">
               Transform at <span className="text-accent italic">Scale.</span>
             </h2>

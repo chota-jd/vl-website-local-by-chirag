@@ -29,7 +29,7 @@ const WhyUs: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
           <div className="max-w-2xl">
-            <h2 className="text-accent text-base font-black uppercase tracking-ultra mb-8">Premium Differentiation</h2>
+            {/* <h2 className="text-accent text-base font-black uppercase tracking-ultra mb-8">Premium Differentiation</h2> */}
             <h3 className="text-5xl font-display font-black text-obsidian-900">Why Governments <br />Trust <span className="text-accent italic">VersionLabs</span>.</h3>
           </div>
           <div className="bg-slate-50 p-6 border-l-2 border-accent max-w-sm shadow-sm">

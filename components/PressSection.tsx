@@ -115,10 +115,10 @@ const PressSection: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center space-x-4 text-accent text-sm font-black uppercase tracking-ultra">
+            {/* <div className="mb-6 inline-flex items-center space-x-4 text-accent text-sm font-black uppercase tracking-ultra">
               <span className="w-12 h-px bg-accent"></span>
               <span>Institutional Recognition</span>
-            </div>
+            </div> */}
             
             <h2 className="text-5xl md:text-8xl font-display font-black text-white mb-0 leading-[0.9] tracking-tighter">
               Global Media <br />
