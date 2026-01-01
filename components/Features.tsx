@@ -67,7 +67,7 @@ const Features: React.FC = () => {
     <section id="services" className="py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
-          <div className="mb-6 inline-flex items-center space-x-4 text-accent text-[11px] font-black uppercase tracking-[0.3em]">
+          <div className="mb-6 inline-flex items-center space-x-4 text-accent text-base font-black uppercase tracking-[0.3em]">
             <div className="w-10 h-[2px] bg-accent"></div>
             <span>Deep Capabilities</span>
           </div>
@@ -99,14 +99,14 @@ const Features: React.FC = () => {
               </p>
 
               {/* Description */}
-              <p className="text-slate-500 text-[15px] font-light leading-relaxed mb-12 flex-grow">
+              <p className="text-slate-500 text-base font-light leading-relaxed mb-12 flex-grow">
                 {pillar.desc}
               </p>
 
               {/* List items with the blue lightning style icons */}
               <ul className="space-y-6 mb-14">
                 {pillar.items.map((item, i) => (
-                  <li key={i} className="flex items-center space-x-4 text-slate-700 text-sm font-semibold">
+                  <li key={i} className="flex items-center space-x-4 text-slate-700 text-base font-semibold">
                     <span className="text-accent flex-shrink-0">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" stroke="none" />
@@ -120,7 +120,7 @@ const Features: React.FC = () => {
               {/* Action Button - refined light gray style */}
               <Link 
                 href={pillar.href}
-                className="w-full py-5 bg-slate-50 text-obsidian-900 text-[11px] font-black uppercase tracking-ultra flex items-center justify-center space-x-3 hover:bg-accent hover:text-white transition-all duration-500 border border-slate-100 group-hover:border-accent"
+                className="w-full py-5 bg-slate-50 text-obsidian-900 text-sm font-black uppercase tracking-ultra flex items-center justify-center space-x-3 hover:bg-accent hover:text-white transition-all duration-500 border border-slate-100 group-hover:border-accent"
               >
                 <span>Explore Solutions</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

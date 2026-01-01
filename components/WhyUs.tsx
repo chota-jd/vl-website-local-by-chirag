@@ -33,7 +33,7 @@ const WhyUs: React.FC = () => {
             <h3 className="text-5xl font-display font-black text-obsidian-900">Why Governments <br />Trust <span className="text-accent italic">VersionLabs</span>.</h3>
           </div>
           <div className="bg-slate-50 p-6 border-l-2 border-accent max-w-sm shadow-sm">
-            <p className="text-slate-600 text-sm italic font-light">
+            <p className="text-slate-600 text-base italic font-light">
               "Digital infrastructure is not just code; it's the foundation of modern public trust."
             </p>
           </div>
@@ -43,8 +43,8 @@ const WhyUs: React.FC = () => {
           {cards.map((card, i) => (
             <div key={i} className="bg-white p-12 hover:bg-slate-50 transition-colors group">
               <span className="block text-accent text-base font-black uppercase tracking-ultra mb-10">{card.label}</span>
-              <h4 className="text-xl font-display font-black text-obsidian-900 mb-6 group-hover:translate-x-2 transition-transform">{card.title}</h4>
-              <p className="text-slate-500 text-sm leading-relaxed font-light">{card.desc}</p>
+              <h4 className="text-base font-display font-black text-obsidian-900 mb-6 group-hover:translate-x-2 transition-transform">{card.title}</h4>
+              <p className="text-slate-500 text-base leading-relaxed font-light">{card.desc}</p>
             </div>
           ))}
         </div>
