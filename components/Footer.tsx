@@ -39,9 +39,9 @@ const Footer: React.FC = () => {
           <div className="md:col-span-2 space-y-8">
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Verticals</h4>
             <ul className="space-y-4 text-base font-light text-slate-500">
-              <li><Link href="/services" className="hover:text-accent transition-colors">Government Portals</Link></li>
+              <li><Link href="/services" className="hover:text-accent transition-colors">Services</Link></li>
               <li><Link href="/solution-learning" className="hover:text-accent transition-colors">Enterprise LMS</Link></li>
-              <li><Link href="/blog" className="hover:text-accent transition-colors">Insights & Journal</Link></li>
+              {/* <li><Link href="/blog" className="hover:text-accent transition-colors">Insights & Journal</Link></li> */}
               <li><Link href="/strategy" className="hover:text-accent transition-colors">AI Strategy</Link></li>
             </ul>
           </div>
@@ -49,10 +49,10 @@ const Footer: React.FC = () => {
           <div className="md:col-span-2 space-y-8">
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Enterprise</h4>
             <ul className="space-y-4 text-base font-light text-slate-500">
-              <li><Link href="/vl" className="hover:text-accent font-bold transition-colors">Versionlabs Live Projects</Link></li>
-              <li><Link href="/intel" className="hover:text-accent font-bold transition-colors">Intel Live Projects</Link></li>
-              <li><Link href="/press" className="hover:text-accent transition-colors">Media Relations</Link></li>
-              <li><Link href="/services" className="hover:text-accent transition-colors">GIGW Compliance</Link></li>
+              {/* <li><Link href="/vl" className="hover:text-accent font-bold transition-colors">Versionlabs Live Projects</Link></li> */}
+              {/* <li><Link href="/intel" className="hover:text-accent font-bold transition-colors">Intel Live Projects</Link></li> */}
+              <li><Link href="/press" className="hover:text-accent transition-colors">Press</Link></li>
+              {/* <li><Link href="/services" className="hover:text-accent transition-colors">GIGW Compliance</Link></li> */}
             </ul>
           </div>
 
@@ -82,10 +82,10 @@ const Footer: React.FC = () => {
                 © 2025 Version Labs LLP. All rights reserved.
               </p>
               <div className="hidden lg:block h-5 w-px bg-slate-200"></div>
-              <div className="flex items-center space-x-3 text-base font-black text-accent/60 uppercase tracking-widest">
+              {/* <div className="flex items-center space-x-3 text-base font-black text-accent/60 uppercase tracking-widest">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
                 <span>Certified Versionlabs Platform</span>
-              </div>
+              </div> */}
             </div>
 
             {/* <div className="flex flex-wrap justify-center gap-x-8 gap-y-5 text-base font-black uppercase tracking-ultra text-slate-300">
