@@ -60,7 +60,7 @@ const BlogView: React.FC = () => {
             </div>
             <div className="lg:col-span-5 p-12 md:p-20 flex flex-col justify-center text-white relative z-10">
               <div className="mb-10 flex items-center space-x-4">
-                <span className="px-4 py-1.5 border border-accent/40 bg-accent/10 text-accent text-sm font-black uppercase tracking-ultra">
+                <span className="px-4 py-1.5 border border-accent/40 bg-accent/10 text-accent text-base font-black uppercase tracking-ultra">
                   {featuredPost.category}
                 </span>
                 <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{featuredPost.readTime}</span>
@@ -93,15 +93,15 @@ const BlogView: React.FC = () => {
               className="bg-white p-12 md:p-20 group cursor-pointer hover:bg-slate-50 transition-colors"
             >
               <div className="mb-10 flex items-center justify-between">
-                <span className="text-accent text-sm font-black uppercase tracking-ultra">
+                <span className="text-accent text-base font-black uppercase tracking-ultra">
                   {post.category}
                 </span>
                 <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{post.date}</span>
               </div>
-              <h3 className="text-3xl font-display font-black text-obsidian-900 mb-8 leading-tight tracking-tight group-hover:text-accent transition-colors">
+              <h3 className="text-2xl font-display font-black text-obsidian-900 mb-8 leading-tight tracking-tight group-hover:text-accent transition-colors">
                 {post.title}
               </h3>
-              <p className="text-slate-500 font-light leading-relaxed mb-12 line-clamp-3">
+              <p className="text-slate-500 text-lg font-light leading-relaxed mb-12 line-clamp-3">
                 {post.excerpt}
               </p>
               <div className="flex items-center justify-between">
@@ -109,7 +109,7 @@ const BlogView: React.FC = () => {
                   <div className="w-10 h-10 rounded-full overflow-hidden grayscale opacity-40 group-hover:opacity-100 transition-opacity">
                     <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
                   </div>
-                  <span className="text-sm font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
+                    <span className="text-base font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
                     {post.author.name}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ const BlogView: React.FC = () => {
 
         {/* Final CTA Strip */}
         <div className="mt-20 border-t border-slate-100 pt-24 text-center">
-           <h4 className="text-accent text-sm font-black uppercase tracking-ultra mb-8">Strategic Intelligence</h4>
+           <h4 className="text-accent text-base font-black uppercase tracking-ultra mb-8">Strategic Intelligence</h4>
            <p className="text-3xl font-display font-black text-obsidian-900 tracking-tight mb-12 max-w-2xl mx-auto">
              Stay informed on the evolution of national digital infrastructure.
            </p>
