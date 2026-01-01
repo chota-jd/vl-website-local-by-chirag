@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             <h4 className="text-base font-black uppercase tracking-ultra text-accent">Navigation</h4>
             <ul className="space-y-4 text-base font-light text-slate-500">
               <li><Link href="/services" className="hover:text-accent transition-colors">Services</Link></li>
-              <li><Link href="/solution-learning" className="hover:text-accent transition-colors">Enterprise LMS</Link></li>
+              {/* <li><Link href="/solution-learning" className="hover:text-accent transition-colors">Enterprise LMS</Link></li> */}
               {/* <li><Link href="/blog" className="hover:text-accent transition-colors">Insights & Journal</Link></li> */}
               <li><Link href="/strategy" className="hover:text-accent transition-colors">AI Strategy</Link></li>
               <li><Link href="/press" className="hover:text-accent transition-colors">Press</Link></li>
