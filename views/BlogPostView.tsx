@@ -35,12 +35,12 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
             </Link>
             
             <div className="mb-10 flex items-center space-x-6">
-              <span className="px-5 py-2 border border-accent/40 bg-accent/10 text-accent text-[10px] font-black uppercase tracking-ultra">
+              <span className="px-5 py-2 border border-accent/40 bg-accent/10 text-accent text-sm font-black uppercase tracking-ultra">
                 {post.category}
               </span>
-              <span className="text-slate-400 text-[10px] font-black uppercase tracking-ultra">{post.date}</span>
+              <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{post.date}</span>
               <span className="w-1 h-1 bg-slate-700 rounded-full"></span>
-              <span className="text-slate-400 text-[10px] font-black uppercase tracking-ultra">{post.readTime}</span>
+              <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{post.readTime}</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-display font-black text-white leading-[1.1] tracking-tighter mb-12">
@@ -97,7 +97,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
             {/* Tags & Sharing */}
             <div className="mt-24 pt-12 border-t border-slate-100 flex flex-wrap gap-4">
               {['Digital Sovereignty', 'Public Sector AI', 'National Infrastructure', 'Governance'].map(tag => (
-                <span key={tag} className="text-[10px] font-black uppercase tracking-ultra text-slate-400 bg-slate-50 px-4 py-2 border border-slate-100">
+                <span key={tag} className="text-sm font-black uppercase tracking-ultra text-slate-400 bg-slate-50 px-4 py-2 border border-slate-100">
                   #{tag}
                 </span>
               ))}

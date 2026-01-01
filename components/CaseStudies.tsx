@@ -230,7 +230,7 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
               {project.tags.map((tag: string) => (
                 <div 
                   key={tag} 
-                  className="px-5 py-2.5 bg-slate-50 border border-slate-200 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all hover:bg-accent hover:text-white hover:border-accent hover:-translate-y-0.5 cursor-default"
+                  className="px-5 py-2.5 bg-slate-50 border border-slate-200 text-sm font-black uppercase tracking-widest text-slate-500 transition-all hover:bg-accent hover:text-white hover:border-accent hover:-translate-y-0.5 cursor-default"
                 >
                   {tag}
                 </div>
@@ -253,7 +253,7 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
           <div className="absolute bottom-10 left-12 z-20">
             <div className="flex items-center space-x-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
-              <span className="text-[10px] font-black uppercase tracking-ultra text-obsidian-900 bg-white/95 backdrop-blur px-4 py-1.5 border border-accent/20 shadow-sm">
+              <span className="text-sm font-black uppercase tracking-ultra text-obsidian-900 bg-white/95 backdrop-blur px-4 py-1.5 border border-accent/20 shadow-sm">
                 Live System Snapshot
               </span>
             </div>

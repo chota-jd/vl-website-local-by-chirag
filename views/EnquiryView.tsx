@@ -73,7 +73,7 @@ const EnquiryView: React.FC = () => {
               <div className="space-y-12">
                 <div className="p-10 border border-slate-100 bg-white shadow-sm relative overflow-hidden group">
                   <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-20 group-hover:opacity-100 transition-opacity"></div>
-                  <h4 className="text-obsidian-900 font-black uppercase text-[10px] tracking-ultra mb-4">Confidentiality Protocol</h4>
+                  <h4 className="text-obsidian-900 font-black uppercase text-sm tracking-ultra mb-4">Confidentiality Protocol</h4>
                   <p className="text-slate-400 text-xs font-light leading-relaxed">
                     All communications via this portal are protected by government-grade encryption standards and routed through our sovereign data layer.
                   </p>
@@ -85,7 +85,7 @@ const EnquiryView: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-ultra text-slate-300">End-to-End Encrypted Liaison</span>
+                  <span className="text-sm font-black uppercase tracking-ultra text-slate-300">End-to-End Encrypted Liaison</span>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ const EnquiryView: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Full Name</label>
+                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Full Name</label>
                     <input 
                       required
                       type="text" 
@@ -104,7 +104,7 @@ const EnquiryView: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Institutional Email</label>
+                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Institutional Email</label>
                     <input 
                       required
                       type="email" 
@@ -116,7 +116,7 @@ const EnquiryView: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Organization / Ministry</label>
+                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Organization / Ministry</label>
                     <input 
                       required
                       type="text" 
@@ -125,7 +125,7 @@ const EnquiryView: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Strategic Interest</label>
+                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Strategic Interest</label>
                     <select className="w-full bg-transparent border-b border-slate-200 py-4 text-obsidian-900 font-display font-medium text-lg focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer">
                       <option>National-Scale LMS</option>
                       <option>AI Service Automation</option>
@@ -137,7 +137,7 @@ const EnquiryView: React.FC = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Project Scope & Scale</label>
+                  <label className="text-sm font-black uppercase tracking-ultra text-accent">Project Scope & Scale</label>
                   <textarea 
                     rows={4}
                     placeholder="Briefly describe your mission requirements or specific challenges..."

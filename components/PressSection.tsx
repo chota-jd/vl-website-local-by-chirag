@@ -87,7 +87,7 @@ const PressCard: React.FC<{ item: PressItem }> = ({ item }) => {
               <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12M10.017 21L10.017 18C10.017 16.8954 9.12157 16 8.01699 16H5.01699C4.46471 16 4.01699 15.5523 4.01699 15V9C4.01699 8.44772 4.46471 8 5.01699 8H9.01699C9.56927 8 10.017 8.44772 10.017 9V12" />
             </svg>
           </div>
-          <span className="text-[10px] font-black uppercase tracking-ultra text-slate-400 group-hover:text-accent transition-colors">{item.date}</span>
+          <span className="text-sm font-black uppercase tracking-ultra text-slate-400 group-hover:text-accent transition-colors">{item.date}</span>
         </div>
         
         <h3 className="text-xl font-bold text-obsidian-900 leading-[1.3] mb-10 line-clamp-4 group-hover:text-accent transition-colors duration-500">

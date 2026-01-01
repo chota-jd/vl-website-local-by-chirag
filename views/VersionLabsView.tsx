@@ -48,7 +48,7 @@ const ProjectStatCard: React.FC<{
           <div className="w-12 h-12 bg-accent/10 border border-accent/20 rounded-xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500">
             {icon}
           </div>
-          <span className="text-[10px] font-black uppercase tracking-ultra text-accent bg-accent/5 px-4 py-1.5 rounded-full border border-accent/10">
+          <span className="text-sm font-black uppercase tracking-ultra text-accent bg-accent/5 px-4 py-1.5 rounded-full border border-accent/10">
             Live
           </span>
         </div>
@@ -282,7 +282,7 @@ const VersionLabsView: React.FC = () => {
 
             <div className="flex items-center space-x-12 mt-10 md:mt-0">
               <div className="text-right">
-                <span className="text-[10px] font-black uppercase tracking-ultra text-slate-500 block mb-1">Global System Load</span>
+                <span className="text-sm font-black uppercase tracking-ultra text-slate-500 block mb-1">Global System Load</span>
                 <div className="flex items-center space-x-3">
                   <span className="text-emerald-400 font-mono text-sm">OPTIMAL [0.04ms]</span>
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
@@ -290,7 +290,7 @@ const VersionLabsView: React.FC = () => {
               </div>
               <div className="h-10 w-[1px] bg-white/10"></div>
               <div className="text-right">
-                <span className="text-[10px] font-black uppercase tracking-ultra text-slate-500 block mb-1">Active Instances</span>
+                <span className="text-sm font-black uppercase tracking-ultra text-slate-500 block mb-1">Active Instances</span>
                 <span className="text-white font-display font-bold">{projects.length} Projects</span>
               </div>
             </div>

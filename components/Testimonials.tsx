@@ -68,7 +68,7 @@ export const TestimonialCard: React.FC<{ testimonial: typeof TESTIMONIALS[0] }> 
       </div>
       <div className="overflow-hidden">
         <h4 className="text-base font-display font-black text-obsidian-900 truncate tracking-tight">{testimonial.author}</h4>
-        <p className="text-accent text-[10px] font-black uppercase tracking-ultra truncate">
+        <p className="text-accent text-sm font-black uppercase tracking-ultra truncate">
           {testimonial.position} <br />
           <span className="opacity-60">{testimonial.organization}</span>
         </p>

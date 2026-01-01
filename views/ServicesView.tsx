@@ -74,7 +74,7 @@ const ServicesView: React.FC = () => {
           {deepServices.map((service, idx) => (
             <div key={service.id} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
               <div>
-                <span className="inline-block px-4 py-1.5 border border-accent/20 bg-accent/5 text-accent text-[10px] font-black uppercase tracking-ultra mb-8">
+                <span className="inline-block px-4 py-1.5 border border-accent/20 bg-accent/5 text-accent text-sm font-black uppercase tracking-ultra mb-8">
                   Capability {idx + 1}
                 </span>
                 <h3 className="text-4xl md:text-5xl font-display font-black text-obsidian-900 mb-6 tracking-tight">

@@ -50,9 +50,9 @@ const StatCard: React.FC<{
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center space-x-2">
             <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">System Live</span>
+            <span className="text-sm font-black uppercase tracking-widest text-slate-500">System Live</span>
           </div>
-          <span className="text-[10px] font-black uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
+          <span className="text-sm font-black uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
             {trend}
           </span>
         </div>
@@ -280,11 +280,11 @@ const IntelView: React.FC = () => {
           {/* Sync Stats */}
           <div className="flex items-center space-x-12">
             <div className="hidden lg:flex flex-col items-end">
-              <span className="text-[10px] font-black uppercase tracking-ultra text-slate-500 mb-1">Last Update</span>
+              <span className="text-sm font-black uppercase tracking-ultra text-slate-500 mb-1">Last Update</span>
               <span className="text-white font-mono text-sm uppercase">Just Now</span>
             </div>
             <div className="flex flex-col items-end">
-              <span className="text-[10px] font-black uppercase tracking-ultra text-slate-500 mb-1">Deployment Status</span>
+              <span className="text-sm font-black uppercase tracking-ultra text-slate-500 mb-1">Deployment Status</span>
               <div className="flex items-center space-x-2">
                 <span className="text-accent font-black text-xs uppercase tracking-ultra">Syncing Global Data</span>
                 <div className="w-2 h-2 rounded-full bg-accent animate-ping"></div>
@@ -354,7 +354,7 @@ const IntelView: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
             </div>
-            <span className="text-[10px] font-black uppercase tracking-ultra">Back to Command Hub</span>
+            <span className="text-sm font-black uppercase tracking-ultra">Back to Command Hub</span>
           </Link>
 
           <div className="flex items-center space-x-8">

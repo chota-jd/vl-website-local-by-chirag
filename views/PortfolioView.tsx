@@ -26,7 +26,7 @@ const ProjectGridCard: React.FC<{ project: any }> = ({ project }) => {
       {/* Content Body */}
       <div className="p-8 md:p-10 flex flex-col flex-grow">
         <div className="mb-6">
-          <span className="text-[10px] font-black uppercase tracking-ultra text-accent mb-2 block">
+          <span className="text-sm font-black uppercase tracking-ultra text-accent mb-2 block">
             {project.type}
           </span>
           <h3 className="text-2xl font-display font-black text-obsidian-900 leading-tight mb-6 line-clamp-2 group-hover:text-accent transition-colors">

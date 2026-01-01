@@ -88,7 +88,7 @@ const PartnershipView: React.FC = () => {
             <div className="lg:col-span-7 bg-slate-50/50 p-10 md:p-20 border border-slate-100">
               <form onSubmit={handleSubmit} className="space-y-12">
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Contact Authority</label>
+                  <label className="text-sm font-black uppercase tracking-ultra text-accent">Contact Authority</label>
                   <input 
                     required
                     type="text" 
@@ -99,7 +99,7 @@ const PartnershipView: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Corporate Email</label>
+                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Corporate Email</label>
                     <input 
                       required
                       type="email" 
@@ -108,7 +108,7 @@ const PartnershipView: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Organization</label>
+                    <label className="text-sm font-black uppercase tracking-ultra text-accent">Organization</label>
                     <input 
                       required
                       type="text" 
@@ -119,7 +119,7 @@ const PartnershipView: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Partnership Track</label>
+                  <label className="text-sm font-black uppercase tracking-ultra text-accent">Partnership Track</label>
                   <select className="w-full bg-white border border-slate-200 px-6 py-5 text-obsidian-900 font-display font-medium focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer">
                     <option>Strategic Technology Partnership</option>
                     <option>Channel & Regional Distribution</option>
@@ -130,7 +130,7 @@ const PartnershipView: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-ultra text-accent">Memorandum of Intent</label>
+                  <label className="text-sm font-black uppercase tracking-ultra text-accent">Memorandum of Intent</label>
                   <textarea 
                     rows={4}
                     placeholder="Provide a high-level summary of the proposed synergy..."

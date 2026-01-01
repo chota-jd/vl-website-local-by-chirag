@@ -93,7 +93,7 @@ const AutomationSolutionView: React.FC = () => {
                 </p>
                 <ul className="space-y-4">
                   {['Multilingual Intent Mapping', 'Policy-Hardened Logic', '24/7 Citizen Support'].map(t => (
-                    <li key={t} className="flex items-center space-x-4 text-obsidian-900 font-bold uppercase text-[10px] tracking-ultra">
+                    <li key={t} className="flex items-center space-x-4 text-obsidian-900 font-bold uppercase text-sm tracking-ultra">
                       <div className="w-2 h-2 rounded-full bg-accent"></div>
                       <span>{t}</span>
                     </li>

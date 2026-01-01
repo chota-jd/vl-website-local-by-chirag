@@ -60,10 +60,10 @@ const BlogView: React.FC = () => {
             </div>
             <div className="lg:col-span-5 p-12 md:p-20 flex flex-col justify-center text-white relative z-10">
               <div className="mb-10 flex items-center space-x-4">
-                <span className="px-4 py-1.5 border border-accent/40 bg-accent/10 text-accent text-[10px] font-black uppercase tracking-ultra">
+                <span className="px-4 py-1.5 border border-accent/40 bg-accent/10 text-accent text-sm font-black uppercase tracking-ultra">
                   {featuredPost.category}
                 </span>
-                <span className="text-slate-400 text-[10px] font-black uppercase tracking-ultra">{featuredPost.readTime}</span>
+                <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{featuredPost.readTime}</span>
               </div>
               <h3 className="text-4xl md:text-5xl font-display font-black mb-8 leading-tight tracking-tight group-hover:text-accent transition-colors">
                 {featuredPost.title}
@@ -77,7 +77,7 @@ const BlogView: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs font-black uppercase tracking-ultra">{featuredPost.author.name}</p>
-                  <p className="text-accent text-[10px] font-black uppercase tracking-widest">{featuredPost.author.title}</p>
+                  <p className="text-accent text-sm font-black uppercase tracking-widest">{featuredPost.author.title}</p>
                 </div>
               </div>
             </div>
@@ -93,10 +93,10 @@ const BlogView: React.FC = () => {
               className="bg-white p-12 md:p-20 group cursor-pointer hover:bg-slate-50 transition-colors"
             >
               <div className="mb-10 flex items-center justify-between">
-                <span className="text-accent text-[10px] font-black uppercase tracking-ultra">
+                <span className="text-accent text-sm font-black uppercase tracking-ultra">
                   {post.category}
                 </span>
-                <span className="text-slate-400 text-[10px] font-black uppercase tracking-ultra">{post.date}</span>
+                <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{post.date}</span>
               </div>
               <h3 className="text-3xl font-display font-black text-obsidian-900 mb-8 leading-tight tracking-tight group-hover:text-accent transition-colors">
                 {post.title}
@@ -109,7 +109,7 @@ const BlogView: React.FC = () => {
                   <div className="w-10 h-10 rounded-full overflow-hidden grayscale opacity-40 group-hover:opacity-100 transition-opacity">
                     <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
+                  <span className="text-sm font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
                     {post.author.name}
                   </span>
                 </div>

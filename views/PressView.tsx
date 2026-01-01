@@ -51,7 +51,7 @@ const PressView: React.FC = () => {
                   }}
                 />
                 <div className="absolute top-6 left-6">
-                  <span className="px-5 py-2 bg-white/95 backdrop-blur text-[10px] font-black uppercase tracking-ultra text-obsidian-900 border border-slate-100 shadow-sm">
+                  <span className="px-5 py-2 bg-white/95 backdrop-blur text-sm font-black uppercase tracking-ultra text-obsidian-900 border border-slate-100 shadow-sm">
                     {item.region}
                   </span>
                 </div>
@@ -60,7 +60,7 @@ const PressView: React.FC = () => {
               {/* Card Content Area */}
               <div className="p-10 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-8">
-                  <span className="text-accent text-[10px] font-black uppercase tracking-ultra">
+                  <span className="text-accent text-sm font-black uppercase tracking-ultra">
                     {item.date}
                   </span>
                   <a href={item.link} className="text-accent hover:text-obsidian-900 transition-colors opacity-60 hover:opacity-100">

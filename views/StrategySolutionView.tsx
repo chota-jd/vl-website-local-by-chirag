@@ -60,7 +60,7 @@ const StrategySolutionView: React.FC = () => {
                  <ul className="space-y-6">
                     {['Gap Analysis & Security Audit', 'Legacy Infrastructure Evaluation', 'Sovereignty Data Mapping'].map(i => (
                       <li key={i} className="flex items-center space-x-4 border-b border-white/10 pb-4">
-                         <span className="text-accent font-black tracking-ultra uppercase text-[10px]">{i}</span>
+                         <span className="text-accent font-black tracking-ultra uppercase text-sm">{i}</span>
                       </li>
                     ))}
                  </ul>
@@ -73,11 +73,11 @@ const StrategySolutionView: React.FC = () => {
                  </p>
                  <div className="grid grid-cols-2 gap-8">
                     <div>
-                       <p className="text-obsidian-900 font-black uppercase text-[10px] tracking-ultra mb-2">Build Tier</p>
+                       <p className="text-obsidian-900 font-black uppercase text-sm tracking-ultra mb-2">Build Tier</p>
                        <p className="text-slate-400 text-xs font-light">Enterprise-Grade</p>
                     </div>
                     <div>
-                       <p className="text-obsidian-900 font-black uppercase text-[10px] tracking-ultra mb-2">Output</p>
+                       <p className="text-obsidian-900 font-black uppercase text-sm tracking-ultra mb-2">Output</p>
                        <p className="text-slate-400 text-xs font-light">Production-Ready</p>
                     </div>
                  </div>

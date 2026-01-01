@@ -125,7 +125,7 @@ const LearningSolutionView: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-obsidian-900 font-black text-xs uppercase tracking-ultra">Mission Director</p>
-                  <p className="text-accent text-[10px] font-black uppercase tracking-widest">Digital Skilling Mission</p>
+                  <p className="text-accent text-sm font-black uppercase tracking-widest">Digital Skilling Mission</p>
                 </div>
              </div>
           </div>
