@@ -87,13 +87,73 @@ export const PROJECTS = [
     type: "State Initiative",
     title: "AI for All – Odisha",
     subtitle: "Govt. of Odisha",
-    desc: "‘Odisha for AI’ is a self-learning online program designed to raise public awareness about Artificial Intelligence. It aims to demystify AI for people from all walks of life—students, stay-at-home parents, professionals from any field, senior citizens, and anyone interested in AI who wants to build a digital-first mindset.",
+    desc: "Odisha for AI’ is a self-learning online program designed to raise public awareness about Artificial Intelligence. It aims to demystify AI for people from all walks of life—students, stay-at-home parents, professionals from any field, senior citizens, and anyone interested in AI who wants to build a digital-first mindset.",
     metrics: [
       { label: "Registered Users", value: "4146" },
       { label: "Indian Languages", value: "2" }
     ],
     tags: ["Digital Odisha", "Inclusive AI", "Skill Development"],
     imageUrl: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000",
+  },
+  {
+    id: "gujarat-state",
+    region: "Gujarat, India",
+    flag: "🇮🇳",
+    type: "State Initiative",
+    title: "AI for All – Gujarat",
+    subtitle: "Govt. of Gujarat",
+    desc: "AI for All is a self-learning online program developed by Samagra Shiksha, the Education Department of Gujarat, and Intel India to raise awareness about artificial intelligence.",
+    metrics: [
+      { label: "Registered Users", value: "3193" },
+      { label: "Indian Languages", value: "2" }
+    ],
+    tags: ["Digital Gujarat", "FutureSkills", "GujaratStudents"],
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-all-gujarat.jpeg?alt=media",
+  },
+  {
+    id: "uttar-pradesh-state",
+    region: "Uttar Pradesh, India",
+    flag: "🇮🇳",
+    type: "State Initiative",
+    title: "AI for All – Uttar Pradesh",
+    subtitle: "Govt. of Uttar Pradesh",
+    desc: "AI for All is a self-learning online program developed by Samagra Shiksha, the Education Department of Uttar Pradesh, and Intel India to raise awareness about artificial intelligence.",
+    metrics: [
+      { label: "Registered Users", value: "1446" },
+      { label: "Indian Languages", value: "2" }
+    ],
+    tags: ["Digital Uttar Pradesh", "FutureSkills", "Uttar PradeshStudents"],
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-all-up.webp?alt=media",
+  },
+  {
+    id: "ai-for-space",
+    region: "India",
+    flag: "🇮🇳",
+    type: "Government Initiative",
+    title: "AI For Space",
+    subtitle: "ISRO, NITI Aayog, Intel",
+    desc: "Artificial Intelligence (AI) is emerging as a game-changer in how we explore, understand, and utilize outer space. From planning complex missions to monitoring astronaut health and tracking space debris, AI is revolutionizing the future of space science and exploration.",
+    metrics: [
+      { label: "Registered Users", value: "379" },
+      { label: "Indian Languages", value: "23" }
+    ],
+    tags: ["Space Technology", "Space Education", "Space Awareness"],
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-space.webp?alt=media",
+  },
+  {
+    id: "ai-for-accessibility",
+    region: "India",
+    flag: "🇮🇳",
+    type: "Foundation Initiative",
+    title: "AI For Accessibility",
+    subtitle: "Changelnkk Foundation, Intel",
+    desc: "AI for Accessibility - a short, self-paced microlearning module that explores how Artificial Intelligence (AI) can enhance accessibility and inclusion. You will discover how AI solutions can help remove barriers, improve independence, and create inclusive experiences that benefit everyone.",
+    metrics: [
+      { label: "Registered Users", value: "16" },
+      { label: "Indian Languages", value: "23" }
+    ],
+    tags: ["Accessibility", "Inclusion", "AI for Accessibility"],
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-accessibility.webp?alt=media",
   }
 ];
 
