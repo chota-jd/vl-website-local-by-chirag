@@ -43,7 +43,7 @@ const ProductShowcase: React.FC = () => {
   ];
 
   return (
-    <section className="py-40 bg-white relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
       
