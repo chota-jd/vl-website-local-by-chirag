@@ -19,6 +19,7 @@ export const PROJECTS = [
     ],
     tags: ["NEP 2020 Aligned", "Multi-tenant", "Sovereign AI"],
     imageUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000",
+    projectLink: "https://ai-for-all.in",
   },
   {
     id: "g20",
@@ -34,6 +35,7 @@ export const PROJECTS = [
     ],
     tags: ["Global Scale", "Gamified", "Impact Analytics"],
     imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000",
+    projectLink: "https://techequity.g20empower.com/",
   },
   {
     id: "malaysia",
@@ -49,6 +51,7 @@ export const PROJECTS = [
     ],
     tags: ["National AI Strategy", "MyDigital ID", "Scalable"],
     imageUrl: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=1000",
+    projectLink: "https://aiur.ai.gov.my/",
   },
   {
     id: "niti-aayog",
@@ -57,13 +60,14 @@ export const PROJECTS = [
     type: "Government Initiative",
     title: "AI for All – Entrepreneurship India",
     subtitle: "AIM, NITI Aayog",
-    desc: "Atal Innovation Mission (AIM), NITI Aayog is the Government of India’s flagship initiative to promote a culture of innovation and entrepreneurship across the country. AIM fosters a problem-solving mindset in schools and nurtures a strong entrepreneurial ecosystem among youth.",
+    desc: "Atal Innovation Mission (AIM), NITI Aayog is the Government of India's flagship initiative to promote a culture of innovation and entrepreneurship across the country. AIM fosters a problem-solving mindset in schools and nurtures a strong entrepreneurial ecosystem among youth.",
     metrics: [
       { label: "Registered Users", value: "119.7K" },
       { label: "Indian Languages", value: "23" }
     ],
     tags: ["NITI Aayog", "Digital India", "Entrepreneurship"],
     imageUrl: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1000",
+    projectLink: "https://atl-entrepreneurship.digitalreadiness.org/",
   },
   {
     id: "vietnam-nic",
@@ -79,6 +83,7 @@ export const PROJECTS = [
     ],
     tags: ["NIC Vietnam", "Intel", "Digital Mindset"],
     imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000",
+    projectLink: "https://ai-intel.nic.gov.vn/",
   },
   {
     id: "odisha-state",
@@ -87,13 +92,14 @@ export const PROJECTS = [
     type: "State Initiative",
     title: "AI for All – Odisha",
     subtitle: "Govt. of Odisha",
-    desc: "Odisha for AI’ is a self-learning online program designed to raise public awareness about Artificial Intelligence. It aims to demystify AI for people from all walks of life—students, stay-at-home parents, professionals from any field, senior citizens, and anyone interested in AI who wants to build a digital-first mindset.",
+    desc: "Odisha for AI' is a self-learning online program designed to raise public awareness about Artificial Intelligence. It aims to demystify AI for people from all walks of life—students, stay-at-home parents, professionals from any field, senior citizens, and anyone interested in AI who wants to build a digital-first mindset.",
     metrics: [
       { label: "Registered Users", value: "4146" },
       { label: "Indian Languages", value: "2" }
     ],
     tags: ["Digital Odisha", "Inclusive AI", "Skill Development"],
     imageUrl: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000",
+    projectLink: "https://ai.odisha.gov.in/",
   },
   {
     id: "gujarat-state",
@@ -109,6 +115,7 @@ export const PROJECTS = [
     ],
     tags: ["Digital Gujarat", "FutureSkills", "GujaratStudents"],
     imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-all-gujarat.jpeg?alt=media",
+    projectLink: "https://ai.gshala.in/",
   },
   {
     id: "uttar-pradesh-state",
@@ -124,6 +131,7 @@ export const PROJECTS = [
     ],
     tags: ["Digital Uttar Pradesh", "FutureSkills", "Uttar PradeshStudents"],
     imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-all-up.webp?alt=media",
+    projectLink: "https://aipragya.ai-for-all.in/",
   },
   {
     id: "ai-for-space",
@@ -139,6 +147,7 @@ export const PROJECTS = [
     ],
     tags: ["Space Technology", "Space Education", "Space Awareness"],
     imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-space.webp?alt=media",
+    projectLink: "https://ai-for-space.digitalreadiness.org/",
   },
   {
     id: "ai-for-accessibility",
@@ -154,6 +163,7 @@ export const PROJECTS = [
     ],
     tags: ["Accessibility", "Inclusion", "AI for Accessibility"],
     imageUrl: "https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/project-thumbnail%2Fai-for-accessibility.webp?alt=media",
+    projectLink: "https://ai4accessibility.digitalreadiness.org/",
   }
 ];
 
@@ -232,11 +242,11 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
     return () => observer.disconnect();
   }, []);
 
-  return (
+  const cardContent = (
     <div
       ref={cardRef}
       className={`bg-white border border-slate-200 transition-all duration-500 overflow-hidden shadow-none group transform ${hasAppeared ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}
+        } ${project.projectLink ? 'hover:border-accent/40 hover:shadow-lg' : ''}`}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12">
         {/* Content Side */}
@@ -321,6 +331,21 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
       </div>
     </div>
   );
+
+  if (project.projectLink) {
+    return (
+      <a
+        href={project.projectLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block cursor-pointer"
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 };
 
 const CaseStudies: React.FC = () => {

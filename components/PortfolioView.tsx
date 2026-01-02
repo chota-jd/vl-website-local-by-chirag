@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { PROJECTS, CountUp } from '@/components/CaseStudies';
 
 const ProjectGridCard: React.FC<{ project: any }> = ({ project }) => {
-  return (
-    <div className="bg-white border border-slate-100 flex flex-col h-full group hover:border-accent/40 transition-colors duration-500 overflow-hidden">
+  const cardContent = (
+    <div 
+      className={`bg-white border border-slate-100 flex flex-col h-full group transition-colors duration-500 overflow-hidden ${project.projectLink ? 'hover:border-accent/40 hover:shadow-lg' : 'hover:border-accent/40'}`}
+    >
       {/* Visual Header */}
       <div className="h-64 relative overflow-hidden bg-slate-100">
         <img 
@@ -64,6 +66,21 @@ const ProjectGridCard: React.FC<{ project: any }> = ({ project }) => {
       </div>
     </div>
   );
+
+  if (project.projectLink) {
+    return (
+      <a
+        href={project.projectLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block cursor-pointer"
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 };
 
 const PortfolioView: React.FC = () => {
