@@ -15,9 +15,9 @@ export async function POST(request: NextRequest) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Version Labs <onboarding@resend.dev>', 
-      to: ['chotajd4444@gmail.com'],
-      subject: 'New Institutional Enquiry - Version Labs Portal',
+      from: 'Version Labs <noreply@email.versionlabs.co>', 
+      to: ['daxeel@versionlabs.co'],
+      subject: `New Institutional Enquiry - ${fullName}`,
       html: `
         <!DOCTYPE html>
         <html lang="en">
