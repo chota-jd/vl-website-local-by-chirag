@@ -29,7 +29,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <Link 
               href="/blog"
               className="mb-12 flex items-center space-x-3 text-slate-400 hover:text-accent transition-colors group"
@@ -69,7 +69,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
       {/* Article Content */}
       <section className="py-32">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="prose prose-slate prose-xl font-light leading-relaxed text-slate-600">
               <p className="text-2xl text-obsidian-900 font-medium mb-12 leading-relaxed">
                 {post.excerpt}
