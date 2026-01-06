@@ -108,8 +108,8 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
           onClick={() => handlePostClick(featuredPost)}
           className="relative group cursor-pointer mb-32 overflow-hidden bg-obsidian-950 border border-slate-100"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
-            <div className="lg:col-span-7 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 h-[600px] max-h-[600px] overflow-hidden">
+            <div className="lg:col-span-7 relative overflow-hidden h-full">
               <img 
                 src={featuredPost.imageUrl || 'https://via.placeholder.com/1200x630/4A5568/FFFFFF?text=Blog+Post'} 
                 alt={featuredPost.title} 
@@ -122,17 +122,17 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-obsidian-950/40 to-transparent"></div>
             </div>
-            <div className="lg:col-span-5 p-12 md:p-20 flex flex-col justify-center text-white relative z-10">
-              <div className="mb-10 flex items-center space-x-4">
+            <div className="lg:col-span-5 p-10 md:p-16 flex flex-col justify-center text-white relative z-10 h-full overflow-hidden">
+              <div className="mb-8 flex items-center space-x-4">
                 <span className="px-4 py-1.5 border border-accent/40 bg-accent/10 text-accent text-base font-black uppercase tracking-ultra">
                   {featuredPost.category}
                 </span>
                 <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{featuredPost.readTime}</span>
               </div>
-              <h3 className="text-4xl md:text-5xl font-display font-black mb-8 leading-tight tracking-tight group-hover:text-accent transition-colors">
+              <h3 className="text-3xl md:text-4xl font-display font-black mb-6 leading-tight tracking-tight group-hover:text-accent transition-colors">
                 {featuredPost.title}
               </h3>
-              <p className="text-slate-400 text-lg font-light leading-relaxed mb-12">
+              <p className="text-slate-400 text-base font-light leading-relaxed mb-8">
                 {featuredPost.excerpt}
               </p>
               <div className="flex items-center space-x-6">
