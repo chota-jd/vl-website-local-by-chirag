@@ -46,7 +46,7 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
             <p className="text-slate-600 text-xl mb-12">
               Get started by creating your first blog post in Sanity Studio.
             </p>
-            <Link
+            {/* <Link
               href="/studio/structure/post"
               className="inline-flex items-center space-x-2 px-8 py-4 bg-obsidian-900 text-white text-sm font-black uppercase tracking-ultra hover:bg-accent transition-all duration-300 shadow-lg"
             >
@@ -54,7 +54,7 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
               </svg>
               <span>Create Your First Post</span>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
