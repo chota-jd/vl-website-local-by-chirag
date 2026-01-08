@@ -34,6 +34,26 @@ const PortableTextRenderer: React.FC<PortableTextRendererProps> = ({ content }) 
             </blockquote>
           ),
         },
+        list: {
+          bullet: ({ children }) => (
+            <ul className="mb-6 space-y-2 text-lg md:text-xl leading-relaxed text-slate-600 pl-8" style={{ listStyleType: 'disc' }}>
+              {children}
+            </ul>
+          ),
+          number: ({ children }) => (
+            <ol className="mb-6 space-y-2 text-lg md:text-xl leading-relaxed text-slate-600 pl-8" style={{ listStyleType: 'decimal' }}>
+              {children}
+            </ol>
+          ),
+        },
+        listItem: {
+          bullet: ({ children }) => (
+            <li className="pl-2" style={{ display: 'list-item' }}>{children}</li>
+          ),
+          number: ({ children }) => (
+            <li className="pl-2" style={{ display: 'list-item' }}>{children}</li>
+          ),
+        },
         marks: {
           strong: ({ children }) => <strong className="font-semibold text-obsidian-900">{children}</strong>,
           em: ({ children }) => <em className="italic">{children}</em>,
