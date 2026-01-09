@@ -1,4 +1,4 @@
-import { client } from './client'
+import { blogClient } from './client'
 import { blogPostsQuery, blogPostBySlugQuery, blogPostSlugsQuery } from './queries'
 
 export interface SanityBlogPost {
@@ -22,15 +22,15 @@ export interface SanityBlogPost {
 }
 
 export async function getBlogPosts(): Promise<SanityBlogPost[]> {
-  return await client.fetch(blogPostsQuery)
+  return await blogClient.fetch(blogPostsQuery)
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<SanityBlogPost | null> {
-  return await client.fetch(blogPostBySlugQuery, { slug })
+  return await blogClient.fetch(blogPostBySlugQuery, { slug })
 }
 
 export async function getBlogPostSlugs(): Promise<{ slug: string }[]> {
-  return await client.fetch(blogPostSlugsQuery)
+  return await blogClient.fetch(blogPostSlugsQuery)
 }
 
 // Helper function to format date
