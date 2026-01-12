@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { SanityBlogPost, formatDate } from '@/lib/sanity/utils';
+import ShareButton from './ShareButton';
 
 interface BlogViewProps {
   posts: SanityBlogPost[];
@@ -11,6 +12,7 @@ interface BlogViewProps {
 
 const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const featuredPost = posts[0];
   const otherPosts = posts.slice(1);
 
@@ -98,9 +100,14 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
             The Digital <br />
             <span className="text-accent italic font-light">Loom.</span>
           </h2>
-          <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-2xl text-balance">
+          <p className="text-slate-600 text-xl md:text-2xl font-light leading-relaxed max-w-2xl text-balance mb-8">
             Strategic commentary on digital governance, nation-scale infrastructure, and the sovereign AI revolution.
           </p>
+          <ShareButton 
+            url={pathname}
+            title="VersionLabs Insights - The Digital Loom"
+            description="Strategic commentary on digital governance, nation-scale infrastructure, and the sovereign AI revolution."
+          />
         </div>
 
         {/* Featured Post */}
@@ -185,20 +192,30 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
                   {post.excerpt}
                 </p>
 
-                {/* 4. Author */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full overflow-hidden grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
-                      <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
+                {/* 4. Author & Share */}
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-full overflow-hidden grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
+                        <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
+                      </div>
+                      <span className="text-sm md:text-base font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
+                        {post.author.name}
+                      </span>
                     </div>
-                    <span className="text-sm md:text-base font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
-                      {post.author.name}
-                    </span>
+                    <div className="text-accent group-hover:translate-x-2 transition-transform">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
-                  <div className="text-accent group-hover:translate-x-2 transition-transform">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ShareButton 
+                      url={`/blog/${post.slug.current}`}
+                      title={post.title}
+                      description={post.excerpt}
+                      className="[&_span]:text-xs"
+                    />
                   </div>
                 </div>
               </div>

@@ -2,14 +2,18 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { SanityBlogPost, formatDate } from '@/lib/sanity/utils';
 import PortableTextRenderer from './PortableTextRenderer';
+import ShareButton from './ShareButton';
 
 interface BlogPostViewProps {
   post: SanityBlogPost;
 }
 
 const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
+  const pathname = usePathname();
+  
   return (
     <div className="bg-white">
       {/* Article Hero */}
@@ -53,13 +57,23 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
               {post.title}
             </h1>
             
-            <div className="flex items-center space-x-4 md:space-x-6 pt-2">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 grayscale shadow-xl flex-shrink-0">
-                <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-2">
+              <div className="flex items-center space-x-4 md:space-x-6">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 grayscale shadow-xl flex-shrink-0">
+                  <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-white text-sm md:text-base font-black uppercase tracking-ultra truncate">{post.author.name}</p>
+                  <p className="text-accent text-xs md:text-sm font-black uppercase tracking-widest truncate">{post.author.title}</p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <p className="text-white text-sm md:text-base font-black uppercase tracking-ultra truncate">{post.author.name}</p>
-                <p className="text-accent text-xs md:text-sm font-black uppercase tracking-widest truncate">{post.author.title}</p>
+              <div className="flex items-center">
+                <ShareButton 
+                  url={pathname}
+                  title={post.title}
+                  description={post.excerpt}
+                  className="text-white [&_button]:hover:bg-white/10 [&_svg]:text-white/80 [&_span]:text-white/60"
+                />
               </div>
             </div>
           </div>
@@ -81,15 +95,22 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
             </div>
 
             {/* Tags & Sharing */}
-            {post.tags && post.tags.length > 0 && (
-              <div className="mt-16 md:mt-32 pt-12 md:pt-16 border-t border-slate-100 flex flex-wrap gap-3 md:gap-4">
-                {post.tags.map(tag => (
-                  <span key={tag} className="text-xs md:text-sm font-black uppercase tracking-ultra text-slate-400 bg-slate-50 px-4 md:px-5 py-2.5 border border-slate-100">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            )}
+            <div className="mt-16 md:mt-32 pt-12 md:pt-16 border-t border-slate-100">
+              {post.tags && post.tags.length > 0 && (
+                <div className="mb-8 flex flex-wrap gap-3 md:gap-4">
+                  {post.tags.map(tag => (
+                    <span key={tag} className="text-xs md:text-sm font-black uppercase tracking-ultra text-slate-400 bg-slate-50 px-4 md:px-5 py-2.5 border border-slate-100">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <ShareButton 
+                url={pathname}
+                title={post.title}
+                description={post.excerpt}
+              />
+            </div>
           </div>
         </div>
       </section>
