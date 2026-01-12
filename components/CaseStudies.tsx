@@ -9,7 +9,7 @@ export const PROJECTS = [
     id: "india",
     region: "India",
     flag: "🇮🇳",
-    type: "Version Labs LMS",
+    type: "Learning Platform",
     title: "AI for All – India",
     subtitle: "Hon. Prime Minister",
     desc: "Our LMS platform powers this massive government initiative, delivering AI education to millions through scalable, multi-language learning experiences backed by real-time analytics.",
@@ -25,10 +25,10 @@ export const PROJECTS = [
     id: "g20",
     region: "Global Initiative",
     flag: "🌍",
-    type: "Version Labs LMS",
+    type: "Learning Platform",
     title: "TechEquity – G20 Empower",
     subtitle: "Smt. Smriti Zubin Irani",
-    desc: "Version Labs LMS enables this global initiative to bridge the gender digital divide, providing intelligent course recommendations and gamified learning at international scale.",
+    desc: "Our learning platform enables this global initiative to bridge the gender digital divide, providing intelligent course recommendations and gamified learning at international scale.",
     metrics: [
       { label: "Women Impacted", value: "2.0M" },
       { label: "Expert-led Courses", value: "95+" }
@@ -41,7 +41,7 @@ export const PROJECTS = [
     id: "malaysia",
     region: "Malaysia",
     flag: "🇲🇾",
-    type: "Version Labs LMS",
+    type: "Learning Platform",
     title: "AI Untuk Rakyat – Malaysia",
     subtitle: "Malaysian Prime Minister",
     desc: "Our enterprise LMS technology drives Malaysia's national AI education strategy, supporting multi-language delivery and integrated analytics with the National AI Office.",
@@ -92,7 +92,7 @@ export const PROJECTS = [
     type: "State Initiative",
     title: "AI for All – Odisha",
     subtitle: "Govt. of Odisha",
-    desc: "Odisha for AI' is a self-learning online program designed to raise public awareness about Artificial Intelligence. It aims to demystify AI for people from all walks of life—students, stay-at-home parents, professionals from any field, senior citizens, and anyone interested in AI who wants to build a digital-first mindset.",
+    desc: "Odisha for AI' is a self-learning online program designed to raise public awareness about Artificial Intelligence. It aims to demystify AI for people from all walks of life-students, stay-at-home parents, professionals from any field, senior citizens, and anyone interested in AI who wants to build a digital-first mindset.",
     metrics: [
       { label: "Registered Users", value: "4146" },
       { label: "Indian Languages", value: "2" }

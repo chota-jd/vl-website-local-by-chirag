@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import LayoutWrapper from '@/components/LayoutWrapper'
 // import Chatbot from '@/components/Chatbot'
 
 const inter = Inter({
@@ -21,25 +20,30 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: 'VersionLabs',
-    template: '%s | VersionLabs',
+    default: 'Digital Infrastructure for Government | Version Labs',
+    template: '%s | Version Labs',
   },
-  description: 'Premium enterprise-grade platforms for government and national learning missions by VersionLabs, featuring AI-powered citizen services and secure digital solutions.',
+  description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
   keywords: [
-    'VersionLabs',
-    'government platforms',
-    'national learning missions',
+    'Version Labs',
+    'digital infrastructure for government',
+    'national learning management system',
     'AI-powered citizen services',
-    'digital infrastructure',
+    'government portal development',
+    'enterprise digital transformation',
+    'e-governance solutions',
+    'nation-scale digital platforms',
     'LMS',
     'learning management system',
     'government portal',
     'digital governance',
-    'e-governance',
+    'national LMS architecture',
+    'AI integration services',
+    'strategic government portals',
   ],
-  authors: [{ name: 'VersionLabs' }],
-  creator: 'VersionLabs',
-  publisher: 'VersionLabs',
+  authors: [{ name: 'Version Labs' }],
+  creator: 'Version Labs',
+  publisher: 'Version Labs',
   robots: {
     index: true,
     follow: true,
@@ -55,12 +59,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://versionlabs.co',
-    siteName: 'VersionLabs',
-    title: 'VersionLabs',
-    description: 'Premium enterprise-grade platforms for government and national learning missions by VersionLabs, featuring AI-powered citizen services and secure digital solutions.',
+    siteName: 'Version Labs',
+    title: 'Digital Infrastructure for Government | Version Labs',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
     images: [
       {
-        url: 'https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/happy-new-year.webp?alt=media',
+        url: 'https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media',
         width: 1200,
         height: 630,
         alt: 'VersionLabs',
@@ -69,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VersionLabs',
-    description: 'Premium enterprise-grade platforms for government and national learning missions by VersionLabs, featuring AI-powered citizen services and secure digital solutions.',
-    images: ['https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/happy-new-year.webp?alt=media'],
+    title: 'Digital Infrastructure for Government | Version Labs',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
+    images: ['https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media'],
     creator: '@versionlabs',
   },
   icons: {
@@ -93,14 +97,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${manrope.variable} min-h-screen selection:bg-accent selection:text-white bg-white overflow-x-hidden`}>
+    <html lang="en" suppressHydrationWarning>
+      <body 
+        className={`${inter.variable} ${manrope.variable} min-h-screen selection:bg-accent selection:text-white bg-white overflow-x-hidden`}
+        suppressHydrationWarning
+      >
         <div className="noise"></div>
-        <Header />
-        <main className="animate-in fade-in duration-1000">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
         {/* <Chatbot /> */}
       </body>
     </html>

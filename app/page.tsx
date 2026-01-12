@@ -6,6 +6,31 @@ import CaseStudies from '@/components/CaseStudies'
 import PressSection from '@/components/PressSection'
 import Testimonials from '@/components/Testimonials'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Digital Infrastructure for Government | Version Labs',
+  description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
+  openGraph: {
+    title: 'Digital Infrastructure for Government | Version Labs',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
+    url: 'https://versionlabs.co',
+    images: [
+      {
+        url: 'https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media',
+        width: 1200,
+        height: 630,
+        alt: 'Version Labs - Digital Infrastructure for Government',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Digital Infrastructure for Government | Version Labs',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
+    images: ['https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media'],
+  },
+}
 
 export default function Home() {
   return (
@@ -33,7 +58,7 @@ export default function Home() {
               Transform at <span className="text-accent italic">Scale.</span>
             </h2>
             <p className="text-2xl text-slate-400 mb-20 leading-relaxed font-light max-w-3xl mx-auto text-balance">
-              Whether you are planning a national LMS, a government portal, or a digital governance platform — our team is ready to support your mission.
+              Whether you are planning a national LMS, a government portal, or a digital governance platform - our team is ready to support your mission.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
               <Link 

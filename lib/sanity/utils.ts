@@ -1,0 +1,55 @@
+import { blogClient } from './client'
+import { blogPostsQuery, blogPostBySlugQuery, blogPostSlugsQuery } from './queries'
+
+export interface SanityBlogPost {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  excerpt: string
+  author: {
+    name: string
+    title: string
+    avatar: string
+  }
+  publishedAt: string
+  category: string
+  readTime: string
+  imageUrl: string | null
+  mainImage?: any // Full Sanity image reference for urlFor
+  imageAsset?: {
+    _id: string
+    url: string
+    metadata?: {
+      dimensions?: {
+        width: number
+        height: number
+      }
+    }
+  }
+  content: any[]
+  tags?: string[]
+}
+
+export async function getBlogPosts(): Promise<SanityBlogPost[]> {
+  return await blogClient.fetch(blogPostsQuery)
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<SanityBlogPost | null> {
+  return await blogClient.fetch(blogPostBySlugQuery, { slug })
+}
+
+export async function getBlogPostSlugs(): Promise<{ slug: string }[]> {
+  return await blogClient.fetch(blogPostSlugsQuery)
+}
+
+// Helper function to format date
+export function formatDate(dateString: string): string {
+  if (!dateString) return ''
+  const date = new Date(dateString)
+  if (isNaN(date.getTime())) return ''
+  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+}
+
