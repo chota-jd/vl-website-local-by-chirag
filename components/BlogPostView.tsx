@@ -17,8 +17,9 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
   return (
     <div className="bg-white">
       {/* Article Hero */}
-      <section className="relative pt-40 md:pt-56 pb-20 md:pb-40 bg-obsidian-950 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="relative pt-20 md:pt-56 pb-20 md:pb-40 bg-obsidian-950 overflow-hidden">
+        {/* Background image for desktop only */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <img 
             src={post.imageUrl || 'https://via.placeholder.com/1200x630/4A5568/FFFFFF?text=Blog+Post'} 
             alt={post.title} 
@@ -36,7 +37,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
           <div className="max-w-6xl mx-auto">
             <Link 
               href="/blog"
-              className="mb-10 md:mb-14 flex items-center space-x-3 text-slate-400 hover:text-accent transition-colors group"
+              className="mb-6 md:mb-14 flex items-center space-x-3 text-slate-400 hover:text-accent transition-colors group"
             >
               <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -44,12 +45,34 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
               <span className="text-sm font-black uppercase tracking-ultra">Back to Insights</span>
             </Link>
             
-            <div className="mb-8 md:mb-12 flex flex-wrap items-center gap-4 md:gap-6">
+            {/* Mobile Layout: Category, Date, Image (flex-col) */}
+            <div className="md:hidden flex flex-col gap-4 mb-8">
+              <span className="px-5 py-2.5 border border-accent/40 bg-accent/10 text-accent text-xs font-black uppercase tracking-ultra w-fit">
+                {post.category}
+              </span>
+              <span className="text-slate-400 text-xs font-black uppercase tracking-ultra">{formatDate(post.publishedAt)}</span>
+              
+              {/* Mobile Image */}
+              <div className="w-full aspect-video rounded-lg overflow-hidden">
+                <img 
+                  src={post.imageUrl || 'https://via.placeholder.com/1200x630/4A5568/FFFFFF?text=Blog+Post'} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.src = 'https://via.placeholder.com/1200x630/4A5568/FFFFFF?text=Blog+Post'
+                  }}
+                />
+              </div>
+            </div>
+            
+            {/* Desktop Layout: Category, Date, Read Time (flex-row) */}
+            <div className="hidden md:flex flex-wrap items-center gap-4 md:gap-6 mb-8 md:mb-12">
               <span className="px-5 md:px-6 py-2.5 border border-accent/40 bg-accent/10 text-accent text-xs md:text-sm font-black uppercase tracking-ultra">
                 {post.category}
               </span>
               <span className="text-slate-400 text-xs md:text-sm font-black uppercase tracking-ultra">{formatDate(post.publishedAt)}</span>
-              <span className="w-1 h-1 bg-slate-700 rounded-full hidden md:block"></span>
+              <span className="w-1 h-1 bg-slate-700 rounded-full"></span>
               <span className="text-slate-400 text-xs md:text-sm font-black uppercase tracking-ultra">{post.readTime}</span>
             </div>
             
