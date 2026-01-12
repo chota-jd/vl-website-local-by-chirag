@@ -10,15 +10,25 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Digital Infrastructure for Government | Version Labs',
-  description: 'Building enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals. Transform at scale.',
+  description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
   openGraph: {
     title: 'Digital Infrastructure for Government | Version Labs',
-    description: 'Building enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals. Transform at scale.',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
     url: 'https://versionlabs.co',
+    images: [
+      {
+        url: 'https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media',
+        width: 1200,
+        height: 630,
+        alt: 'Version Labs - Digital Infrastructure for Government',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'Digital Infrastructure for Government | Version Labs',
-    description: 'Building enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals. Transform at scale.',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
+    images: ['https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media'],
   },
 }
 

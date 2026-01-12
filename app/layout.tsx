@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: 'Digital Infrastructure for Government | Version Labs',
     template: '%s | Version Labs',
   },
-  description: 'Building enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals. Transform at scale.',
+  description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
   keywords: [
     'Version Labs',
     'digital infrastructure for government',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     url: 'https://versionlabs.co',
     siteName: 'Version Labs',
     title: 'Digital Infrastructure for Government | Version Labs',
-    description: 'Building enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals. Transform at scale.',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
     images: [
       {
         url: 'https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Digital Infrastructure for Government | Version Labs',
-    description: 'Building enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals. Transform at scale.',
+    description: 'Enterprise-grade digital infrastructure for modern nations. National LMS platforms, AI-powered citizen services, and secure government portals.',
     images: ['https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/versionlabs-meta-image.webp?alt=media'],
     creator: '@versionlabs',
   },
