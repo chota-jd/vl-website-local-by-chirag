@@ -46,6 +46,7 @@ export const blogPostBySlugQuery = groq`
     category,
     readTime,
     "imageUrl": coalesce(mainImage.asset->url, "https://via.placeholder.com/1200x630/4A5568/FFFFFF?text=Blog+Post"),
+    mainImage,
     "imageAsset": mainImage.asset->{
       _id,
       url,

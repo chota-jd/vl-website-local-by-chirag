@@ -17,6 +17,17 @@ export interface SanityBlogPost {
   category: string
   readTime: string
   imageUrl: string | null
+  mainImage?: any // Full Sanity image reference for urlFor
+  imageAsset?: {
+    _id: string
+    url: string
+    metadata?: {
+      dimensions?: {
+        width: number
+        height: number
+      }
+    }
+  }
   content: any[]
   tags?: string[]
 }
