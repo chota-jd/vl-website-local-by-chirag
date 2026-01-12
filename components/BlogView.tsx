@@ -149,38 +149,57 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
         </div>
 
         {/* Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 border border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {otherPosts.map((post) => (
             <div 
               key={post._id} 
               onClick={() => handlePostClick(post)}
-              className="bg-white p-12 md:p-20 group cursor-pointer hover:bg-slate-50 transition-colors"
+              className="bg-white group cursor-pointer border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
-              <div className="mb-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
-                <span className="text-accent text-base font-black uppercase tracking-ultra">
-                  {post.category}
-                </span>
-                <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">{formatDate(post.publishedAt)}</span>
-              </div>
-              <h3 className="text-2xl font-display font-black text-obsidian-900 mb-8 leading-tight tracking-tight group-hover:text-accent transition-colors">
-                {post.title}
-              </h3>
-              <p className="text-slate-500 text-lg font-light leading-relaxed mb-12 line-clamp-3">
-                {post.excerpt}
-              </p>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 rounded-full overflow-hidden grayscale opacity-40 group-hover:opacity-100 transition-opacity">
-                    <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
-                  </div>
-                    <span className="text-base font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
-                    {post.author.name}
+              <div className="p-8 md:p-10">
+                {/* 1. Category and Date */}
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="text-accent text-base md:text-lg font-black uppercase tracking-ultra">
+                    {post.category}
+                  </span>
+                  <span className="text-slate-400 text-sm font-black uppercase tracking-ultra">
+                    {formatDate(post.publishedAt)}
                   </span>
                 </div>
-                <div className="text-accent group-hover:translate-x-2 transition-transform">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+
+                {/* 2. Thumbnail Image */}
+                <div className="relative w-full h-56 md:h-64 mb-6 overflow-hidden bg-slate-100">
+                  <img 
+                    src={post.imageUrl || 'https://via.placeholder.com/800x450/4A5568/FFFFFF?text=Blog+Post'} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = 'https://via.placeholder.com/800x450/4A5568/FFFFFF?text=Blog+Post'
+                    }}
+                  />
+                </div>
+
+                {/* 3. Excerpt */}
+                <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed mb-6">
+                  {post.excerpt}
+                </p>
+
+                {/* 4. Author */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full overflow-hidden grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
+                      <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
+                    </div>
+                    <span className="text-sm md:text-base font-black uppercase tracking-ultra text-slate-400 group-hover:text-obsidian-900 transition-colors">
+                      {post.author.name}
+                    </span>
+                  </div>
+                  <div className="text-accent group-hover:translate-x-2 transition-transform">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
