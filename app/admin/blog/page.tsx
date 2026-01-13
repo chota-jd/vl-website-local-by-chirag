@@ -59,9 +59,8 @@ export default function BlogAdminPage() {
         }
         if (Array.isArray(data.authors)) {
           setAuthors(data.authors)
-          if (!generateAuthorId && data.authors.length > 0) {
-            setGenerateAuthorId(data.authors[0].id)
-          }
+          // Keep generateAuthorId empty by default so the
+          // "Use default author from Sanity" option stays selected.
         }
       }      
     } catch (error) {
@@ -207,7 +206,9 @@ export default function BlogAdminPage() {
       <div className="min-h-screen bg-obsidian-950 text-white pt-32 pb-8 px-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-display font-black mb-8">Blog Admin</h1>
-          <p>Loading pending blog posts...</p>
+          <div className="flex items-center justify-center min-h-[60vh]">
+            <div className="w-12 h-12 border-4 border-white/10 border-t-accent rounded-full animate-spin"></div>
+          </div>
         </div>
       </div>
     )
@@ -223,13 +224,21 @@ export default function BlogAdminPage() {
           <p className="text-sm text-slate-400">
             Generate a new AI-written blog post as a draft and send it to the pending list for review.
           </p>
-          <Button
-            variant="primary"
-            onClick={() => setIsGenerateDialogOpen(true)}
-            disabled={isGenerating}
-          >
-            {isGenerating ? 'Generating...' : 'Generate New Blog'}
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button
+              variant="secondary"
+              onClick={() => window.open('/studio', '_blank')}
+            >
+              Open Sanity Studio
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => setIsGenerateDialogOpen(true)}
+              disabled={isGenerating}
+            >
+              {isGenerating ? 'Generating...' : 'Generate New Blog'}
+            </Button>
+          </div>
         </div>
 
         {/* Notification Toast */}
@@ -493,6 +502,9 @@ export default function BlogAdminPage() {
                   disabled={isGenerating}
                   className="w-full rounded-md bg-obsidian-900 border border-white/10 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                 />
+                <p className="text-xs text-slate-400">
+                  If left empty, AI will automatically choose a relevant topic for this category.
+                </p>
                 {generateCategory && categories.find((c) => c.name === generateCategory)?.topics && (
                   <p className="text-xs text-slate-400">
                     Suggested topics:{' '}
