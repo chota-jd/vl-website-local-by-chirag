@@ -335,12 +335,12 @@ export default function BlogAdminPage() {
               <div className="space-y-6 overflow-y-auto flex-1 pr-2 -mr-2">
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Excerpt</h3>
-                  <p className="text-slate-300 break-words">{selectedPost.excerpt}</p>
+                  <p className="text-gray-400 break-words">{selectedPost.excerpt}</p>
                 </div>
                 
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Content</h3>
-                  <div className="prose prose-invert max-w-none text-slate-300 break-words overflow-x-hidden [&>h1]:text-white [&>h2]:text-white [&>h3]:text-white [&>h4]:text-white [&>h5]:text-white [&>h6]:text-white [&>p]:text-slate-300 [&>p]:break-words [&>ul]:text-slate-300 [&>ol]:text-slate-300 [&>li]:text-slate-300 [&>li]:break-words [&>code]:bg-slate-800 [&>code]:text-slate-200 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:break-all [&>pre]:bg-slate-900 [&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:max-w-full [&>a]:text-blue-400 [&>a]:hover:text-blue-300 [&>a]:break-all">
+                  <div className="prose prose-invert max-w-none text-gray-400 break-words overflow-x-hidden [&>h1]:text-white [&>h2]:text-white [&>h3]:text-white [&>h4]:text-white [&>h5]:text-white [&>h6]:text-white [&>h1]:mt-6 [&>h2]:mt-6 [&>h3]:mt-4 [&>h4]:mt-4 [&>h5]:mt-3 [&>h6]:mt-3 [&>h1]:text-2xl [&>h2]:text-xl [&>h3]:text-lg [&>h1]:font-bold [&>h2]:font-semibold [&>h3]:font-semibold [&>p]:text-gray-400 [&>p]:break-words [&>ul]:text-gray-400 [&>ol]:text-gray-400 [&>li]:text-gray-400 [&>li]:break-words [&>code]:bg-slate-800 [&>code]:text-slate-200 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:break-all [&>pre]:bg-slate-900 [&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:max-w-full [&>a]:text-blue-400 [&>a]:hover:text-blue-300 [&>a]:break-all">
                     <ReactMarkdown>{selectedPost.body}</ReactMarkdown>
                   </div>
                 </div>
@@ -373,11 +373,13 @@ export default function BlogAdminPage() {
                 {selectedPost.imageUrl && (
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Generated Image</h3>
-                    <img 
-                      src={selectedPost.imageUrl} 
-                      alt={selectedPost.title}
-                      className="max-w-full rounded-lg border border-white/10"
-                    />
+                    <div className="w-full max-w-3xl mx-auto">
+                      <img 
+                        src={selectedPost.imageUrl} 
+                        alt={selectedPost.title}
+                        className="w-full max-h-[420px] object-cover rounded-lg border border-white/10"
+                      />
+                    </div>
                   </div>
                 )}
 
