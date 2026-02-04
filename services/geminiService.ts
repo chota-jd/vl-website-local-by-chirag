@@ -339,7 +339,7 @@ export async function generateImagePromptForBlog(
   if (!apiKey) {
     // Fallback to a generic, content-aligned prompt
     const visualTitle = catchyHeadline || title;
-    return `Professional, modern illustration representing "${visualTitle}" in the context of ${category}. Clean, corporate style suitable for a government and technology insights blog. High quality, photorealistic or clean illustration.`;
+    return `Professional, modern illustration representing "${visualTitle}" in the context of ${category}. Wide landscape composition (16:9, horizontal, width clearly greater than height), clean corporate style suitable for a government and technology insights blog. High quality, photorealistic or clean illustration. Never square or portrait.`;
   }
 
   try {
@@ -347,7 +347,7 @@ export async function generateImagePromptForBlog(
 
     const visualTitle = catchyHeadline || title;
 
-    const metaPrompt = `You are an expert at creating image generation prompts. Based on the following blog post details, create a single, detailed image generation prompt (max 150 words) that would produce a professional, modern, high-quality featured image for a government and technology insights blog.
+const metaPrompt = `You are an expert at creating image generation prompts. Based on the following blog post details, create a single, detailed image generation prompt (max 150 words) that would produce a professional, modern, high-quality featured image for a government and technology insights blog.
 
 Deep Dive Article Title: "${title}"
 Cover Story Catchy Headline (from ideas prompt): "${visualTitle}"
@@ -362,7 +362,7 @@ The image should be:
 - Clearly related to education, workforce, or digital / AI infrastructure (not random shapes)
 - Modern and visually appealing, matching the article's main idea
 - Either photorealistic or a clean, high-end illustration
-- Suitable as a 16:9 hero image on a website (no text in the image)
+- A **wide landscape** composition only: 16:9 hero image for web, horizontal layout with width clearly greater than height. Never square or portrait. No text inside the image.
 
 Avoid:
 - Cheesy stock imagery
@@ -383,10 +383,10 @@ Return ONLY the final image generation prompt, nothing else.`;
     const imagePrompt = (response.text || '').trim();
     console.log('Generated image prompt:', imagePrompt);
     
-    return imagePrompt || `Professional, modern featured image representing "${visualTitle}" in the context of ${category}, focused on education, workforce, and digital infrastructure. Clean composition, high-end lighting, no over-the-top abstract geometry.`;
+    return imagePrompt || `Professional, modern featured image representing "${visualTitle}" in the context of ${category}, focused on education, workforce, and digital infrastructure. Wide 16:9 landscape layout suitable for a website hero, clean composition, high-end lighting, no over-the-top abstract geometry, never square or portrait.`;
   } catch (error) {
     console.warn('Failed to generate image prompt with Gemini, using fallback:', error);
     const visualTitle = catchyHeadline || title;
-    return `Professional, modern illustration representing "${visualTitle}" in the context of ${category}. Clean, corporate style suitable for a government and technology insights blog. High quality, photorealistic or clean illustration.`;
+    return `Professional, modern illustration representing "${visualTitle}" in the context of ${category}. Wide 16:9 landscape layout only (horizontal, never square or portrait), clean corporate style suitable for a government and technology insights blog. High quality, photorealistic or clean illustration.`;
   }
 }
