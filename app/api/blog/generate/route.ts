@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { generateContent } from '@/services/aiContentService'
+import { generateBlogContent } from '@/services/geminiService'
 import { markdownToPortableText } from '@/lib/sanity/portableTextConverter'
 import { getDefaultAuthorId, getAuthors, uploadImageBufferToSanity, testSanityConnection } from '@/lib/sanity/writeClient'
 import { generateBlogImage, calculateReadTime, countWords } from '@/lib/content/imageHandler'
-import { getAllCategories, getCategoryConfig } from '@/lib/content/categoryConfig'
 import { addPendingBlogPost } from '@/lib/pendingBlogs'
 
 /**
@@ -56,30 +55,14 @@ export async function POST(request: NextRequest) {
     }
 
     const {
-      category,
-      topic,
+      // category and topic are intentionally ignored for the new prompt flow
       aiProvider = 'gemini',
       authorId,
       publishStatus = 'draft',
     } = body
 
-    // Validate category
-    if (!category) {
-      return NextResponse.json(
-        { error: 'Category is required' },
-        { status: 400 }
-      )
-    }
-
-    const categoryConfig = getCategoryConfig(category)
-    if (!categoryConfig) {
-      return NextResponse.json(
-        {
-          error: `Invalid category. Available categories: ${getAllCategories().join(', ')}`,
-        },
-        { status: 400 }
-      )
-    }
+    // For the new deep-dive prompt, we always use a single internal category
+    const category = 'VersionLabs Insights'
 
     // Validate AI provider - only Gemini is supported now
     if (aiProvider !== 'gemini') {
@@ -89,13 +72,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Generate content using AI
-    console.log(`Generating blog content for category: ${category}, topic: ${topic || 'auto'}, provider: gemini`)
+    // Generate content using AI (deep-dive prompt flow)
+    console.log(`Generating deep-dive blog content, provider: gemini`)
     
-    const blogContent = await generateContent({
-      category,
-      topic,
-    })
+    const blogContent = await generateBlogContent('')
 
     // Get or use default author
     let finalAuthorId = authorId
@@ -119,11 +99,40 @@ export async function POST(request: NextRequest) {
       console.log('Using default author ID:', finalAuthorId)
     }
 
+    // Ensure we have clean markdown (strip out any accidental JSON wrapper)
+    let markdownBody = blogContent.body
+    if (markdownBody && markdownBody.trim().startsWith('{')) {
+      try {
+        const parsed = JSON.parse(markdownBody)
+        if (parsed && typeof parsed === 'object') {
+          markdownBody = typeof parsed.body === 'string' ? parsed.body : markdownBody
+          // Optionally align other fields if present
+          if (parsed.title && typeof parsed.title === 'string') {
+            blogContent.title = parsed.title
+          }
+          if (parsed.excerpt && typeof parsed.excerpt === 'string') {
+            blogContent.excerpt = parsed.excerpt
+          }
+          if (Array.isArray(parsed.tags)) {
+            blogContent.tags = parsed.tags
+          }
+          if (typeof parsed.inputTopic === 'string') {
+            blogContent.inputTopic = parsed.inputTopic
+          }
+          if (typeof parsed.imageConcept === 'string') {
+            blogContent.imageConcept = parsed.imageConcept
+          }
+        }
+      } catch {
+        // If JSON.parse fails, fall back to original markdownBody
+      }
+    }
+
     // Convert markdown body to PortableText
-    const portableTextBody = markdownToPortableText(blogContent.body)
+    const portableTextBody = markdownToPortableText(markdownBody)
 
     // Calculate read time
-    const wordCount = countWords(blogContent.body)
+   const wordCount = countWords(markdownBody)
     const readTime = calculateReadTime(wordCount)
 
     // Generate slug from title
@@ -138,7 +147,9 @@ export async function POST(request: NextRequest) {
       const generatedImage = await generateBlogImage(
         blogContent.title,
         category,
-        blogContent.excerpt
+        blogContent.excerpt,
+        blogContent.imageConcept,
+        blogContent.inputTopic
       )
       
       if (generatedImage && generatedImage.imageData) {
@@ -179,7 +190,7 @@ export async function POST(request: NextRequest) {
       category,
       excerpt: blogContent.excerpt,
       readTime,
-      body: blogContent.body, // Store markdown for display
+      body: markdownBody, // Store markdown for display
       bodyPortableText: portableTextBody, // Store PortableText for Sanity
       tags: blogContent.tags,
       imageAssetId: mainImageAssetId,
@@ -215,17 +226,7 @@ export async function POST(request: NextRequest) {
  */
 export async function GET() {
   try {
-    const categories = getAllCategories()
-    const categoryDetails = categories.map(cat => {
-      const config = getCategoryConfig(cat)
-      return {
-        name: cat,
-        description: config?.description,
-        topics: config?.topics,
-      }
-    })
-
-    // Also return available authors so the admin UI can offer an author picker
+    // Only authors are currently used by the admin; categories are handled entirely by the prompt.
     const authors = await getAuthors()
     const authorDetails = (authors || []).map(author => ({
       id: author._id,
@@ -233,7 +234,6 @@ export async function GET() {
     }))
 
     return NextResponse.json({
-      categories: categoryDetails,
       availableProviders: ['gemini'],
       authors: authorDetails,
     })
