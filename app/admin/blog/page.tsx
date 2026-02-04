@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Lock } from 'lucide-react'
 import { PendingBlogPost } from '@/lib/pendingBlogs'
 import ReactMarkdown from 'react-markdown'
+import { Avatar } from './Avatar'
 
 const BLOG_ADMIN_PASSWORD = 'vl@2025'
 const BLOG_ADMIN_AUTH_KEY = 'blog-admin-auth'
@@ -216,7 +217,17 @@ export default function BlogAdminPage() {
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-display font-black mb-8">Blog Admin</h1>
           <div className="flex items-center justify-center min-h-[60vh]">
-            <div className="w-12 h-12 border-4 border-white/10 border-t-accent rounded-full animate-spin"></div>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <Avatar state="thinking" className="w-48 h-48" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium text-slate-100">
+                  Checking admin access…
+                </p>
+                <p className="text-xs text-slate-400 max-w-sm">
+                  Verifying your secure session before loading the blog tools.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -229,7 +240,17 @@ export default function BlogAdminPage() {
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-display font-black mb-8">Blog Admin</h1>
           <div className="flex items-center justify-center min-h-[60vh]">
-            <div className="w-12 h-12 border-4 border-white/10 border-t-accent rounded-full animate-spin"></div>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <Avatar state="thinking" className="w-48 h-48" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium text-slate-100">
+                  Loading pending blog posts…
+                </p>
+                <p className="text-xs text-slate-400 max-w-sm">
+                  Fetching drafts from Firebase and preparing them for review.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
