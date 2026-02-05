@@ -1,5 +1,6 @@
 
 import { GoogleGenAI } from "@google/genai";
+import { buildBlogMasterPrompt } from '@/lib/content/blogMasterPrompt';
 
 const SYSTEM_INSTRUCTION = `
 You are the "VersionLabs AI Assistant", a representative of a world-class government technology firm specializing in digital infrastructure.
@@ -45,34 +46,27 @@ export interface BlogContent {
   excerpt: string
   body: string
   tags: string[]
+  /**
+   * The combined topic string used for the deep-dive article and image concept.
+   * Format: "[CATCHY_TAGLINE] - [CORE_INSIGHTS]"
+   */
+  inputTopic?: string
+  /**
+   * One-sentence abstract image description generated from the BLOG PROMPT.
+   * Used as the primary driver for image generation.
+   */
+  imageConcept?: string
 }
 
 /**
  * Generate blog content using Gemini API
  */
 export async function generateBlogContent(
-  prompt: string,
-  category: string
+  prompt: string
 ): Promise<BlogContent> {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-  const blogGenerationPrompt = `${prompt}
-
-Please generate a complete blog post with the following structure:
-1. Title: A compelling, SEO-friendly title (max 80 characters)
-2. Excerpt: A brief summary (max 200 characters) that captures the essence of the post
-3. Body: The full blog post content in markdown format (800-2000 words)
-4. Tags: 3-5 relevant tags as a comma-separated list
-
-Format your response as JSON with the following structure:
-{
-  "title": "Your blog post title",
-  "excerpt": "Your excerpt here",
-  "body": "Your markdown content here",
-  "tags": ["tag1", "tag2", "tag3"]
-}
-
-Ensure the content is well-structured with proper markdown formatting including headings (##, ###), paragraphs, lists, and emphasis.`;
+  const blogGenerationPrompt = buildBlogMasterPrompt(prompt);
 
   try {
     const response = await ai.models.generateContent({
@@ -81,7 +75,7 @@ Ensure the content is well-structured with proper markdown formatting including 
         { role: 'user', parts: [{ text: blogGenerationPrompt }] }
       ],
       config: {
-        systemInstruction: `You are a professional content writer for VersionLabs, a government technology firm. Write high-quality, authoritative blog posts about ${category} topics.`,
+        systemInstruction: `You are the Editor-in-Chief of a high-level, non-commercial research institute. You write clear, factual, forward-looking deep dives for ministers, CEOs, and policy makers about the intersection of education, workforce training, and technology infrastructure. You never promote products or services, you avoid all banned words listed in the prompt, and you always follow the requested structure exactly.`,
         temperature: 0.8,
         topP: 0.95,
       }
@@ -95,7 +89,19 @@ Ensure the content is well-structured with proper markdown formatting including 
       // Look for JSON in the response (might be wrapped in markdown code blocks)
       const jsonMatch = responseText.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
-        blogContent = JSON.parse(jsonMatch[0]);
+        const parsed = JSON.parse(jsonMatch[0]);
+        blogContent = {
+          title: parsed.title,
+          excerpt: parsed.excerpt,
+          body: parsed.body,
+          tags: Array.isArray(parsed.tags)
+            ? parsed.tags
+            : typeof parsed.tags === 'string'
+              ? parsed.tags.split(',').map((t: string) => t.trim()).filter(Boolean)
+              : ['Insights'],
+          inputTopic: typeof parsed.inputTopic === 'string' ? parsed.inputTopic : undefined,
+          imageConcept: typeof parsed.imageConcept === 'string' ? parsed.imageConcept : undefined,
+        };
       } else {
         throw new Error('No JSON found in response');
       }
@@ -103,10 +109,12 @@ Ensure the content is well-structured with proper markdown formatting including 
       // Fallback: parse the response manually
       console.warn('Failed to parse JSON, using fallback parsing');
       blogContent = {
-        title: extractTitle(responseText) || `Blog Post about ${category}`,
+        title: extractTitle(responseText) || `Version Labs Insights Deep Dive`,
         excerpt: extractExcerpt(responseText) || responseText.substring(0, 200),
         body: responseText,
-        tags: extractTags(responseText) || [category],
+        tags: extractTags(responseText) || ['Insights'],
+        inputTopic: undefined,
+        imageConcept: undefined,
       };
     }
 
@@ -116,7 +124,7 @@ Ensure the content is well-structured with proper markdown formatting including 
     }
 
     if (!blogContent.tags || blogContent.tags.length === 0) {
-      blogContent.tags = [category];
+      blogContent.tags = ['Insights'];
     }
 
     return blogContent;
@@ -303,36 +311,65 @@ function extractKeywordsFromPrompt(prompt: string): string {
 }
 
 /**
- * Generate an optimized image prompt for blog content
+ * Generate an optimized image prompt for blog content.
+ * 
+ * This is intentionally focused on producing a content-aligned,
+ * professional featured image (not purely abstract geometry),
+ * similar to the original implementation.
  */
 export async function generateImagePromptForBlog(
   title: string,
   category: string,
-  excerpt?: string
+  excerpt?: string,
+  imageConcept?: string,
+  inputTopic?: string
 ): Promise<string> {
+  // Try to extract the catchy cover headline from the Input Topic, if present.
+  // Expected general shape: "Input Topic: Catchy headline here - core insight..."
+  let catchyHeadline: string | undefined;
+  if (inputTopic) {
+    const withoutLabel = inputTopic.replace(/^Input Topic:\s*/i, '');
+    const parts = withoutLabel.split(' - ');
+    if (parts[0]) {
+      catchyHeadline = parts[0].trim();
+    }
+  }
+
   const apiKey = process.env.API_KEY;
   if (!apiKey) {
-    // Fallback to basic prompt
-    return `Professional, modern illustration representing ${category} - ${title}. Clean, corporate style suitable for a technology blog. High quality, photorealistic.`;
+    // Fallback to a generic, content-aligned prompt
+    const visualTitle = catchyHeadline || title;
+    return `Professional, modern illustration representing "${visualTitle}" in the context of ${category}. Wide landscape composition (16:9, horizontal, width clearly greater than height), clean corporate style suitable for a government and technology insights blog. High quality, photorealistic or clean illustration. Never square or portrait.`;
   }
 
   try {
     const ai = new GoogleGenAI({ apiKey });
 
-    const metaPrompt = `You are an expert at creating image generation prompts. Based on the following blog post details, create a single, detailed image generation prompt (max 150 words) that would produce a professional, modern, high-quality featured image for a government technology blog.
+    const visualTitle = catchyHeadline || title;
 
-Blog Title: "${title}"
+const metaPrompt = `You are an expert at creating image generation prompts. Based on the following blog post details, create a single, detailed image generation prompt (max 150 words) that would produce a professional, modern, high-quality featured image for a government and technology insights blog.
+
+Deep Dive Article Title: "${title}"
+Cover Story Catchy Headline (from ideas prompt): "${visualTitle}"
 Category: "${category}"
 ${excerpt ? `Excerpt: "${excerpt}"` : ''}
+${inputTopic ? `Input Topic: "${inputTopic}"` : ''}
+${imageConcept ? `Abstract Image Concept: "${imageConcept}"` : ''}
 
 The image should be:
-- Professional and corporate-appropriate
-- Modern and visually appealing
-- Related to technology/government/digital transformation
-- Photorealistic or clean illustration style
-- Suitable for a 16:9 aspect ratio blog header
+- Professional and credible enough for ministers, CEOs, and policy makers
+- Visually driven first by the catchy cover headline above
+- Clearly related to education, workforce, or digital / AI infrastructure (not random shapes)
+- Modern and visually appealing, matching the article's main idea
+- Either photorealistic or a clean, high-end illustration
+- A **wide landscape** composition only: 16:9 hero image for web, horizontal layout with width clearly greater than height. Never square or portrait. No text inside the image.
 
-Return ONLY the image generation prompt, nothing else.`;
+Avoid:
+- Cheesy stock imagery
+- Overly abstract geometry that does not reflect the article topic
+- People with visible faces, logos, or UI mockups with real text
+
+Return ONLY the final image generation prompt, nothing else.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -346,9 +383,10 @@ Return ONLY the image generation prompt, nothing else.`;
     const imagePrompt = (response.text || '').trim();
     console.log('Generated image prompt:', imagePrompt);
     
-    return imagePrompt || `Professional illustration of ${category} - ${title}. Modern, clean, corporate style.`;
+    return imagePrompt || `Professional, modern featured image representing "${visualTitle}" in the context of ${category}, focused on education, workforce, and digital infrastructure. Wide 16:9 landscape layout suitable for a website hero, clean composition, high-end lighting, no over-the-top abstract geometry, never square or portrait.`;
   } catch (error) {
     console.warn('Failed to generate image prompt with Gemini, using fallback:', error);
-    return `Professional, modern illustration representing ${category} - ${title}. Clean, corporate style suitable for a technology blog.`;
+    const visualTitle = catchyHeadline || title;
+    return `Professional, modern illustration representing "${visualTitle}" in the context of ${category}. Wide 16:9 landscape layout only (horizontal, never square or portrait), clean corporate style suitable for a government and technology insights blog. High quality, photorealistic or clean illustration.`;
   }
 }

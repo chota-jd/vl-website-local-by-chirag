@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Lock } from 'lucide-react'
 import { PendingBlogPost } from '@/lib/pendingBlogs'
 import ReactMarkdown from 'react-markdown'
+import { Avatar } from './Avatar'
 
 const BLOG_ADMIN_PASSWORD = 'vl@2025'
 const BLOG_ADMIN_AUTH_KEY = 'blog-admin-auth'
@@ -20,14 +21,8 @@ export default function BlogAdminPage() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
   const [processing, setProcessing] = useState<string | null>(null) // Format: "postId-action" e.g., "post123-approve-draft"
   const [isGenerating, setIsGenerating] = useState(false)
-  const [isGenerateDialogOpen, setIsGenerateDialogOpen] = useState(false)
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
-  const [categories, setCategories] = useState<Array<{ name: string; description?: string; topics?: string[] }>>([])
-  const [authors, setAuthors] = useState<Array<{ id: string; name: string }>>([])
-  const [isLoadingCategories, setIsLoadingCategories] = useState(false)
-  const [generateCategory, setGenerateCategory] = useState<string>('')
-  const [generateTopic, setGenerateTopic] = useState<string>('')
-  const [generateAuthorId, setGenerateAuthorId] = useState<string>('')
+  // Authors are now always resolved to the default author in the backend.
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [checkingAuth, setCheckingAuth] = useState(true)
   const [showLoginDialog, setShowLoginDialog] = useState(false)
@@ -60,7 +55,6 @@ export default function BlogAdminPage() {
   useEffect(() => {
     if (isAuthenticated) {
       fetchPendingPosts()
-      fetchCategories()
     }
   }, [isAuthenticated])
 
@@ -100,43 +94,7 @@ export default function BlogAdminPage() {
     }
   }
 
-  const fetchCategories = async () => {
-    try {
-      setIsLoadingCategories(true)
-      const response = await fetch('/api/blog/generate', {
-        method: 'GET',
-      })
-      const data = await response.json()
-      if (response.ok) {
-        if (Array.isArray(data.categories)) {
-          setCategories(data.categories)
-          if (!generateCategory && data.categories.length > 0) {
-            setGenerateCategory(data.categories[0].name)
-          }
-        }
-        if (Array.isArray(data.authors)) {
-          setAuthors(data.authors)
-          // Keep generateAuthorId empty by default so the
-          // "Use default author from Sanity" option stays selected.
-        }
-      }      
-    } catch (error) {
-      console.error('Error fetching categories for generator:', error)
-    } finally {
-      setIsLoadingCategories(false)
-    }
-  }
-
   const handleGenerate = async () => {
-    if (!generateCategory) {
-      setNotification({
-        message: 'Please select a category before generating.',
-        type: 'error',
-      })
-      setTimeout(() => setNotification(null), 3000)
-      return
-    }
-
     try {
       setIsGenerating(true)
       const response = await fetch('/api/blog/generate', {
@@ -145,9 +103,6 @@ export default function BlogAdminPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          category: generateCategory,
-          topic: generateTopic || undefined,
-          authorId: generateAuthorId || undefined,
           // Always create as draft; publish is handled via Approve flow
           publishStatus: 'draft',
         }),
@@ -161,8 +116,6 @@ export default function BlogAdminPage() {
           type: 'success',
         })
         await fetchPendingPosts()
-        setIsGenerateDialogOpen(false)
-        setGenerateTopic('')
         setTimeout(() => setNotification(null), 3000)
       } else {
         setNotification({
@@ -264,7 +217,17 @@ export default function BlogAdminPage() {
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-display font-black mb-8">Blog Admin</h1>
           <div className="flex items-center justify-center min-h-[60vh]">
-            <div className="w-12 h-12 border-4 border-white/10 border-t-accent rounded-full animate-spin"></div>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <Avatar state="thinking" className="w-48 h-48" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium text-slate-100">
+                  Checking admin access…
+                </p>
+                <p className="text-xs text-slate-400 max-w-sm">
+                  Verifying your secure session before loading the blog tools.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -277,7 +240,17 @@ export default function BlogAdminPage() {
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-display font-black mb-8">Blog Admin</h1>
           <div className="flex items-center justify-center min-h-[60vh]">
-            <div className="w-12 h-12 border-4 border-white/10 border-t-accent rounded-full animate-spin"></div>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <Avatar state="thinking" className="w-48 h-48" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium text-slate-100">
+                  Loading pending blog posts…
+                </p>
+                <p className="text-xs text-slate-400 max-w-sm">
+                  Fetching drafts from Firebase and preparing them for review.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -329,7 +302,7 @@ export default function BlogAdminPage() {
 
       {/* Main content only visible when authenticated */}
       {isAuthenticated && (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto relative">
         <h1 className="text-4xl font-display font-black mb-2">Blog Admin</h1>
         <p className="text-slate-400 mb-8">Review and manage pending blog posts</p>
 
@@ -346,7 +319,7 @@ export default function BlogAdminPage() {
             </Button>
             <Button
               variant="primary"
-              onClick={() => setIsGenerateDialogOpen(true)}
+              onClick={handleGenerate}
               disabled={isGenerating}
             >
               {isGenerating ? 'Generating...' : 'Generate New Blog'}
@@ -372,6 +345,49 @@ export default function BlogAdminPage() {
           </div>
         )}
 
+        {/* Full-screen loader while generating a new blog */}
+        {isGenerating && (
+          <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/75 backdrop-blur-sm">
+            <div className="relative bg-obsidian-950/95 border border-white/10 rounded-3xl px-12 py-10 flex flex-col items-center gap-7 shadow-[0_0_60px_rgba(15,23,42,0.9)] overflow-hidden">
+              {/* Soft radial glow background */}
+              <div className="pointer-events-none absolute -inset-24 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(251,146,60,0.16),_transparent_55%)]" />
+
+              {/* Avatar + world-orbit animation */}
+              <div className="relative w-40 h-40 flex items-center justify-center">
+                {/* Outer orbit ring */}
+                <div className="absolute inset-4 rounded-full border border-accent/25 animate-spin slow-spin" />
+                {/* Orbiting nodes */}
+                <div className="absolute -top-1 left-1 w-3 h-3 rounded-full bg-accent/80 shadow-[0_0_15px_rgba(56,189,248,0.9)] animate-bounce" />
+                <div className="absolute bottom-2 right-3 w-2.5 h-2.5 rounded-full bg-orange-400/90 shadow-[0_0_15px_rgba(251,146,60,0.9)] animate-ping" />
+
+                {/* Core bot avatar */}
+                <div className="relative w-24 h-24 rounded-[1.75rem] bg-gradient-to-br from-accent via-sky-500 to-orange-400 flex items-center justify-center shadow-[0_0_45px_rgba(56,189,248,0.65)]">
+                  <div className="w-12 h-12 rounded-2xl bg-black flex items-center justify-center">
+                    <div className="flex gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-amber-300 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-amber-300 animate-pulse delay-150" />
+                    </div>
+                  </div>
+                  {/* Small antenna */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-3 rounded-full bg-black" />
+                </div>
+
+                {/* Floating platform shadow */}
+                <div className="absolute inset-x-10 bottom-4 h-4 rounded-full bg-black/80 blur-md opacity-70" />
+              </div>
+
+              <div className="relative text-center space-y-2 max-w-md">
+                <p className="text-sm font-medium tracking-wide text-slate-50">
+                  Generating a new deep-dive article…
+                </p>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Mapping ideas across education, workforce and infrastructure, then composing a Version Labs insight and matching visual in the background.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {pendingPosts.length === 0 ? (
           <Card>
             <CardContent className="p-8 text-center">
@@ -388,7 +404,6 @@ export default function BlogAdminPage() {
                       <h2 className="text-2xl font-display font-bold mb-2">{post.title}</h2>
                       <p className="text-slate-300 mb-3">{post.excerpt}</p>
                       <div className="flex flex-wrap gap-4 text-sm text-slate-400">
-                        <span>Category: <span className="text-white">{post.category}</span></span>
                         <span>Read Time: <span className="text-white">{post.readTime}</span></span>
                         <span>Created: <span className="text-white">{formatDate(post.createdAt)}</span></span>
                         {post.tags && post.tags.length > 0 && (
@@ -469,10 +484,6 @@ export default function BlogAdminPage() {
 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="break-words">
-                    <span className="text-slate-400">Category:</span>
-                    <span className="ml-2 text-white">{selectedPost.category}</span>
-                  </div>
-                  <div className="break-words">
                     <span className="text-slate-400">Read Time:</span>
                     <span className="ml-2 text-white">{selectedPost.readTime}</span>
                   </div>
@@ -535,119 +546,7 @@ export default function BlogAdminPage() {
           </DialogContent>
         </Dialog>
 
-        {/* Generate Blog Dialog */}
-        <Dialog open={isGenerateDialogOpen} onOpenChange={setIsGenerateDialogOpen}>
-          <DialogContent className="max-w-xl w-full max-h-[80vh] overflow-hidden flex flex-col">
-            <DialogHeader>
-              <DialogTitle className="pr-8 break-words">Generate New Blog Post</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-6 overflow-y-auto flex-1 pr-1 -mr-1">
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-200">
-                  Category
-                </label>
-                <select
-                  value={generateCategory}
-                  onChange={(e) => setGenerateCategory(e.target.value)}
-                  disabled={isGenerating || isLoadingCategories}
-                  className="w-full rounded-md bg-obsidian-900 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
-                >
-                  {categories.length === 0 && (
-                    <option value="">
-                      {isLoadingCategories ? 'Loading categories...' : 'No categories available'}
-                    </option>
-                  )}
-                  {categories.map((cat) => (
-                    <option key={cat.name} value={cat.name}>
-                      {cat.name}
-                    </option>
-                  ))}
-                </select>
-                {generateCategory && (
-                  <p className="text-xs text-slate-400">
-                    {categories.find((c) => c.name === generateCategory)?.description}
-                  </p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-200">
-                  Author (optional)
-                </label>
-                <select
-                  value={generateAuthorId}
-                  onChange={(e) => setGenerateAuthorId(e.target.value)}
-                  disabled={isGenerating || authors.length === 0}
-                  className="w-full rounded-md bg-obsidian-900 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
-                >
-                  {authors.length === 0 && (
-                    <option value="">
-                      No authors found in Sanity (default author will be used)
-                    </option>
-                  )}
-                  {authors.length > 0 && (
-                    <>
-                      <option value="">
-                        Use default author from Sanity
-                      </option>
-                      {authors.map((author) => (
-                        <option key={author.id} value={author.id}>
-                          {author.name}
-                        </option>
-                      ))}
-                    </>
-                  )}
-                </select>
-                <p className="text-xs text-slate-400">
-                  If left empty, the default author configured in Sanity will be used.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-200">
-                  Topic (optional)
-                </label>
-                <input
-                  type="text"
-                  value={generateTopic}
-                  onChange={(e) => setGenerateTopic(e.target.value)}
-                  placeholder="Let AI choose, or specify a topic..."
-                  disabled={isGenerating}
-                  className="w-full rounded-md bg-obsidian-900 border border-white/10 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
-                />
-                <p className="text-xs text-slate-400">
-                  If left empty, AI will automatically choose a relevant topic for this category.
-                </p>
-                {generateCategory && categories.find((c) => c.name === generateCategory)?.topics && (
-                  <p className="text-xs text-slate-400">
-                    Suggested topics:{' '}
-                    {categories
-                      .find((c) => c.name === generateCategory)
-                      ?.topics?.slice(0, 5)
-                      .join(', ')}
-                  </p>
-                )}
-              </div>
-
-              <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
-                <Button
-                  variant="secondary"
-                  onClick={() => setIsGenerateDialogOpen(false)}
-                  disabled={isGenerating}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={handleGenerate}
-                  disabled={isGenerating || !generateCategory}
-                >
-                  {isGenerating ? 'Generating...' : 'Generate Blog'}
-                </Button>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+        {/* No dialog – clicking "Generate New Blog" now starts generation immediately */}
       </div>
       )}
     </div>

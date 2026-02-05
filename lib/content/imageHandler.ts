@@ -180,12 +180,20 @@ export function countWords(text: string): number {
 export async function generateBlogImage(
   title: string,
   category: string,
-  excerpt?: string
+  excerpt?: string,
+  imageConcept?: string,
+  inputTopic?: string
 ): Promise<{ imageData: Buffer; mimeType: string } | null> {
   try {
     // First, generate an optimized prompt for the image
     console.log('Generating image prompt for blog post...')
-    const imagePrompt = await generateImagePromptForBlog(title, category, excerpt)
+    const imagePrompt = await generateImagePromptForBlog(
+      title,
+      category,
+      excerpt,
+      imageConcept,
+      inputTopic
+    )
     
     console.log('Generating image with Gemini Imagen...')
     console.log('Image prompt:', imagePrompt)
