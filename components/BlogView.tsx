@@ -134,15 +134,20 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
                 <span className="px-4 md:px-5 py-2 md:py-1.5 border border-accent/40 bg-accent/10 text-accent text-sm md:text-base font-black uppercase tracking-ultra">
                   {featuredPost.category}
                 </span>
-                <span className="text-slate-400 text-xs md:text-sm font-black uppercase tracking-ultra">{featuredPost.readTime}</span>
+                {/* <span className="text-slate-400 text-xs md:text-sm font-black uppercase tracking-ultra">{featuredPost.readTime}</span> */}
               </div>
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black mb-6 leading-tight tracking-tight group-hover:text-accent transition-colors">
                 {featuredPost.title}
               </h3>
-              <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed mb-8">
+              <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed mb-6">
                 {featuredPost.excerpt}
               </p>
-              <div className="flex items-center space-x-4 md:space-x-6">
+              <div className="flex items-center gap-2 mb-8 text-xs md:text-sm font-black uppercase tracking-ultra text-slate-300">
+                <span>{formatDate(featuredPost.publishedAt)}</span>
+                <span className="w-1 h-1 rounded-full bg-slate-500" />
+                <span>{featuredPost.readTime}</span>
+              </div>
+              {/* <div className="flex items-center space-x-4 md:space-x-6">
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-white/10 grayscale flex-shrink-0">
                   <img src={featuredPost.author.avatar} alt={featuredPost.author.name} className="w-full h-full object-cover" />
                 </div>
@@ -150,7 +155,7 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
                   <p className="text-xs md:text-sm font-black uppercase tracking-ultra truncate">{featuredPost.author.name}</p>
                   <p className="text-accent text-xs md:text-sm font-black uppercase tracking-widest truncate">{featuredPost.author.title}</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

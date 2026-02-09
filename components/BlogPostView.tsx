@@ -81,7 +81,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
             </h1>
             
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-2">
-              <div className="flex items-center space-x-4 md:space-x-6">
+              {/* <div className="flex items-center space-x-4 md:space-x-6">
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 grayscale shadow-xl flex-shrink-0">
                   <img src={post.author.avatar} alt={post.author.name} className="w-full h-full object-cover" />
                 </div>
@@ -89,7 +89,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
                   <p className="text-white text-sm md:text-base font-black uppercase tracking-ultra truncate">{post.author.name}</p>
                   <p className="text-accent text-xs md:text-sm font-black uppercase tracking-widest truncate">{post.author.title}</p>
                 </div>
-              </div>
+              </div> */}
               <div className="flex items-center">
                 <ShareButton 
                   url={pathname}
