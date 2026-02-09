@@ -17,7 +17,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post }) => {
   return (
     <div className="bg-white">
       {/* Article Hero */}
-      <section className="relative pt-20 md:pt-56 pb-20 md:pb-40 bg-obsidian-950 overflow-hidden">
+      <section className="relative pt-28 md:pt-56 pb-20 md:pb-40 bg-obsidian-950 overflow-hidden">
         {/* Background image for desktop only */}
         <div className="absolute inset-0 z-0 hidden md:block">
           <img 
