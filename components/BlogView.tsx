@@ -177,14 +177,14 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
                   />
                 </div>
 
-                {/* 2. Title & Category */}
+                {/* 2. Category & Title */}
                 <div className="mb-4">
-                  <p className="text-accent text-lg md:text-xl font-semibold leading-relaxed mb-2">
+                  {/* <p className="text-slate-400 text-xs md:text-sm font-black uppercase tracking-ultra mb-2">
                     {post.category}
-                  </p>
-                  {/* <h3 className="text-xl md:text-2xl font-display font-black text-obsidian-900 leading-snug tracking-tight group-hover:text-accent transition-colors">
+                  </p> */}
+                  <h3 className="text-xl md:text-2xl font-display font-black text-obsidian-900 leading-snug tracking-tight group-hover:text-accent transition-colors">
                     {post.title}
-                  </h3> */}
+                  </h3>
                 </div>
 
                 {/* 3. Excerpt / Description */}
