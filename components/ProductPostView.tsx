@@ -97,10 +97,10 @@ const ProductPostView: React.FC<ProductPostViewProps> = ({ product }) => {
                 </span>
                 <div className="flex flex-col text-left">
                   <span className="text-xs font-black uppercase tracking-[0.25em]">
-                    Live product
+                    Visit website
                   </span>
                   <span className="text-sm font-semibold">
-                    Open {product.name} in a new tab
+                    Explore {product.name} live
                   </span>
                 </div>
               </a>
