@@ -30,6 +30,59 @@ export async function generateMetadata(
   return {
     title,
     description,
+    keywords: [
+      product.name,
+      product.tagline,
+      product.category,
+      'Version Labs',
+      'product',
+      'software',
+      'SaaS',
+      ...product.features,
+      ...(product.id === 'docxpert'
+        ? [
+            'DocXpert OCR',
+            'document OCR platform',
+            'handwritten text recognition',
+            'PDF OCR software',
+            'multilingual OCR translation',
+            'document processing platform',
+            'legal document OCR',
+            'scan to text',
+            'AI document processing',
+            'enterprise OCR solution',
+          ]
+        : []),
+      ...(product.id === 'felloz'
+        ? [
+            'Felloz',
+            'workplace community platform',
+            'team collaboration software',
+            'community-driven workflows',
+            'async collaboration tool',
+            'modern workspace platform',
+            'remote team collaboration',
+            'community-first work platform',
+            'digital workspace',
+            'team communication and context',
+          ]
+        : []),
+      ...(product.id === 'uncloud'
+        ? [
+            'UnCloud',
+            'online privacy tools',
+            'client-side privacy tools',
+            'browser based tools',
+            'local PDF tools',
+            'offline PDF editor',
+            'image compression tool',
+            'file conversion tools',
+            'no upload PDF tools',
+            'privacy first toolkit',
+            'local-first productivity tools',
+          ]
+        : []),
+    ],
     alternates: {
       canonical: url,
     },
