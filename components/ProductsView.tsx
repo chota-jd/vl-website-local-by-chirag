@@ -6,67 +6,74 @@ import { Product } from '@/types';
 import { PRODUCTS } from '@/data/products';
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
-  return (
+  const cardContent = (
     <div className="bg-white border border-slate-100 flex flex-col h-full group transition-all duration-500 overflow-hidden hover:border-accent/40 hover:shadow-lg">
-      {/* Card content that navigates to internal product page */}
-      <Link href={`/products/${product.id}`} className="flex flex-col flex-grow cursor-pointer">
-        {/* Visual Header */}
-        <div className="h-64 relative overflow-hidden bg-slate-100">
-          <img 
-            src={product.imageUrl} 
-            alt={product.name}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Visual Header */}
+      <div className="h-64 relative overflow-hidden bg-slate-100">
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        {/* Content Body */}
-        <div className="p-8 md:p-10 flex flex-col flex-grow">
-          <div className="mb-6">
-            <h3 className="text-2xl font-display font-black text-obsidian-900 leading-tight mb-3 group-hover:text-accent transition-colors">
-              {product.name}
-            </h3>
-            <p className="text-accent text-base font-black uppercase tracking-ultra mb-4">
-              {product.tagline}
-            </p>
-          </div>
-
-          <p className="text-slate-500 text-sm leading-relaxed font-light line-clamp-3">
-            {product.description}
+      {/* Content Body */}
+      <div className="p-8 md:p-10 flex flex-col flex-grow">
+        <div className="mb-6">
+          <h3 className="text-2xl font-display font-black text-obsidian-900 leading-tight mb-3 group-hover:text-accent transition-colors">
+            {product.name}
+          </h3>
+          <p className="text-accent text-base font-black uppercase tracking-ultra mb-4">
+            {product.tagline}
           </p>
-
-          {/* Features List */}
-          <div className="mt-auto pt-8 border-t border-slate-100">
-            <h4 className="text-xs font-black uppercase tracking-ultra text-slate-400 mb-4">Key Features</h4>
-            <ul className="space-y-2">
-              {product.features.slice(0, 4).map((feature, i) => (
-                <li key={i} className="flex items-center space-x-3 text-sm text-slate-600">
-                  <div className="w-1.5 h-1.5 bg-accent"></div>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
-      </Link>
 
-      {/* CTA Button - opens product website in new tab using Next Link */}
-      {product.link && (
-        <div className="border-t border-slate-100 px-8 md:px-10 pb-10">
-          <Link
-            href={product.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 bg-accent text-white px-6 py-3 text-sm font-black uppercase tracking-ultra group-hover:bg-obsidian-900 transition-all duration-300"
-          >
-            <span>View Details</span>
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+        <p className="text-slate-500 text-sm leading-relaxed font-light line-clamp-3">
+          {product.description}
+        </p>
+
+        {/* Features List */}
+        <div className="mt-auto pt-8 border-t border-slate-100">
+          <h4 className="text-xs font-black uppercase tracking-ultra text-slate-400 mb-4">Key Features</h4>
+          <ul className="space-y-2">
+            {product.features.slice(0, 4).map((feature, i) => (
+              <li key={i} className="flex items-center space-x-3 text-sm text-slate-600">
+                <div className="w-1.5 h-1.5 bg-accent"></div>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          {product.link && (
+            <div className="pt-4">
+              <div className="inline-flex items-center space-x-3 bg-accent text-white px-6 py-3 text-sm font-black uppercase tracking-ultra group-hover:bg-obsidian-900 transition-all duration-300">
+                <span>View Details</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
+
+  // If a link is provided, make the entire card clickable to the external product website
+  if (product.link) {
+    return (
+      <Link
+        href={product.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full cursor-pointer"
+      >
+        {cardContent}
+      </Link>
+    );
+  }
+
+  // Fallback: non-clickable card if no external link is defined
+  return cardContent;
 };
 
 const ProductsView: React.FC = () => {
