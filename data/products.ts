@@ -18,6 +18,107 @@ export const PRODUCTS: Product[] = [
       'Language Translation (50+ languages)',
       'Document Structure Formatting',
       'PDF OCR'
+    ],
+    stats: [
+      { label: 'OCR accuracy', value: '99.8%' },
+      { label: 'Languages supported', value: '50+' },
+      { label: 'Compliance', value: 'GDPR compliant' }
+    ],
+    featureDetails: [
+      {
+        title: 'Handwritten Text Recognition',
+        description: "DocXpert's advanced recognition technology identifies handwritten text with impressive accuracy. Get instant readability from paper documents."
+      },
+      {
+        title: 'Language Translation',
+        description: 'Supported by 50+ languages, DocXpert translates documents accurately with perfect formatting preserved.'
+      },
+      {
+        title: 'Document Structure Formatting',
+        description: "Explore structure formatting for tables, bullets, and professional layouts with perfect preservation."
+      },
+      {
+        title: 'PDF OCR',
+        description: "Advanced OCR technology transforms PDF documents for easy editing, searching, and copying with perfect accuracy."
+      }
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Upload Document',
+        description: 'Easily upload PDFs, images, or scanned documents through our intuitive drag-and-drop interface.'
+      },
+      {
+        step: 2,
+        title: 'Configure Options',
+        description: 'Select recognition type, language, output format, and advanced processing settings to suit your needs.'
+      },
+      {
+        step: 3,
+        title: 'Process & Download',
+        description: 'Our AI engine processes your document and delivers results in seconds, ready for download or sharing.'
+      }
+    ],
+    technicalSpecs: [
+      { category: 'Security', value: 'Enterprise-Grade' },
+      { category: 'Uptime', value: '99.99% SLA' },
+      { category: 'Compliance', value: 'GDPR Ready' }
+    ],
+    industrySolutions: [
+      {
+        title: 'Enterprise Document Management',
+        description: 'Centralize corporate documents with smart categorization, searchability, and access controls to improve operational efficiency.'
+      },
+      {
+        title: 'Financial Services',
+        description: 'Process loan applications, financial statements, and compliance documents with high accuracy and enhanced security protocols.'
+      },
+      {
+        title: 'Healthcare Records',
+        description: 'Digitize patient records, insurance claims, and medical documents while maintaining HIPAA compliance and data privacy.'
+      },
+      {
+        title: 'Educational Institutions',
+        description: 'Manage student records, transcripts, and research papers with efficient organization and retrieval capabilities.'
+      },
+      {
+        title: 'Legal Document Analysis',
+        description: 'Extract critical information from contracts, court filings, and legal correspondence with advanced OCR and AI analysis.'
+      }
+    ],
+    testimonials: [
+      {
+        quote: 'This platform offers exceptional value with competitive pricing, accurate OCR for converting PDFs, and multilingual translation features. It saves me hours of manual work and streamlines complex legal analysis. I highly recommend it to professionals seeking efficiency and modern solutions.',
+        author: 'Chitrajeet Upadhyaya',
+        role: 'Founder & Managing Partner | HRU Legal'
+      },
+      {
+        quote: 'DocXpert has made my filing process effortless with its instant typing, translation, and accurate document conversion across multiple languages. It is user-friendly, cost-effective, and a real time saver, making it an essential tool for legal professionals.',
+        author: 'Ms. Vilas A Purani',
+        role: 'Advocate | Gujarat High Court & Central Administrative Tribunal'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What payment methods do you accept?',
+        answer: 'We accept major credit cards, debit cards, and net banking. Enterprise customers can also pay via invoice.'
+      },
+      {
+        question: 'How does the pricing work for teams?',
+        answer: 'Team plans are based on the number of users and document volume. Contact us for a custom quote tailored to your organization.'
+      },
+      {
+        question: 'Is my data secure?',
+        answer: 'Yes. We use enterprise-grade encryption, comply with GDPR, and process documents in secure environments. Your data is never shared with third parties.'
+      },
+      {
+        question: 'What languages are supported?',
+        answer: 'DocXpert supports 50+ languages for both OCR and translation, including major Indian and international languages.'
+      },
+      {
+        question: 'Do you offer a free trial?',
+        answer: 'Yes. You can try DocXpert with a free demo to experience our OCR and translation capabilities before subscribing.'
+      }
     ]
   },
   {
@@ -34,6 +135,98 @@ export const PRODUCTS: Product[] = [
       'Community-driven workflows',
       'Context sharing',
       'Modern workspace design'
+    ],
+    stats: [
+      { label: 'Teams connected', value: 'Growing' },
+      { label: 'Work style', value: 'Community-first' },
+      { label: 'Focus', value: 'Real collaboration' }
+    ],
+    featureDetails: [
+      {
+        title: 'Team Collaboration',
+        description: 'Bring your team into one space. Share updates, decisions, and work in progress so everyone stays aligned without endless meetings.'
+      },
+      {
+        title: 'Community-Driven Workflows',
+        description: 'Work the way your team actually works. Create spaces, channels, and rituals that fit your culture—not the other way around.'
+      },
+      {
+        title: 'Context Sharing',
+        description: 'Keep context where the work happens. Share the why behind tasks, link discussions to outcomes, and reduce back-and-forth.'
+      },
+      {
+        title: 'Modern Workspace Design',
+        description: 'A workspace built for how people work today: async-friendly, mobile-ready, and designed so work feels like community, not obligation.'
+      }
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Create or Join a Space',
+        description: 'Set up a space for your team, project, or community. Invite members and define how you want to work together.'
+      },
+      {
+        step: 2,
+        title: 'Share Context & Updates',
+        description: 'Post updates, share decisions, and keep everyone in the loop. Context lives next to the work, not lost in email or chat.'
+      },
+      {
+        step: 3,
+        title: 'Collaborate in Flow',
+        description: 'Discuss, iterate, and ship as a community. Felloz keeps work visible and collaborative so nothing falls through the cracks.'
+      }
+    ],
+    technicalSpecs: [
+      { category: 'Security', value: 'Secure & Private' },
+      { category: 'Availability', value: 'Always On' },
+      { category: 'Design', value: 'Community-First' }
+    ],
+    industrySolutions: [
+      {
+        title: 'Remote & Distributed Teams',
+        description: 'Keep remote teams connected with shared context, async updates, and a single place for decisions and outcomes.'
+      },
+      {
+        title: 'Startups & Scale-ups',
+        description: 'Scale how you work without losing the culture. Spaces and workflows grow with your team.'
+      },
+      {
+        title: 'Creative & Agency Teams',
+        description: 'Align on briefs, feedback, and deliverables in one space. Less email, more clarity.'
+      },
+      {
+        title: 'Communities & Networks',
+        description: 'Run communities, cohorts, or networks where members share context and collaborate on shared goals.'
+      },
+      {
+        title: 'Education & Learning Groups',
+        description: 'Course teams, study groups, and learning communities in a space built for collaboration and context.'
+      }
+    ],
+    testimonials: [
+      {
+        quote: 'Where work feels like community. Felloz finally gives us one place to share context and collaborate the way we actually work.',
+        author: 'Teams at Felloz',
+        role: 'Community-first workplaces'
+      }
+    ],
+    faqs: [
+      {
+        question: 'How do I invite my team?',
+        answer: 'Create a space and invite members by email or link. You can set roles and permissions so everyone has the right access.'
+      },
+      {
+        question: 'Is there a free plan?',
+        answer: 'Yes. You can get started with Felloz for free and upgrade as your team or community grows.'
+      },
+      {
+        question: 'Can we use Felloz for async work?',
+        answer: 'Absolutely. Felloz is built for async-friendly collaboration—share updates, context, and decisions without requiring everyone online at once.'
+      },
+      {
+        question: 'What makes Felloz different from other tools?',
+        answer: 'Felloz is designed so work feels like community. We focus on context sharing, visibility, and workflows that match how people actually work together.'
+      }
     ]
   },
   {
@@ -50,6 +243,98 @@ export const PRODUCTS: Product[] = [
       'No uploads, zero tracking',
       'PDF, image, text & dev tools',
       'Works offline'
+    ],
+    stats: [
+      { label: 'Tools', value: '45+' },
+      { label: 'Processing', value: '100% client-side' },
+      { label: 'Sign-up', value: 'None required' }
+    ],
+    featureDetails: [
+      {
+        title: 'PDF Tools',
+        description: 'Merge, split, compress, rotate, and edit PDFs locally. Convert to and from images, add watermarks or page numbers—all in your browser. Your files never leave your device.'
+      },
+      {
+        title: 'Image & Media Tools',
+        description: 'Compress, convert, crop, resize, and remove backgrounds with local AI. Image converter, EXIF viewer, and QR generator—all client-side and private.'
+      },
+      {
+        title: 'Privacy & Security Tools',
+        description: 'Secure notes with AES-256 encryption, password generator, and file checksums. Build habits that keep your data under your control.'
+      },
+      {
+        title: 'Text, Data & Developer Tools',
+        description: 'CSV/JSON editors, Markdown editor, Base64, URL tools, text diff, and more. Format, validate, and convert—all without sending data to any server.'
+      }
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Pick a Tool',
+        description: 'Browse 45+ tools across PDF, image, text, security, and developer categories. Everything runs in your browser.'
+      },
+      {
+        step: 2,
+        title: 'Use It in Your Browser',
+        description: 'Open a tool, add your files or input. All processing happens locally—no uploads to our servers.'
+      },
+      {
+        step: 3,
+        title: 'Your Data Stays Local',
+        description: 'Zero tracking, zero telemetry, zero storage of your data. Download results or copy output—your data never leaves your device.'
+      }
+    ],
+    technicalSpecs: [
+      { category: 'Privacy', value: 'Zero telemetry' },
+      { category: 'Processing', value: 'Client-side only' },
+      { category: 'Data', value: 'Never leaves your device' }
+    ],
+    industrySolutions: [
+      {
+        title: 'Privacy-Conscious Users',
+        description: 'Anyone who wants to edit PDFs, images, or text without sending files to the cloud. Your data stays in your tab.'
+      },
+      {
+        title: 'Developers & Technical Teams',
+        description: 'JSON viewer, Base64, URL tools, checksums, and more. No sign-up, no API keys—just open and use.'
+      },
+      {
+        title: 'Small Business & Freelancers',
+        description: 'Professional PDF and image tools without subscriptions or uploads. Use offline when you need to.'
+      },
+      {
+        title: 'Education & Personal Use',
+        description: 'Convert files, compress images, generate passwords—all free and private. Great for students and everyday use.'
+      }
+    ],
+    testimonials: [
+      {
+        quote: 'Privacy tooling that feels like product design - not punishment. Everything runs 100% in your browser, so sensitive data never has to leave your machine.',
+        author: 'UnCloud',
+        role: 'Local-first privacy toolkit'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Is UnCloud really free?',
+        answer: 'Yes. UnCloud is completely free. All 45+ tools are available at no cost with no hidden fees or premium tiers.'
+      },
+      {
+        question: 'Does UnCloud upload my files to a server?',
+        answer: 'No. All processing happens 100% in your browser. Your files never leave your device, ensuring complete privacy and security.'
+      },
+      {
+        question: 'What file formats does UnCloud support?',
+        answer: 'UnCloud supports a wide range of formats including images (JPG, PNG, WebP), PDFs, CSV, JSON, and more. All conversions happen locally in your browser.'
+      },
+      {
+        question: 'Can I use UnCloud offline?',
+        answer: 'Yes. Once loaded, most tools work offline. UnCloud is designed to work entirely client-side without requiring a constant internet connection.'
+      },
+      {
+        question: 'Is my data tracked or stored?',
+        answer: 'No. UnCloud has zero tracking, zero analytics, and zero data collection. Your privacy is our top priority.'
+      }
     ]
   }
   // {

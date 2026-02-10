@@ -58,7 +58,7 @@ const ProductShowcase: React.FC = () => {
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const cardContent = (
     <div className="bg-white border border-slate-100 flex flex-col h-full transition-all duration-500 overflow-hidden hover:border-accent/40 hover:shadow-lg cursor-pointer group">
-        <div className="h-56 relative overflow-hidden bg-slate-100">
+        <div className="h-60 relative overflow-hidden bg-slate-100">
           <img
             src={product.imageUrl}
             alt={product.name}
@@ -66,11 +66,11 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          <div className="absolute top-4 left-4">
+          {/* <div className="absolute top-4 left-4">
             <span className="bg-white px-3 py-1 text-sm font-black uppercase tracking-ultra text-obsidian-900 border border-slate-100 shadow-sm">
               {product.category}
             </span>
-          </div>
+          </div> */}
         </div>
         <div className="p-6 md:p-8 flex flex-col flex-grow">
           <h3 className="text-xl font-display font-black text-obsidian-900 leading-tight mb-2 group-hover:text-accent transition-colors">
