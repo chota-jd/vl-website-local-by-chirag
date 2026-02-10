@@ -17,7 +17,7 @@ const ProductPostView: React.FC<ProductPostViewProps> = ({ product }) => {
           <img 
             src={product.imageUrl} 
             alt={product.name} 
-            className="w-full h-full object-cover opacity-30 grayscale group-hover:scale-105 transition-transform duration-[10s]"
+            className="w-full h-full object-cover opacity-30 grayscale group-hover:scale-105 transition-transform duration-[10s] pt-20"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/60 to-transparent"></div>
         </div>
