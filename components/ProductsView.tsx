@@ -7,20 +7,14 @@ import { PRODUCTS } from '@/data/products';
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const cardContent = (
-    <div className="bg-white border border-slate-100 flex flex-col h-full group transition-all duration-500 overflow-hidden hover:border-accent/40 hover:shadow-lg cursor-pointer">
+    <div className="bg-white border border-slate-100 flex flex-col h-full group transition-all duration-500 overflow-hidden hover:border-accent/40 hover:shadow-lg">
       {/* Visual Header */}
       <div className="h-64 relative overflow-hidden bg-slate-100">
-        <img 
-          src={product.imageUrl} 
+        <img
+          src={product.imageUrl}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-        <div className="absolute top-6 left-6">
-          <div className="bg-white px-3 py-1 flex items-center space-x-2 text-sm font-black uppercase tracking-ultra text-obsidian-900 border border-slate-100 shadow-sm">
-            <span>{product.category}</span>
-          </div>
-        </div>
       </div>
 
       {/* Content Body */}
@@ -34,7 +28,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           </p>
         </div>
 
-        <p className="text-slate-500 text-sm leading-relaxed mb-8 font-light line-clamp-3">
+        <p className="text-slate-500 text-sm leading-relaxed font-light line-clamp-3">
           {product.description}
         </p>
 
@@ -49,26 +43,37 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* CTA Button */}
-        <div className="mt-8 pt-8 border-t border-slate-100">
-          <div className="inline-flex items-center space-x-3 bg-accent text-white px-6 py-3 text-sm font-black uppercase tracking-ultra group-hover:bg-obsidian-900 transition-all duration-300">
-            <span>View Details</span>
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </div>
+          {product.link && (
+            <div className="pt-4">
+              <div className="inline-flex items-center space-x-3 bg-accent text-white px-6 py-3 text-sm font-black uppercase tracking-ultra group-hover:bg-obsidian-900 transition-all duration-300">
+                <span>View Details</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 
-  return (
-    <Link href={`/products/${product.id}`} className="block">
-      {cardContent}
-    </Link>
-  );
+  // If a link is provided, make the entire card clickable to the external product website
+  if (product.link) {
+    return (
+      <Link
+        href={product.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full cursor-pointer"
+      >
+        {cardContent}
+      </Link>
+    );
+  }
+
+  // Fallback: non-clickable card if no external link is defined
+  return cardContent;
 };
 
 const ProductsView: React.FC = () => {
