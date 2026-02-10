@@ -41,7 +41,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-base font-light text-slate-500">
               <li><Link href="/services" className="hover:text-accent transition-colors">Services</Link></li>
               {/* <li><Link href="/solution-learning" className="hover:text-accent transition-colors">Enterprise LMS</Link></li> */}
-              {/* <li><Link href="/blog" className="hover:text-accent transition-colors">Insights & Journal</Link></li> */}
+              <li><Link href="/blog" className="hover:text-accent transition-colors">Blog</Link></li>
+              <li><Link href="/products" className="hover:text-accent transition-colors">Products</Link></li>
               <li><Link href="/strategy" className="hover:text-accent transition-colors">AI Strategy</Link></li>
               <li><Link href="/press" className="hover:text-accent transition-colors">Press</Link></li>
 
