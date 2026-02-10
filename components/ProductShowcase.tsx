@@ -25,7 +25,7 @@ const ProductShowcase: React.FC = () => {
             Build with <span className="text-accent italic">precision.</span>
           </h2>
           <p className="text-slate-600 text-lg font-light leading-relaxed">
-            From document intelligence and privacy-first tools to community-driven work—our products power modern teams and workflows.
+            From document intelligence and privacy-first tools to community-driven work-our products power modern teams and workflows.
           </p>
         </div>
 
