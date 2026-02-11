@@ -336,6 +336,94 @@ export const PRODUCTS: Product[] = [
         answer: 'No. UnCloud has zero tracking, zero analytics, and zero data collection. Your privacy is our top priority.'
       }
     ]
+  },
+  {
+    id: 'clef',
+    name: 'Clef',
+    tagline: 'Governed AI for Your Organization',
+    description: 'Governed AI that keeps your organization in control. Deploy and scale AI with policy, safety, and compliance built in—so you can innovate with confidence.',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/versionlabs-official.firebasestorage.app/o/products-images%2Fuseclef.webp?alt=media',
+    category: 'AI Governance',
+    link: 'https://useclef.com/',
+    testimonial: 'Governed AI for your organization—policy, safety, and compliance built in.',
+    features: [
+      'Governed AI deployment',
+      'Policy and compliance controls',
+      'Organization-wide safety',
+      'Scale AI with confidence'
+    ],
+    stats: [
+      { label: 'Focus', value: 'Governed AI' },
+      { label: 'Control', value: 'Organization-wide' },
+      { label: 'Built for', value: 'Enterprise' }
+    ],
+    featureDetails: [
+      {
+        title: 'Governed AI Deployment',
+        description: 'Deploy AI across your organization with guardrails and policies that keep usage aligned with your standards.'
+      },
+      {
+        title: 'Policy and Compliance',
+        description: 'Define and enforce AI policies so every use meets your compliance and risk requirements.'
+      },
+      {
+        title: 'Safety and Control',
+        description: 'Keep AI safe and under your control with visibility and governance built in from the start.'
+      },
+      {
+        title: 'Scale with Confidence',
+        description: 'Scale AI adoption across teams while maintaining oversight and accountability.'
+      }
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Define Governance',
+        description: 'Set policies and guardrails for how AI is used across your organization.'
+      },
+      {
+        step: 2,
+        title: 'Deploy AI',
+        description: 'Roll out governed AI tools and models with safety and compliance built in.'
+      },
+      {
+        step: 3,
+        title: 'Scale Safely',
+        description: 'Grow adoption while maintaining visibility, control, and compliance.'
+      }
+    ],
+    technicalSpecs: [
+      { category: 'Governance', value: 'Policy-driven' },
+      { category: 'Compliance', value: 'Built-in' },
+      { category: 'Safety', value: 'Organization-wide' }
+    ],
+    industrySolutions: [
+      {
+        title: 'Enterprise AI',
+        description: 'Deploy and scale AI across the organization with governance and compliance in place.'
+      },
+      {
+        title: 'Regulated Industries',
+        description: 'Meet regulatory and internal policy requirements while adopting AI.'
+      }
+    ],
+    testimonials: [
+      {
+        quote: 'Governed AI for your organization—policy, safety, and compliance built in.',
+        author: 'Clef',
+        role: 'Governed AI platform'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What is governed AI?',
+        answer: 'Governed AI keeps AI use under your organization’s control with policies, safety, and compliance built in.'
+      },
+      {
+        question: 'Who is Clef for?',
+        answer: 'Clef is for organizations that want to adopt AI at scale while maintaining oversight, safety, and compliance.'
+      }
+    ]
   }
   // {
   //   id: 'sovereign-ai',
