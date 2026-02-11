@@ -115,7 +115,7 @@ const BlogView: React.FC<BlogViewProps> = ({ posts }) => {
           onClick={() => handlePostClick(featuredPost)}
           className="relative group cursor-pointer mb-32 overflow-hidden bg-obsidian-950 border border-slate-100"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:h-[600px] lg:max-h-[600px] overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:h-[400px] lg:max-h-[500px] overflow-hidden">
             <div className="lg:col-span-7 relative overflow-hidden h-[400px] md:h-[500px] lg:h-full">
               <img 
                 src={featuredPost.imageUrl || 'https://via.placeholder.com/1200x630/4A5568/FFFFFF?text=Blog+Post'} 
