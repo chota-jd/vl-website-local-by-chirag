@@ -29,8 +29,8 @@ const ProductShowcase: React.FC = () => {
           </p>
         </div>
 
-        {/* 3-product grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        {/* 4-product 2×2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-7xl m-auto">
           {landingProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

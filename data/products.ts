@@ -1,7 +1,7 @@
 import { Product } from '@/types';
 
-/** Product IDs to show on the landing page (order preserved) */
-export const LANDING_PRODUCT_IDS = ['docxpert', 'felloz', 'uncloud'] as const;
+/** Product IDs to show on the landing page (order preserved) — 4 cards in 2×2 grid */
+export const LANDING_PRODUCT_IDS = ['docxpert', 'felloz', 'uncloud', 'clef'] as const;
 
 export const PRODUCTS: Product[] = [
   {
