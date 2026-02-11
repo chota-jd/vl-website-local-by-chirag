@@ -112,6 +112,7 @@ Final Answer Requirements:
 
 - The "body" must be 1200–2200 words, written in markdown, with logical headings that match the required sections.
 - The "tags" array should contain 3–6 plain-language keywords that a policy-maker or executive might search for.
+- All tags must be distinct (no duplicates, treating different capitalization as the same tag), and at least one tag must be uniquely specific to the exact Input Topic of this article, not a generic theme.
 - The "inputTopic" field must follow the exact format described (starting with the words "Input Topic:").
 - The "imageConcept" sentence must be suitable to send directly to an AI image model and must follow all visual rules above.`;
 }
