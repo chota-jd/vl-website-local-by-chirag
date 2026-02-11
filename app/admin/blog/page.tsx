@@ -57,6 +57,7 @@ export default function BlogAdminPage() {
   const [showLoginDialog, setShowLoginDialog] = useState(false)
   const [enteredPassword, setEnteredPassword] = useState('')
   const [loginError, setLoginError] = useState('')
+  const [showHowItWorks, setShowHowItWorks] = useState(false)
 
   // On mount, check blog admin auth status from localStorage
   useEffect(() => {
@@ -337,9 +338,15 @@ export default function BlogAdminPage() {
 
         <div className="mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
           <p className="text-sm text-slate-400 max-w-xl">
-            Generate a new AI-written blog post as a draft and send it to the pending list for review.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+            <Button
+              variant="secondary"
+              onClick={() => setShowHowItWorks(true)}
+              className="w-full sm:w-auto"
+            >
+              How This Works
+            </Button>
             <Button
               variant="secondary"
               onClick={() => window.open('/studio', '_blank')}
@@ -357,6 +364,54 @@ export default function BlogAdminPage() {
             </Button>
           </div>
         </div>
+
+        {/* How it works dialog */}
+        <Dialog open={showHowItWorks} onOpenChange={setShowHowItWorks}>
+          <DialogContent className="max-w-xl">
+            <DialogHeader>
+              <div className="flex items-center justify-between">
+                <DialogTitle>How the Blog Admin works</DialogTitle>
+                <button
+                  type="button"
+                  onClick={() => setShowHowItWorks(false)}
+                  className="ml-4 text-slate-400 hover:text-white text-2xl leading-none px-2"
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
+            </DialogHeader>
+            <div className="space-y-4 text-sm text-slate-300 mt-2">
+              <p>
+                This page lets you generate AI-written deep-dive posts and control exactly what gets published to the public blog.
+              </p>
+              <ol className="list-decimal list-inside space-y-2 text-slate-300">
+                <li>
+                  <span className="font-semibold text-white">Generate New Blog</span> runs the AI prompt, creates a new article,
+                  and saves it in Firebase (collection <span className="font-mono text-white">blogListings</span>) as a
+                  <span className="font-semibold"> pending</span> post with image, tags, and metadata that are then shown in
+                  this admin list.
+                </li>
+                <li>
+                  Each card in the grid shows the generated image, title, excerpt, read time, and tags. Use{' '}
+                  <span className="font-semibold text-white">View Details</span> to read the full content.
+                </li>
+                <li>
+                  Use the action buttons:
+                  <ul className="mt-1 ml-5 list-disc space-y-1">
+                    <li><span className="font-semibold text-white">Draft</span> – save into Sanity as an unpublished draft.</li>
+                    <li><span className="font-semibold text-white">Publish</span> – save into Sanity and make the post live on the blog.</li>
+                    <li><span className="font-semibold text-red-400">Reject</span> – delete the pending post if you do not want to use it.</li>
+                  </ul>
+                </li>
+              </ol>
+              <p className="text-xs text-slate-500">
+                Changes only go live on the public site when you choose{' '}
+                <span className="font-semibold text-emerald-400">Publish</span>.
+              </p>
+            </div>
+          </DialogContent>
+        </Dialog>
 
         {/* Notification Toast */}
         {notification && (
@@ -457,12 +512,19 @@ export default function BlogAdminPage() {
 
                     {/* Buttons in one row */}
                     <div className="flex flex-wrap gap-2 pt-2">
-                      
+                      <Button
+                        variant="secondary"
+                        onClick={() => handleReject(post.id)}
+                        disabled={processing === `${post.id}-reject`}
+                        className="flex-1 min-w-[120px] bg-red-600 hover:bg-red-700 text-white border-red-600"
+                      >
+                        {processing === `${post.id}-reject` ? 'Processing...' : 'Reject'}
+                      </Button>
                       <Button
                         variant="primary"
                         onClick={() => handleApprove(post.id, 'draft')}
                         disabled={processing === `${post.id}-approve-draft`}
-                        className="flex-1 min-w-[150px]"
+                        className="flex-1 min-w-[150px] bg-amber-500 hover:bg-amber-600"
                       >
                         {processing === `${post.id}-approve-draft` ? 'Processing...' : 'Draft'}
                       </Button>
@@ -473,14 +535,6 @@ export default function BlogAdminPage() {
                         className="flex-1 min-w-[170px] bg-green-600 hover:bg-green-700"
                       >
                         {processing === `${post.id}-approve-published` ? 'Processing...' : 'Publish'}
-                      </Button>
-                      <Button
-                        variant="secondary"
-                        onClick={() => handleReject(post.id)}
-                        disabled={processing === `${post.id}-reject`}
-                        className="flex-1 min-w-[120px] bg-red-600 hover:bg-red-700 text-white border-red-600"
-                      >
-                        {processing === `${post.id}-reject` ? 'Processing...' : 'Reject'}
                       </Button>
                       <Button
                         variant="secondary"
@@ -561,9 +615,18 @@ export default function BlogAdminPage() {
 
                 <div className="flex gap-4 pt-4 border-t border-white/10 flex-wrap">
                   <Button
+                    variant="secondary"
+                    onClick={() => handleReject(selectedPost.id)}
+                    disabled={processing === `${selectedPost.id}-reject`}
+                    className="bg-red-600 hover:bg-red-700 text-white border-red-600"
+                  >
+                    {processing === `${selectedPost.id}-reject` ? 'Processing...' : 'Reject'}
+                  </Button>
+                  <Button
                     variant="primary"
                     onClick={() => handleApprove(selectedPost.id, 'draft')}
                     disabled={processing === `${selectedPost.id}-approve-draft`}
+                    className="bg-amber-500 hover:bg-amber-600"
                   >
                     {processing === `${selectedPost.id}-approve-draft` ? 'Processing...' : 'Draft'}
                   </Button>
@@ -577,11 +640,10 @@ export default function BlogAdminPage() {
                   </Button>
                   <Button
                     variant="secondary"
-                    onClick={() => handleReject(selectedPost.id)}
-                    disabled={processing === `${selectedPost.id}-reject`}
-                    className="bg-red-600 hover:bg-red-700 text-white border-red-600"
+                    onClick={() => handleViewDetails(selectedPost)}
+                    disabled={processing?.startsWith(`${selectedPost.id}-`)}
                   >
-                    {processing === `${selectedPost.id}-reject` ? 'Processing...' : 'Reject'}
+                    View Details
                   </Button>
                 </div>
               </div>
