@@ -117,3 +117,4 @@ Final Answer Requirements:
 - The "imageConcept" sentence must be suitable to send directly to an AI image model and must follow all visual rules above.`;
 }
 
+ 
