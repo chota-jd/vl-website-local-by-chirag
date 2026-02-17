@@ -223,8 +223,18 @@ export default function AdminPage() {
     const isClaiming = claimingKey === postKey
     const showClaimError = copyErrorKey === postKey
     return (
-      <Card key={postKey} className="bg-white/5 border-white/10">
-        <CardContent className="p-4">
+      <Card
+        key={postKey}
+        className={`relative overflow-hidden border-white/10 ${
+          isClaimed
+            ? 'bg-slate-900/80 cursor-not-allowed hover:bg-slate-900/80'
+            : 'bg-slate/5 cursor-default hover:bg-slate/5'
+        }`}
+      >
+        {isClaimed && (
+          <div className="pointer-events-none absolute inset-0 bg-red-950/60 backdrop-blur-[1px]"></div>
+        )}
+        <CardContent className="relative p-4">
           {post.hook && (
             <p className="text-slate-200 font-bold text-3xl mb-6">{post.hook}</p>
           )}
