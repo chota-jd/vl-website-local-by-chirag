@@ -119,6 +119,9 @@ export default function AdminPage() {
       })
       const data = await res.json()
       if (res.ok && data.success && Array.isArray(data.posts)) {
+        // Log all generated posts for debugging / review
+        console.log('Generated LinkedIn posts:', data.posts)
+
         const saveRes = await fetch('/api/linkedin/save', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -176,6 +179,12 @@ export default function AdminPage() {
           return
         }
         await navigator.clipboard.writeText(text)
+        console.log('Copied LinkedIn post with claim:', {
+          copiedBy: userName,
+          batchId: options.batchId,
+          postIndex: options.postIndex,
+          content: text,
+        })
         setCopiedKey(key)
         setTimeout(() => setCopiedKey(null), 3000)
         await fetchBatches()
@@ -187,6 +196,10 @@ export default function AdminPage() {
       }
     } else {
       await navigator.clipboard.writeText(text)
+      console.log('Copied LinkedIn post:', {
+        copiedBy: userName || 'unknown',
+        content: text,
+      })
       setCopiedKey(key)
       setTimeout(() => setCopiedKey(null), 3000)
     }
