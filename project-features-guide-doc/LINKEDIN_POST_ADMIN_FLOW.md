@@ -9,7 +9,7 @@
 
 ### Generate & Save Posts
 
-- In `/admin`, click **Generate post** in the LinkedIn card.
+- In `/admin`, click **Generate product post** in the LinkedIn card.
 - Dialog asks for:
   - **Product name**
   - **Product URL**
