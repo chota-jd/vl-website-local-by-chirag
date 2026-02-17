@@ -379,58 +379,108 @@ export default function AdminPage() {
 
           <h2 className="text-xl font-display font-bold mb-4">Saved LinkedIn content</h2>
           {loadingBatches ? (
-            <p className="text-slate-400 text-sm">Loading…</p>
+            <div className="flex items-center justify-center min-h-[160px]">
+              <div className="flex flex-col items-center gap-3 text-center">
+                <Avatar state="thinking" className="w-20 h-20" />
+                <p className="text-xs text-slate-400">Loading saved LinkedIn content…</p>
+              </div>
+            </div>
           ) : batches.length === 0 ? (
-            <p className="text-slate-500 text-sm">No saved content yet. Generate posts above to see them here.</p>
+            <p className="text-slate-500 text-sm">
+              No saved content yet. Generate posts above to see them here.
+            </p>
           ) : (
             <div className="w-full">
-              <div className="flex flex-wrap gap-1 border-b border-white/10 mb-4">
-                {batches.map((batch) => {
-                  const isActive = (activeTabBatchId ?? batches[0]?.id) === batch.id
-                  return (
-                    <button
-                      key={batch.id}
-                      type="button"
-                      onClick={() => setActiveTabBatchId(batch.id)}
-                      className={`px-4 py-3 font-display font-bold text-sm uppercase tracking-ultra transition-colors border-b-2 -mb-px ${
-                        isActive
-                          ? 'text-accent border-accent bg-accent/5'
-                          : 'text-slate-400 border-transparent hover:text-white hover:bg-white/5'
-                      }`}
-                    >
-                      {batch.productName}
-                    </button>
-                  )
-                })}
-              </div>
-              {batches.map((batch) => {
-                const isActive = (activeTabBatchId ?? batches[0]?.id) === batch.id
-                if (!isActive) return null
+              {/*
+                Group batches by product name so that each product
+                shows up as a single tab, even if it has multiple
+                generated batches. Inside each tab we now show posts
+                from **all** batches for that product.
+              */}
+              {(() => {
+                const normalize = (name: string) => name.trim().toLowerCase()
+
+                // Use the most recent batch per product for the tab label and active id,
+                // but keep all batches so we can render every post for that product.
+                const productMap: Record<string, typeof batches[number]> = {}
+                for (const batch of batches) {
+                  const key = normalize(batch.productName)
+                  const existing = productMap[key]
+                  if (
+                    !existing ||
+                    new Date(batch.createdAt).getTime() > new Date(existing.createdAt).getTime()
+                  ) {
+                    productMap[key] = batch
+                  }
+                }
+                const productTabs = Object.values(productMap)
+                const activeBatch =
+                  (activeTabBatchId && productTabs.find((b) => b.id === activeTabBatchId)) ||
+                  productTabs[0]
+                if (!activeBatch) return null
+
+                const activeKey = normalize(activeBatch.productName)
+
                 return (
-                  <Card key={batch.id} className="bg-white/5 border-white/10">
-                    <CardContent className="p-6">
-                      <a
-                        href={batch.productUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent text-sm hover:underline flex items-center gap-1 mb-2"
-                      >
-                        {batch.productUrl}
-                        <ExternalLink size={14} />
-                      </a>
-                      <p className="text-slate-500 text-xs mb-6">{formatDate(batch.createdAt)}</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {batch.posts.map((post, i) =>
-                          renderPostCard(post, `${batch.id}-${i}`, {
-                            batchId: batch.id,
-                            postIndex: i,
-                          })
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <>
+                    <div className="flex flex-wrap gap-1 border-b border-white/10 mb-4">
+                      {productTabs.map((batch) => {
+                        const isActive = normalize(batch.productName) === activeKey
+                        return (
+                          <button
+                            key={batch.id}
+                            type="button"
+                            onClick={() => setActiveTabBatchId(batch.id)}
+                            className={`px-4 py-3 font-display font-bold text-sm uppercase tracking-ultra transition-colors border-b-2 -mb-px ${
+                              isActive
+                                ? 'text-accent border-accent bg-accent/5'
+                                : 'text-slate-400 border-transparent hover:text-white hover:bg-white/5'
+                            }`}
+                          >
+                            {batch.productName}
+                          </button>
+                        )
+                      })}
+                    </div>
+                    {/*
+                      Show posts from all batches that share the active
+                      product name, newest batches first.
+                    */}
+                    {batches
+                      .filter((batch) => normalize(batch.productName) === activeKey)
+                      .sort(
+                        (a, b) =>
+                          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                      )
+                      .map((batch) => (
+                        <Card key={batch.id} className="bg-white/5 border-white/10 mb-4 last:mb-0">
+                          <CardContent className="p-6">
+                            <a
+                              href={batch.productUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent text-sm hover:underline flex items-center gap-1 mb-2"
+                            >
+                              {batch.productUrl}
+                              <ExternalLink size={14} />
+                            </a>
+                            <p className="text-slate-500 text-xs mb-6">
+                              {formatDate(batch.createdAt)}
+                            </p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              {batch.posts.map((post, i) =>
+                                renderPostCard(post, `${batch.id}-${i}`, {
+                                  batchId: batch.id,
+                                  postIndex: i,
+                                })
+                              )}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                  </>
                 )
-              })}
+              })()}
             </div>
           )}
         </div>
@@ -470,6 +520,17 @@ export default function AdminPage() {
               {generating ? 'Analyzing URL & generating content…' : 'Generate 3–4 posts'}
             </Button>
           </form>
+
+          {generating && (
+            <div className="mt-6 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-3 text-center">
+                <Avatar state="thinking" className="w-20 h-20" />
+                <p className="text-xs text-slate-400">
+                  We’re analyzing the page and drafting your LinkedIn posts…
+                </p>
+              </div>
+            </div>
+          )}
 
           {linkedInPosts.length > 0 && (
             <div className="mt-8 pt-6 border-t border-white/10">
