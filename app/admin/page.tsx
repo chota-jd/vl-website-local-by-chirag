@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Lock, FileText, Copy, Check, ExternalLink } from 'lucide-react'
+import { Lock, FileText, Copy, Check, ExternalLink, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import { Avatar } from './blog/Avatar'
 import type { LinkedInPostBatch, LinkedInPostItem } from '@/lib/linkedinPosts'
@@ -36,6 +36,7 @@ export default function AdminPage() {
   const [copyErrorKey, setCopyErrorKey] = useState<string | null>(null)
   const [claimingKey, setClaimingKey] = useState<string | null>(null)
   const [activeTabBatchId, setActiveTabBatchId] = useState<string | null>(null)
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false)
 
   useEffect(() => {
     try {
@@ -451,24 +452,84 @@ export default function AdminPage() {
 
                 return (
                   <>
-                    <div className="flex flex-wrap gap-1 border-b border-white/10 mb-4">
-                      {productTabs.map((batch) => {
-                        const isActive = normalize(batch.productName) === activeKey
-                        return (
-                          <button
-                            key={batch.id}
-                            type="button"
-                            onClick={() => setActiveTabBatchId(batch.id)}
-                            className={`px-4 py-3 font-display font-bold text-sm uppercase tracking-ultra transition-colors border-b-2 -mb-px ${
-                              isActive
-                                ? 'text-accent border-accent bg-accent/5'
-                                : 'text-slate-400 border-transparent hover:text-white hover:bg-white/5'
+                    <div className="mb-6 flex flex-col gap-3">
+                      {/* Mobile: custom dropdown selector */}
+                      <div className="relative md:hidden">
+                        <div className="mb-1 flex items-center justify-between gap-2">
+                          <label className="block text-xs font-medium text-slate-400">
+                            Select product
+                          </label>
+                          <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-medium text-accent">
+                            {productTabs.length} live products
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setIsProductDropdownOpen((open) => !open)}
+                          className="flex w-full items-center justify-between rounded-lg border border-sky-500/40 bg-gradient-to-r from-slate-950/90 via-slate-900/90 to-slate-950/90 px-4 py-2.5 text-left text-[13px] text-slate-50 shadow-[0_0_0_1px_rgba(15,23,42,0.9),0_18px_45px_rgba(15,23,42,0.9)] transition hover:border-accent hover:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-accent/80"
+                        >
+                          <div className="flex min-w-0 items-center gap-2">
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/15 text-[11px] font-semibold text-accent/90 uppercase tracking-wide">
+                              {activeBatch.productName.charAt(0)}
+                            </span>
+                            <span className="truncate font-medium">{activeBatch.productName}</span>
+                          </div>
+                          <ChevronDown
+                            size={16}
+                            className={`ml-2 transition-transform ${
+                              isProductDropdownOpen ? 'rotate-180' : 'rotate-0'
                             }`}
-                          >
-                            {batch.productName}
-                          </button>
-                        )
-                      })}
+                          />
+                        </button>
+                        {isProductDropdownOpen && (
+                          <div className="absolute z-20 mt-2 max-h-64 w-full overflow-y-auto rounded-lg border border-sky-500/30 bg-gradient-to-b from-slate-950/95 via-slate-950/98 to-slate-900/98 backdrop-blur-md shadow-[0_22px_55px_rgba(15,23,42,0.95)]">
+                            {productTabs.map((batch) => {
+                              const isActive = normalize(batch.productName) === activeKey
+                              return (
+                                <button
+                                  key={batch.id}
+                                  type="button"
+                                  onClick={() => {
+                                    setActiveTabBatchId(batch.id)
+                                    setIsProductDropdownOpen(false)
+                                  }}
+                                  className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-[13px] transition ${
+                                    isActive
+                                      ? 'bg-accent/15 text-accent'
+                                      : 'text-slate-100 hover:bg-white/5'
+                                  }`}
+                                >
+                                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-800/80 text-[11px] font-semibold uppercase text-slate-200">
+                                    {batch.productName.charAt(0)}
+                                  </span>
+                                  <span className="truncate">{batch.productName}</span>
+                                </button>
+                              )
+                            })}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Desktop / tablet: horizontal tabs */}
+                      <div className="hidden md:flex flex-wrap gap-1 border-b border-white/10">
+                        {productTabs.map((batch) => {
+                          const isActive = normalize(batch.productName) === activeKey
+                          return (
+                            <button
+                              key={batch.id}
+                              type="button"
+                              onClick={() => setActiveTabBatchId(batch.id)}
+                              className={`px-4 py-3 font-display font-bold text-sm uppercase tracking-ultra transition-colors border-b-2 -mb-px ${
+                                isActive
+                                  ? 'text-accent border-accent bg-accent/5'
+                                  : 'text-slate-400 border-transparent hover:text-white hover:bg-white/5'
+                              }`}
+                            >
+                              {batch.productName}
+                            </button>
+                          )
+                        })}
+                      </div>
                     </div>
                     {/*
                       Show posts from all batches that share the active
