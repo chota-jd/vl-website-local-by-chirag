@@ -330,7 +330,7 @@ export default function AdminPage() {
                 type="text"
                 value={enteredName}
                 onChange={(e) => setEnteredName(e.target.value)}
-                placeholder="Your name (e.g. Chirag, Badal)"
+                placeholder="Your name with surname"
                 autoComplete="name"
               />
             </div>
