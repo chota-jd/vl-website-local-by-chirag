@@ -319,10 +319,10 @@ export default function ProductPostPage() {
               .filter((b) => normalize(b.productName) === activeKey)
               .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
 
-            return (
+                return (
               <div className="w-full">
                 <div className="mb-6 flex flex-col gap-3">
-                  <div className="relative md:hidden">
+                  <div className={`relative md:hidden ${isProductDropdownOpen ? 'z-[100]' : ''}`}>
                     <label className="block text-xs font-medium text-slate-400 mb-1">Select product</label>
                     <button
                       type="button"
@@ -338,7 +338,7 @@ export default function ProductPostPage() {
                       <ChevronDown size={16} className={`ml-2 ${isProductDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {isProductDropdownOpen && (
-                      <div className="absolute z-20 mt-2 max-h-64 w-full overflow-y-auto rounded-lg border border-sky-500/30 bg-slate-950/98 shadow-xl">
+                      <div className="absolute z-[100] mt-2 max-h-64 w-full overflow-y-auto rounded-lg border border-sky-500/30 bg-slate-950 shadow-2xl">
                         {productTabs.map((batch) => (
                           <button
                             key={batch.id}
