@@ -66,6 +66,16 @@ const LINKS = [
     borderHover: 'hover:border-orange-500/40',
   },
   {
+    href: 'https://carousel.versionlabs.co/',
+    label: 'Carousel by Version Labs',
+    description: 'Carousel builder. Use password "content2026" when prompted.',
+    icon: ExternalLink,
+    external: true,
+    accent: 'from-cyan-500/20 to-sky-500/10',
+    iconBg: 'bg-gradient-to-br from-cyan-500/20 to-sky-500/10 text-cyan-400',
+    borderHover: 'hover:border-cyan-500/40',
+  },
+  {
     href: '/studio',
     label: 'Open Sanity Studio',
     description: 'Edit content in Sanity CMS.',
