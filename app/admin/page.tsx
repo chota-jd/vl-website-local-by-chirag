@@ -68,7 +68,7 @@ const LINKS = [
   {
     href: 'https://carousel.versionlabs.co/',
     label: 'Carousel by Version Labs',
-    description: 'Carousel builder. Use password "content2026" when prompted.',
+    description: 'Carousel builder. Use password "content2026"',
     icon: ExternalLink,
     external: true,
     accent: 'from-cyan-500/20 to-sky-500/10',
