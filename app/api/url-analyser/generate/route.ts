@@ -109,7 +109,7 @@ Respond with ONLY a JSON object in this exact format:
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => ({}))
-    const url = typeof body.url === 'string' ? body.url.trim() : ''
+    const url = typeof body.url === 'string' ? body.url.trim() : '' 
 
     if (!url) {
       return NextResponse.json({ error: 'URL is required.' }, { status: 400 })
