@@ -97,9 +97,9 @@ export default function UrlAnalyserPage() {
         </Link>
 
         {/* Page header */}
-        <h1 className="text-3xl md:text-4xl font-display font-black mb-2">URL Analyser</h1>
+        <h1 className="text-3xl md:text-4xl font-display font-black mb-2">Blog URL Analyser</h1>
         <p className="text-slate-400 mb-8">
-          Paste any URL — blog, article, or product page. We read the full content and generate a LinkedIn post.
+          Paste any blog URL. We read the full content and generate a LinkedIn post with the link included so you can direct readers to the source.
         </p>
 
         {/* Hero card */}
@@ -108,14 +108,14 @@ export default function UrlAnalyserPage() {
           <CardContent className="relative p-6 md:p-7 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-2">
-                Turn any URL into a LinkedIn post
+                Turn any blog URL into a LinkedIn post
               </h2>
               <p className="text-slate-300 text-sm md:text-[13px] mb-3 max-w-2xl">
-                Paste a blog, article, news story, or product page. We fetch and read the full content, then write a short, sharp LinkedIn post ready to publish.
+                Paste a blog URL. We fetch and read the full content, then write a short, sharp LinkedIn post with the link included so readers can click through to the source.
               </p>
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-slate-400">
-                <span>✓ Reads full article content</span>
-                <span>✓ Short LinkedIn format</span>
+                <span>✓ Reads full blog content</span>
+                <span>✓ Includes blog link for direct traffic</span>
                 <span>✓ One-click copy</span>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function UrlAnalyserPage() {
             <form onSubmit={handleAnalyse} className="space-y-4">
               <div>
                 <Label htmlFor="urlInput" className="text-sm text-slate-300 mb-2 block">
-                  Article / Blog / Product URL
+                  Blog URL
                 </Label>
                 <div className="flex gap-3">
                   <div className="relative flex-1">
@@ -155,7 +155,7 @@ export default function UrlAnalyserPage() {
                   </Button>
                 </div>
                 <p className="mt-2 text-xs text-slate-500">
-                  Works with blogs, news articles, Medium, product pages, and more.
+                  Works with blog posts from any site (e.g. myfelloz.com, savememry.com).
                 </p>
               </div>
 

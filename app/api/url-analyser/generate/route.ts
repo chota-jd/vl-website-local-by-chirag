@@ -77,23 +77,24 @@ function extractFullContent(html: string): string {
 }
 
 function buildUrlAnalyserPrompt(url: string, content: string): string {
-  return `You are a LinkedIn content writer. Read the content below and write a short, sharp LinkedIn post in a natural human voice.
+  return `You are a LinkedIn content writer. Read the blog content below and write a short, sharp LinkedIn post in a natural human voice.
 
-URL: ${url}
+BLOG URL: ${url}
 
 EXTRACTED CONTENT:
 ${content}
 
 ---
 
-TASK: Write ONE concise LinkedIn post based on the full content above. Follow these rules exactly:
+TASK: Write ONE concise LinkedIn post based on the full blog content above. Follow these rules exactly:
 
 - 3 to 4 short paragraphs, each 1–2 sentences max
 - No bullet points, no numbered lists, no em dashes
 - No headers or bold text
 - End with one short question or a single call-to-action sentence
+- IMPORTANT: Include the full blog URL (${url}) in the post so readers can click through to the source. Place it naturally at the end, e.g. "Read the full article: [URL]" or "Full post: [URL]" before the hashtags
 - Add 3–5 relevant hashtags on the last line
-- Total length: 60–100 words only
+- Total length: 80–120 words (to accommodate the link)
 - Tone: direct, professional, conversational — like a real person sharing an insight
 
 The first sentence is the hook — make it a bold, standalone statement that makes people stop scrolling.
@@ -101,7 +102,7 @@ The first sentence is the hook — make it a bold, standalone statement that mak
 Respond with ONLY a JSON object in this exact format:
 {
   "hook": "The opening sentence only",
-  "content": "The full post text (hook + body + question/CTA + hashtags)",
+  "content": "The full post text (hook + body + question/CTA + blog URL link + hashtags)",
   "summary": "One sentence describing what the source content is about"
 }`
 }
